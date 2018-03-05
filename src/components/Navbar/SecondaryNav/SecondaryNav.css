@@ -7,7 +7,7 @@
     padding: 15px 20px;
     align-items: center;
     color: var(--second-font-color);
-    box-shadow: 1px 1px 2px #d3d3d3;
+    box-shadow: 1px 3px 5px #d3d3d3;
 }
 
 .secondary-nav_initial-search {

@@ -1,0 +1,17 @@
+.container-comp {
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 8px #d3d3d3;
+}
+
+.container-comp h1 {
+    margin-bottom: 10px;
+    text-align: left;
+    font-size: 40px;
+}
+
+.tags-container {
+    margin-top: 10px;
+}

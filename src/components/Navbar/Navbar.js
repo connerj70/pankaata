@@ -37,7 +37,7 @@ class Navbar extends Component {
                                     fontWeight: "100"
                                 }}
                             >
-                                <i className="fas fa-times" />
+                                x
                             </div>
                         ) : (
                             <div>MENU &#9660;</div>

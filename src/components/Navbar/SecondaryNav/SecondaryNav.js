@@ -23,16 +23,14 @@ class SecondaryNav extends Component {
                 {this.state.search ? (
                     <div className="secondary-nav_search-open-div">
                         <div>
-                            <i className="fas fa-search" />
+                            {/* <i className="fas fa-search" /> */}
                             <input
                                 autoFocus="autoFocus"
                                 className="secondary-nav-input"
                                 type="text"
                             />
                         </div>
-                        <span onClick={() => this.handleSearchOpen()}>
-                            <i className="fas fa-times" />
-                        </span>
+                        <span onClick={() => this.handleSearchOpen()}>x</span>
                     </div>
                 ) : (
                     <div className="secondary-nav_initial-search">
