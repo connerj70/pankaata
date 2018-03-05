@@ -2,12 +2,46 @@ require("dotenv").config();
 const express = require("express"),
     axios = require("axios"),
     cors = require("cors"),
-    massive = require("massive");
+    massive = require("massive"),
+    session = require("express-session"),
+    bodyParser = require("body-parser");
 
 const app = express();
+app.use(bodyParser.json());
+massive(process.env.CONNECTION_STRING).then(db => {
+    app.set("db", db);
+    console.log("massive connected");
+});
 
-massive(process.env.CONNECTION_STRING).then(db => app.set("db", db));
+app.use(
+    session({
+        secret: process.env.SECRET,
+        resave: false,
+        saveUninitialized: false
+    })
+);
 
+//ADMIN ENDPOINTS
+app.post("/api/admin", function(req, res) {
+    const db = req.app.get("db");
+    db
+        .check_admin([req.body.username, req.body.password])
+        .then(resp => {
+            console.log(resp);
+            if (resp.length !== 0) {
+                req.session.user = { username: resp[0].username };
+                console.log(req.session);
+                res.status(200).send(resp);
+            } else {
+                res.status(401).send(resp);
+            }
+        })
+        .catch(err => {
+            res.status(500).send(err);
+        });
+});
+
+//POST ENDPOINTS
 app.get("/api/posts", function(req, res) {
     const db = req.app.get("db");
     const offset = req.query.offset;

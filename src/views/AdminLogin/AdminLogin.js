@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./AdminLogin.css";
+import axios from "axios";
 
 class AdminLogin extends Component {
     constructor(props) {
@@ -13,6 +14,17 @@ class AdminLogin extends Component {
         this.setState({
             [name]: value
         });
+    }
+
+    handleLoginClick() {
+        axios
+            .post("/api/admin", {
+                username: this.state.username,
+                password: this.state.password
+            })
+            .then(resp => {
+                console.log("RESP", resp);
+            });
     }
 
     render() {
@@ -32,7 +44,9 @@ class AdminLogin extends Component {
                         type="password"
                         placeholder="password"
                     />
-                    <button>Login</button>
+                    <button onClick={() => this.handleLoginClick()}>
+                        Login
+                    </button>
                 </div>
             </div>
         );
