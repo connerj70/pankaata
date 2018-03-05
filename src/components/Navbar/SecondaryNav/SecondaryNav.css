@@ -40,3 +40,11 @@
     z-index: 2;
     margin-left: 5px;
 }
+
+.secondary-nav_hide {
+    display: none;
+}
+
+.fa-search {
+    display: inline-block;
+}

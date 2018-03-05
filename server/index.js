@@ -1,16 +1,24 @@
+require("dotenv").config();
 const express = require("express"),
     axios = require("axios"),
-    cors = require("cors");
+    cors = require("cors"),
+    massive = require("massive");
 
 const app = express();
 
+massive(process.env.CONNECTION_STRING).then(db => app.set("db", db));
+
 app.get("/api/posts", function(req, res) {
-    axios
-        .get(
-            "https://publish.twitter.com/oembed?url=https%3A%2F%2Ftwitter.com%2FInterior%2Fstatus%2F507185938620219395"
-        )
+    const db = req.app.get("db");
+    const offset = req.query.offset;
+    console.log(offset);
+    db
+        .get_posts([offset])
         .then(resp => {
-            res.send(resp.data.html);
+            res.status(200).send(resp);
+        })
+        .catch(err => {
+            console.log(err);
         });
 });
 

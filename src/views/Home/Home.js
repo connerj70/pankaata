@@ -11,45 +11,58 @@ class Home extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            post: ""
+            posts: [],
+            offset: 0
         };
     }
     componentDidMount() {
-        axios.get("/api/posts").then(resp => {
-            this.setState({ post: resp.data });
+        axios.get("/api/posts?offset=" + this.state.offset).then(resp => {
+            console.log(resp);
+            this.setState({ posts: resp.data }, () =>
+                console.log(this.state.posts)
+            );
         });
     }
     render() {
+        var postsToRender = this.state.posts.map((value, i) => {
+            if (value.type === "twitter") {
+                return (
+                    <Container key={i} title={value.title} tags={value.tags}>
+                        <div className="media-wrapper">
+                            <TwitterTweetEmbed tweetId={value.url} />
+                        </div>
+                    </Container>
+                );
+            } else if (value.type === "instagram") {
+                return (
+                    <Container title={value.title} tags={value.tags}>
+                        <div className="media-wrapper">
+                            <InstagramEmbed
+                                url={value.url}
+                                hideCaption={false}
+                                containerTagName="div"
+                            />
+                        </div>
+                    </Container>
+                );
+            } else if (value.type === "youtube") {
+                return (
+                    <Container title={value.title} tags={value.tags}>
+                        <div className="media-wrapper">
+                            <YouTube videoId={value.url} />
+                        </div>
+                    </Container>
+                );
+            }
+        });
+
         return (
             <div>
                 <Navbar />
                 <div
                     style={{ display: "flex", flexWrap: "wrap", width: "100%" }}
                 >
-                    <Container title="Title" tags="TAGS">
-                        <div className="media-wrapper">
-                            <TwitterTweetEmbed tweetId="970495554127126528" />
-                        </div>
-                    </Container>
-                    <Container title="Title" tags="TAGS">
-                        <div className="media-wrapper">
-                            <TwitterTweetEmbed tweetId="970480811492433920" />
-                        </div>
-                    </Container>
-                    <Container title="Title" tags="TAGS">
-                        <div className="media-wrapper">
-                            <InstagramEmbed
-                                url="https://www.instagram.com/p/BUsxGKGgADh/?taken-by=jharris1829"
-                                hideCaption={false}
-                                containerTagName="div"
-                            />
-                        </div>
-                    </Container>
-                    <Container title="Title" tags="TAGS">
-                        <div className="media-wrapper">
-                            <YouTube videoId="2g811Eo7K8U" />
-                        </div>
-                    </Container>
+                    {postsToRender}
                 </div>
             </div>
         );
