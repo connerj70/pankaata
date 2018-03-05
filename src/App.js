@@ -5,6 +5,7 @@ import "./App.css";
 
 //COMPONENTS
 import Home from "./views/Home/Home";
+import AdminLogin from "./views/AdminLogin/AdminLogin";
 
 class App extends Component {
     render() {
@@ -12,6 +13,7 @@ class App extends Component {
             <div className="App">
                 <Switch>
                     <Route exact path="/" component={Home} />
+                    <Route path="/admin" component={AdminLogin} />
                 </Switch>
             </div>
         );
