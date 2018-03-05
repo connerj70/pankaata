@@ -19,6 +19,7 @@
 .menu-drop {
     color: var(--second-font-color);
     font-size: 15px;
+    min-width: 50px;
 }
 
 .navbar_mobile-dropdown {
@@ -40,4 +41,5 @@
     border-top: 1px solid var(--secondary-highlights);
     color: var(--second-font-color);
     text-align: left;
+    z-index: 10;
 }

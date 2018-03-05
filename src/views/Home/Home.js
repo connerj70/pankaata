@@ -12,10 +12,15 @@ class Home extends Component {
         super(props);
         this.state = {
             posts: [],
-            offset: 0
+            offset: 0,
+            loggedIn: false
         };
     }
     componentDidMount() {
+        axios.get("/api/admin").then(resp => {
+            console.log(resp);
+        });
+
         axios.get("/api/posts?offset=" + this.state.offset).then(resp => {
             console.log(resp);
             this.setState({ posts: resp.data }, () =>
@@ -35,7 +40,7 @@ class Home extends Component {
                 );
             } else if (value.type === "instagram") {
                 return (
-                    <Container title={value.title} tags={value.tags}>
+                    <Container key={i} title={value.title} tags={value.tags}>
                         <div className="media-wrapper">
                             <InstagramEmbed
                                 url={value.url}
@@ -47,7 +52,7 @@ class Home extends Component {
                 );
             } else if (value.type === "youtube") {
                 return (
-                    <Container title={value.title} tags={value.tags}>
+                    <Container key={i} title={value.title} tags={value.tags}>
                         <div className="media-wrapper">
                             <YouTube videoId={value.url} />
                         </div>

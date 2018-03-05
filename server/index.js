@@ -41,6 +41,14 @@ app.post("/api/admin", function(req, res) {
         });
 });
 
+app.get("/api/admin", function(req, res) {
+    if (req.user.username) {
+        res.status(200).send(true);
+    } else {
+        res.send(false);
+    }
+});
+
 //POST ENDPOINTS
 app.get("/api/posts", function(req, res) {
     const db = req.app.get("db");

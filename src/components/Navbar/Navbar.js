@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./Navbar.css";
 import logo from "../../assets/pankaata-final.svg";
 import SecondaryNav from "./SecondaryNav/SecondaryNav.js";
+import { Link } from "react-router-dom";
 
 class Navbar extends Component {
     constructor(props) {
@@ -24,7 +25,9 @@ class Navbar extends Component {
             <div className="navbar_wrapper">
                 <div className="navbar">
                     <div className="navbar_logo">
-                        <img alt="logo" src={logo} />
+                        <Link to="/">
+                            <img alt="logo" src={logo} />
+                        </Link>
                     </div>
                     <div
                         className="menu-drop"
@@ -52,8 +55,14 @@ class Navbar extends Component {
                     }
                 >
                     <ul>
-                        <li className="navbar_dropdown">Worthy News</li>
-                        <li className="navbar_dropdown">Motivational Monday</li>
+                        <Link to="/worthynews">
+                            <li className="navbar_dropdown">Worthy News</li>
+                        </Link>
+                        <Link to="/motivational">
+                            <li className="navbar_dropdown">
+                                Motivational Monday
+                            </li>
+                        </Link>
                         <li className="navbar_dropdown">Food</li>
                         <li className="navbar_dropdown">Relationship</li>
                         <li className="navbar_dropdown">Animal World</li>

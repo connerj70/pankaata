@@ -30,3 +30,9 @@ button:focus {
 .fas:hover {
     cursor: pointer;
 }
+
+a {
+    cursor: pointer;
+    text-decoration: none;
+    color: #fff;
+}

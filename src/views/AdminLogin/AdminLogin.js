@@ -24,6 +24,9 @@ class AdminLogin extends Component {
             })
             .then(resp => {
                 console.log("RESP", resp);
+                if (resp.data.length) {
+                    this.props.history.push("/");
+                }
             });
     }
 
