@@ -8,9 +8,18 @@ class Container extends Component {
     }
 
     render() {
+        console.log(this.props.admin);
         return (
             <div className="container-comp">
-                <h1>{this.props.title}</h1>
+                <div className="container-comp_header">
+                    <h1>{this.props.title}</h1>
+                    {this.props.admin ? (
+                        <div className="admin-controls-container">
+                            <i class="far fa-edit" />
+                            <i class="far fa-trash-alt" />
+                        </div>
+                    ) : null}
+                </div>
                 <div>{this.props.children}</div>
                 <div className="tags-container">{this.props.tags}</div>
             </div>

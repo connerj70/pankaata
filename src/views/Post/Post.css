@@ -1,0 +1,13 @@
+.post_inner-container {
+    padding: 20px;
+}
+
+.post_inner-container h1 {
+    margin-right: 10px;
+    margin-bottom: 30px;
+    font-size: 20px;
+}
+
+.post_inner-container label {
+    margin-right: 10px;
+}

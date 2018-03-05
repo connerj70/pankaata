@@ -26,7 +26,11 @@ class Navbar extends Component {
                 <div className="navbar">
                     <div className="navbar_logo">
                         <Link to="/">
-                            <img alt="logo" src={logo} />
+                            <img
+                                className="pankaata-logo"
+                                alt="logo"
+                                src={logo}
+                            />
                         </Link>
                     </div>
                     <div
@@ -63,9 +67,17 @@ class Navbar extends Component {
                                 Motivational Monday
                             </li>
                         </Link>
-                        <li className="navbar_dropdown">Food</li>
-                        <li className="navbar_dropdown">Relationship</li>
-                        <li className="navbar_dropdown">Animal World</li>
+                        <Link to="/food">
+                            <li className="navbar_dropdown">Food</li>
+                        </Link>
+
+                        <Link to="/relationships">
+                            <li className="navbar_dropdown">Relationship</li>
+                        </Link>
+
+                        <Link to="/animal">
+                            <li className="navbar_dropdown">Animal World</li>
+                        </Link>
                     </ul>
                 </div>
                 <div className="navbar_secondary-nav-container">

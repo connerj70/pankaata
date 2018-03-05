@@ -3,6 +3,23 @@
     margin: 0 auto;
 }
 
+.new-post-button-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.new-post-button-container button {
+    margin: 0 auto;
+    background-color: var(--secondary-highlights);
+    color: #fff;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 5px;
+}
+
 .media-wrapper iframe {
     width: 330px;
 }

@@ -5,12 +5,28 @@
     border-radius: 5px;
     box-shadow: 2px 2px 8px #d3d3d3;
     overflow: auto;
+    width: 100%;
+}
+
+.container-comp_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
 }
 
 .container-comp h1 {
     margin-bottom: 10px;
     text-align: left;
     font-size: 40px;
+}
+
+.admin-controls-container i {
+    margin-right: 10px;
+}
+
+.admin-controls-container .fa-trash-alt {
+    color: red;
 }
 
 .tags-container {

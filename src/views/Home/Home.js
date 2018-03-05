@@ -6,6 +6,7 @@ import InstagramEmbed from "react-instagram-embed";
 import YouTube from "react-youtube";
 import "./Home.css";
 import Container from "../../components/Container/Container";
+import { Link } from "react-router-dom";
 
 class Home extends Component {
     constructor(props) {
@@ -19,20 +20,29 @@ class Home extends Component {
     componentDidMount() {
         axios.get("/api/admin").then(resp => {
             console.log(resp);
+            this.setState({
+                loggedIn: resp.data
+            });
         });
-
-        axios.get("/api/posts?offset=" + this.state.offset).then(resp => {
-            console.log(resp);
-            this.setState({ posts: resp.data }, () =>
-                console.log(this.state.posts)
-            );
-        });
+        if (!this.state.posts.length) {
+            axios.get("/api/posts?offset=" + this.state.offset).then(resp => {
+                console.log(resp);
+                this.setState({ posts: resp.data }, () =>
+                    console.log(this.state.posts)
+                );
+            });
+        }
     }
     render() {
         var postsToRender = this.state.posts.map((value, i) => {
             if (value.type === "twitter") {
                 return (
-                    <Container key={i} title={value.title} tags={value.tags}>
+                    <Container
+                        admin={this.state.loggedIn}
+                        key={i}
+                        title={value.title}
+                        tags={value.tags}
+                    >
                         <div className="media-wrapper">
                             <TwitterTweetEmbed tweetId={value.url} />
                         </div>
@@ -40,7 +50,12 @@ class Home extends Component {
                 );
             } else if (value.type === "instagram") {
                 return (
-                    <Container key={i} title={value.title} tags={value.tags}>
+                    <Container
+                        admin={this.state.loggedIn}
+                        key={i}
+                        title={value.title}
+                        tags={value.tags}
+                    >
                         <div className="media-wrapper">
                             <InstagramEmbed
                                 url={value.url}
@@ -52,7 +67,12 @@ class Home extends Component {
                 );
             } else if (value.type === "youtube") {
                 return (
-                    <Container key={i} title={value.title} tags={value.tags}>
+                    <Container
+                        admin={this.state.loggedIn}
+                        key={i}
+                        title={value.title}
+                        tags={value.tags}
+                    >
                         <div className="media-wrapper">
                             <YouTube videoId={value.url} />
                         </div>
@@ -67,6 +87,13 @@ class Home extends Component {
                 <div
                     style={{ display: "flex", flexWrap: "wrap", width: "100%" }}
                 >
+                    {this.state.loggedIn ? (
+                        <div className="new-post-button-container">
+                            <Link to="/post">
+                                <button>Create New Post +</button>
+                            </Link>
+                        </div>
+                    ) : null}
                     {postsToRender}
                 </div>
             </div>

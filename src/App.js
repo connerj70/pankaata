@@ -8,6 +8,10 @@ import Home from "./views/Home/Home";
 import AdminLogin from "./views/AdminLogin/AdminLogin";
 import WorthyNews from "./views/WorthyNews/WorthyNews";
 import Motivational from "./views/Motivational/Motivational";
+import Food from "./views/Food/Food";
+import Animal from "./views/Animal/Animal";
+import Relationships from "./views/Relationships/Relationships";
+import Post from "./views/Post/Post";
 
 class App extends Component {
     render() {
@@ -18,6 +22,10 @@ class App extends Component {
                     <Route path="/admin" component={AdminLogin} />
                     <Route path="/worthynews" component={WorthyNews} />
                     <Route path="/motivational" component={Motivational} />
+                    <Route path="/food" component={Food} />
+                    <Route path="/animal" component={Animal} />
+                    <Route path="/relationships" component={Relationships} />
+                    <Route path="/post" component={Post} />
                 </Switch>
             </div>
         );

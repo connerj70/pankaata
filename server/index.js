@@ -42,7 +42,8 @@ app.post("/api/admin", function(req, res) {
 });
 
 app.get("/api/admin", function(req, res) {
-    if (req.user.username) {
+    console.log(req.session.user);
+    if (req.session.user) {
         res.status(200).send(true);
     } else {
         res.send(false);
