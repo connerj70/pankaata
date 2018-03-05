@@ -1,0 +1,43 @@
+.navbar_wrapper {
+}
+
+.navbar {
+    background-color: var(--navbar-background);
+    height: 74px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    align-items: center;
+}
+
+.navbar_logo {
+    width: 350px;
+    margin-left: -110px;
+}
+
+.menu-drop {
+    color: var(--second-font-color);
+    font-size: 15px;
+}
+
+.navbar_mobile-dropdown {
+    transition: all 0.3s;
+    height: 235px;
+    opacity: 1;
+}
+
+.navbar_hide {
+    height: 0px;
+    opacity: 0;
+    overflow-y: hidden;
+    transition: all 0.3s;
+}
+
+.navbar_dropdown {
+    background-color: var(--navbar-background);
+    padding: 15px 20px;
+    border-top: 1px solid var(--secondary-highlights);
+    color: var(--second-font-color);
+    text-align: left;
+}
