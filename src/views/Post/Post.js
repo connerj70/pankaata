@@ -32,10 +32,19 @@ class Post extends Component {
     handleClick(e) {
         e.preventDefault();
         console.log("clicked");
-        var { title, type, url } = this.state;
-        axios.post("/api/posts", { title, type, url }).then(resp => {
-            console.log(resp);
-        });
+        if (!this.state.title) {
+            alert("Please input a title");
+        } else if (!this.state.type) {
+            alert("Please input a type");
+        } else if (!this.state.url) {
+            alert("Please input a url");
+        } else {
+            var { title, type, url } = this.state;
+            axios.post("/api/posts", { title, type, url }).then(resp => {
+                console.log(resp);
+                this.props.history.push("/");
+            });
+        }
     }
 
     render() {
@@ -59,7 +68,7 @@ class Post extends Component {
                                 name="type"
                                 onChange={e => this.handleChange(e)}
                             >
-                                <option value="">Select An Option</option>
+                                <option value={null}>Select An Option</option>
                                 <option value="twitter">Twitter</option>
                                 <option value="instagram">Instagram</option>
                                 <option value="youtube">Youtube</option>

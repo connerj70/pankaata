@@ -1,0 +1,1 @@
+select * from posts where title like '%' || $1 || '%'

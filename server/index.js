@@ -54,15 +54,21 @@ app.get("/api/admin", function(req, res) {
 app.get("/api/posts", function(req, res) {
     const db = req.app.get("db");
     const offset = req.query.offset;
-    console.log(offset);
-    db
-        .get_posts([offset])
-        .then(resp => {
+    if (req.query.q) {
+        db.search_posts([req.query.q]).then(resp => {
             res.status(200).send(resp);
-        })
-        .catch(err => {
-            console.log(err);
         });
+    } else {
+        console.log(offset);
+        db
+            .get_posts([offset])
+            .then(resp => {
+                res.status(200).send(resp);
+            })
+            .catch(err => {
+                console.log(err);
+            });
+    }
 });
 
 app.post("/api/posts", function(req, res) {

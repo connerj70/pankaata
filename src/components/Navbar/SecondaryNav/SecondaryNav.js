@@ -17,7 +17,14 @@ class SecondaryNav extends Component {
         });
     }
 
+    handleKeyPress(e) {
+        if (e.key === "Enter") {
+            this.props.handleSearchEnter();
+        }
+    }
+
     render() {
+        console.log(this.props);
         return (
             <div className="secondary-nav">
                 {this.state.search ? (
@@ -25,6 +32,10 @@ class SecondaryNav extends Component {
                         <div>
                             <i className="fas fa-search" />
                             <input
+                                onKeyPress={e => this.handleKeyPress(e)}
+                                onChange={e =>
+                                    this.props.handleSearchTerm(e.target.value)
+                                }
                                 autoFocus="autoFocus"
                                 className="secondary-nav-input"
                                 type="text"

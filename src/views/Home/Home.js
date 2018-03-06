@@ -14,10 +14,17 @@ class Home extends Component {
         this.state = {
             posts: [],
             offset: 0,
-            loggedIn: false
+            loggedIn: false,
+            searchTerm: ""
         };
+        this.handleSearchTerm = this.handleSearchTerm.bind(this);
+        this.handleSearchEnter = this.handleSearchEnter.bind(this);
     }
     componentDidMount() {
+        window.addEventListener("scroll", event => {
+            console.log(event);
+        });
+
         axios.get("/api/admin").then(resp => {
             console.log(resp);
             this.setState({
@@ -33,6 +40,26 @@ class Home extends Component {
             });
         }
     }
+
+    handleSearchTerm(e) {
+        this.setState(
+            {
+                searchTerm: e
+            },
+            () => console.log(this.state.searchTerm)
+        );
+    }
+
+    handleSearchEnter() {
+        console.log("enter button pressed");
+        axios.get("/api/posts?q=" + this.state.searchTerm).then(resp => {
+            console.log(resp);
+            this.setState({ posts: resp.data }, () =>
+                console.log(this.state.posts)
+            );
+        });
+    }
+
     render() {
         var postsToRender = this.state.posts.map((value, i) => {
             if (value.type === "twitter") {
@@ -83,7 +110,10 @@ class Home extends Component {
 
         return (
             <div>
-                <Navbar />
+                <Navbar
+                    handleSearchTerm={this.handleSearchTerm}
+                    handleSearchEnter={this.handleSearchEnter}
+                />
                 <div
                     style={{ display: "flex", flexWrap: "wrap", width: "100%" }}
                 >
