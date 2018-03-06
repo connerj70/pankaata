@@ -138,6 +138,15 @@ class Post extends Component {
                                 placeholder="new article url"
                             />
                         )}
+                        <fieldset>
+                            <label>Tags</label>
+                            <input
+                                onChange={e => this.handleChange(e)}
+                                type="text"
+                                name="tags"
+                                placeholder="seperate tags by commas. tag1,tag2,tag3"
+                            />
+                        </fieldset>
                         <button onClick={e => this.handleClick(e)}>
                             Submit Post
                         </button>
