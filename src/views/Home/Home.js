@@ -15,7 +15,8 @@ class Home extends Component {
             posts: [],
             offset: 0,
             loggedIn: false,
-            searchTerm: ""
+            searchTerm: "",
+            instagramTest: ""
         };
         this.handleSearchTerm = this.handleSearchTerm.bind(this);
         this.handleSearchEnter = this.handleSearchEnter.bind(this);
