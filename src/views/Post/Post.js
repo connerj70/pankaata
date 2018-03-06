@@ -13,8 +13,18 @@ class Post extends Component {
         this.state = {
             title: "",
             type: "",
-            url: ""
+            url: "",
+            loggedIn: false
         };
+    }
+
+    componentDidMount() {
+        axios.get("/api/admin").then(resp => {
+            console.log(resp);
+            this.setState({
+                loggedIn: resp.data
+            });
+        });
     }
 
     handleChange(e) {
@@ -51,107 +61,114 @@ class Post extends Component {
         return (
             <div className="post">
                 <Navbar secondaryNav={false} />
-                <div className="post_inner-container">
-                    <h1>Create New Post</h1>
-                    <form>
-                        <fieldset>
-                            <label>Post Title</label>
-                            <input
-                                onChange={e => this.handleChange(e)}
-                                type="text"
-                                name="title"
-                            />
-                        </fieldset>
-                        <fieldset>
-                            <label>Post Type</label>
-                            <select
-                                name="type"
-                                onChange={e => this.handleChange(e)}
-                            >
-                                <option value={null}>Select An Option</option>
-                                <option value="twitter">Twitter</option>
-                                <option value="instagram">Instagram</option>
-                                <option value="youtube">Youtube</option>
-                                <option value="news">News</option>
-                            </select>
-                        </fieldset>
+                {this.state.loggedIn ? (
+                    <div className="post_inner-container">
+                        <h1>Create New Post</h1>
+                        <form>
+                            <fieldset>
+                                <label>Post Title</label>
+                                <input
+                                    onChange={e => this.handleChange(e)}
+                                    type="text"
+                                    name="title"
+                                />
+                            </fieldset>
+                            <fieldset>
+                                <label>Post Type</label>
+                                <select
+                                    name="type"
+                                    onChange={e => this.handleChange(e)}
+                                >
+                                    <option value={null}>
+                                        Select An Option
+                                    </option>
+                                    <option value="twitter">Twitter</option>
+                                    <option value="instagram">Instagram</option>
+                                    <option value="youtube">Youtube</option>
+                                    <option value="news">News</option>
+                                </select>
+                            </fieldset>
 
-                        {this.state.type === "" ? null : this.state.type ===
-                        "twitter" ? (
-                            <div>
-                                <h3 className="social-helper-h3">
-                                    Please copy this number, from the tweet you
-                                    would like to post, into the box below
-                                </h3>
-                                <img
-                                    className="social-helper-image"
-                                    src={twitter}
-                                />
+                            {this.state.type === "" ? null : this.state.type ===
+                            "twitter" ? (
+                                <div>
+                                    <h3 className="social-helper-h3">
+                                        Please copy this number, from the tweet
+                                        you would like to post, into the box
+                                        below
+                                    </h3>
+                                    <img
+                                        className="social-helper-image"
+                                        src={twitter}
+                                    />
+                                    <input
+                                        name="url"
+                                        onChange={e => this.handleChange(e)}
+                                        type="text"
+                                        placeholder="twitter post id"
+                                    />
+                                </div>
+                            ) : this.state.type === "instagram" ? (
+                                <div>
+                                    <h3 className="social-helper-h3">
+                                        Please copy the entire url of the
+                                        instagram post your would like to post
+                                        into the box below
+                                    </h3>
+                                    <img
+                                        className="social-helper-image"
+                                        src={instagram}
+                                    />
+                                    <input
+                                        name="url"
+                                        onChange={e => this.handleChange(e)}
+                                        type="text"
+                                        placeholder="instagram post url"
+                                    />
+                                </div>
+                            ) : this.state.type === "youtube" ? (
+                                <div>
+                                    <h3 className="social-helper-h3">
+                                        Please copy this number from the youtube
+                                        video you would like to post into the
+                                        box below
+                                    </h3>
+                                    <img
+                                        className="social-helper-image"
+                                        src={youtube}
+                                    />
+                                    <input
+                                        name="url"
+                                        onChange={e => this.handleChange(e)}
+                                        type="text"
+                                        placeholder="youtube video id"
+                                    />
+                                </div>
+                            ) : (
                                 <input
                                     name="url"
                                     onChange={e => this.handleChange(e)}
                                     type="text"
-                                    placeholder="twitter post id"
+                                    placeholder="new article url"
                                 />
-                            </div>
-                        ) : this.state.type === "instagram" ? (
-                            <div>
-                                <h3 className="social-helper-h3">
-                                    Please copy the entire url of the instagram
-                                    post your would like to post into the box
-                                    below
-                                </h3>
-                                <img
-                                    className="social-helper-image"
-                                    src={instagram}
-                                />
+                            )}
+                            <fieldset>
+                                <label>Tags</label>
                                 <input
-                                    name="url"
                                     onChange={e => this.handleChange(e)}
                                     type="text"
-                                    placeholder="instagram post url"
+                                    name="tags"
+                                    placeholder="seperate tags by commas. tag1,tag2,tag3"
                                 />
-                            </div>
-                        ) : this.state.type === "youtube" ? (
-                            <div>
-                                <h3 className="social-helper-h3">
-                                    Please copy this number from the youtube
-                                    video you would like to post into the box
-                                    below
-                                </h3>
-                                <img
-                                    className="social-helper-image"
-                                    src={youtube}
-                                />
-                                <input
-                                    name="url"
-                                    onChange={e => this.handleChange(e)}
-                                    type="text"
-                                    placeholder="youtube video id"
-                                />
-                            </div>
-                        ) : (
-                            <input
-                                name="url"
-                                onChange={e => this.handleChange(e)}
-                                type="text"
-                                placeholder="new article url"
-                            />
-                        )}
-                        <fieldset>
-                            <label>Tags</label>
-                            <input
-                                onChange={e => this.handleChange(e)}
-                                type="text"
-                                name="tags"
-                                placeholder="seperate tags by commas. tag1,tag2,tag3"
-                            />
-                        </fieldset>
-                        <button onClick={e => this.handleClick(e)}>
-                            Submit Post
-                        </button>
-                    </form>
-                </div>
+                            </fieldset>
+                            <button onClick={e => this.handleClick(e)}>
+                                Submit Post
+                            </button>
+                        </form>
+                    </div>
+                ) : (
+                    <div>Unauthorized</div>
+                )}
             </div>
         );
     }
