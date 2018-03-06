@@ -9,6 +9,13 @@ class Container extends Component {
     }
 
     render() {
+        let tagsToRender = this.props.tags.map((val, i) => {
+            return (
+                <div key={i} className="tag-wrapper">
+                    {val}
+                </div>
+            );
+        });
         console.log(this.props.admin);
         return (
             <div className="container-comp">
@@ -24,7 +31,7 @@ class Container extends Component {
                     ) : null}
                 </div>
                 <div>{this.props.children}</div>
-                <div className="tags-container">{this.props.tags}</div>
+                <div className="tags-container">{tagsToRender}</div>
             </div>
         );
     }

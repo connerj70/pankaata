@@ -39,4 +39,13 @@
 
 .tags-container {
     margin-top: 10px;
+    display: flex;
+}
+
+.tag-wrapper {
+    padding: 5px;
+    background-color: #d3d3d3;
+    text-align: center;
+    margin-right: 5px;
+    border-radius: 5px;
 }

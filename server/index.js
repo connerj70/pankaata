@@ -63,7 +63,21 @@ app.get("/api/posts", function(req, res) {
         db
             .get_posts([offset])
             .then(resp => {
-                res.status(200).send(resp);
+                console.log("GET POSTS RESP", resp);
+                for (let i = 0; i < resp.length; i++) {
+                    db.get_tags([resp[i].post_id]).then(resp2 => {
+                        console.log("RESP2", resp2);
+                        resp[i].tags = [];
+                        for (let j = 0; j < resp2.length; j++) {
+                            resp[i].tags.push(resp2[j].name);
+                            console.log(resp[i]);
+                            if (i === resp.length - 1) {
+                                console.log("OBJ", resp);
+                                res.status(200).send(resp);
+                            }
+                        }
+                    });
+                }
             })
             .catch(err => {
                 console.log(err);
