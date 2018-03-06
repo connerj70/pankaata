@@ -71,6 +71,7 @@ app.get("/api/posts", function(req, res) {
                         for (let j = 0; j < resp2.length; j++) {
                             resp[i].tags.push(resp2[j].name);
                             console.log(resp[i]);
+
                             if (i === resp.length - 1) {
                                 console.log("OBJ", resp);
                                 res.status(200).send(resp);
