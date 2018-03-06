@@ -33,7 +33,7 @@ class Post extends Component {
                 title: resp.data[0].title,
                 type: resp.data[0].type,
                 url: resp.data[0].url,
-                tags: resp.data[0].tags.join(" ")
+                tags: resp.data[0].tags.join(",")
             });
         });
     }

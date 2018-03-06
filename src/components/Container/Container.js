@@ -9,13 +9,15 @@ class Container extends Component {
     }
 
     render() {
-        let tagsToRender = this.props.tags.map((val, i) => {
-            return (
-                <div key={i} className="tag-wrapper">
-                    {val}
-                </div>
-            );
-        });
+        let tagsToRender = this.props.tags
+            ? this.props.tags.map((val, i) => {
+                  return (
+                      <div key={i} className="tag-wrapper">
+                          {val}
+                      </div>
+                  );
+              })
+            : null;
         console.log(this.props.admin);
         return (
             <div className="container-comp">
@@ -38,3 +40,7 @@ class Container extends Component {
 }
 
 export default Container;
+
+Container.defaultProps = {
+    tags: []
+};
