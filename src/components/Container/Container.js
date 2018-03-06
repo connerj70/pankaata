@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./Container.css";
+import { Link } from "react-router-dom";
 
 class Container extends Component {
     constructor(props) {
@@ -15,7 +16,9 @@ class Container extends Component {
                     <h1>{this.props.title}</h1>
                     {this.props.admin ? (
                         <div className="admin-controls-container">
-                            <i className="far fa-edit" />
+                            <Link to={`/editpost/${this.props.postId}`}>
+                                <i className="far fa-edit" />
+                            </Link>
                             <i className="far fa-trash-alt" />
                         </div>
                     ) : null}

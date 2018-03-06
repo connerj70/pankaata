@@ -83,6 +83,7 @@ class Home extends Component {
 
     render() {
         var postsToRender = this.state.posts.map((value, i) => {
+            console.log(value);
             if (value.type === "twitter") {
                 return (
                     <Container
@@ -90,6 +91,7 @@ class Home extends Component {
                         key={i}
                         title={value.title}
                         tags={value.tags}
+                        postId={value.post_id}
                     >
                         <div className="media-wrapper">
                             <TwitterTweetEmbed tweetId={value.url} />
@@ -103,6 +105,7 @@ class Home extends Component {
                         key={i}
                         title={value.title}
                         tags={value.tags}
+                        postId={value.post_id}
                     >
                         <Link to={value.url}>
                             {" "}
@@ -123,6 +126,7 @@ class Home extends Component {
                         key={i}
                         title={value.title}
                         tags={value.tags}
+                        postId={value.post_id}
                     >
                         <div className="media-wrapper">
                             <YouTube videoId={value.url} />

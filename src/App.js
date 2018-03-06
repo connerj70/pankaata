@@ -12,6 +12,7 @@ import Food from "./views/Food/Food";
 import Animal from "./views/Animal/Animal";
 import Relationships from "./views/Relationships/Relationships";
 import Post from "./views/Post/Post";
+import EditPost from "./views/EditPost/EditPost";
 
 class App extends Component {
     render() {
@@ -26,6 +27,7 @@ class App extends Component {
                     <Route path="/animal" component={Animal} />
                     <Route path="/relationships" component={Relationships} />
                     <Route path="/post" component={Post} />
+                    <Route path="/editpost/:id" component={EditPost} />
                 </Switch>
             </div>
         );
