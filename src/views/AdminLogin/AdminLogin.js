@@ -27,6 +27,9 @@ class AdminLogin extends Component {
                 if (resp.data.length) {
                     this.props.history.push("/");
                 }
+            })
+            .catch(err => {
+                alert("Incorrect username or password");
             });
     }
 
