@@ -104,13 +104,16 @@ class Home extends Component {
                         title={value.title}
                         tags={value.tags}
                     >
-                        <div className="media-wrapper">
-                            <InstagramEmbed
-                                url={value.url}
-                                hideCaption={false}
-                                containerTagName="div"
-                            />
-                        </div>
+                        <Link to={value.url}>
+                            {" "}
+                            <div className="media-wrapper">
+                                <InstagramEmbed
+                                    url={value.url}
+                                    hideCaption={false}
+                                    containerTagName="div"
+                                />
+                            </div>
+                        </Link>
                     </Container>
                 );
             } else if (value.type === "youtube") {
