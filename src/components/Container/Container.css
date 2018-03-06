@@ -21,6 +21,10 @@
     font-size: 40px;
 }
 
+.admin-controls-container {
+    min-width: 60px;
+}
+
 .admin-controls-container i {
     margin-right: 10px;
 }

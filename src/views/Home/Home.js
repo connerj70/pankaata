@@ -94,7 +94,13 @@ class Home extends Component {
                             </Link>
                         </div>
                     ) : null}
-                    {postsToRender}
+                    {this.state.posts.length ? (
+                        <div className="postsToRender-container">
+                            {postsToRender}
+                        </div>
+                    ) : (
+                        <div className="home_loading">Loading...</div>
+                    )}
                 </div>
             </div>
         );

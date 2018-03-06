@@ -4,6 +4,7 @@ import Navbar from "../../components/Navbar/Navbar";
 import instagram from "../../assets/instagram-example2.png";
 import youtube from "../../assets/youtube-example2.png";
 import twitter from "../../assets/twitter-example2.png";
+import axios from "axios";
 
 class Post extends Component {
     constructor(props) {
@@ -11,7 +12,8 @@ class Post extends Component {
 
         this.state = {
             title: "",
-            type: ""
+            type: "",
+            url: ""
         };
     }
 
@@ -30,6 +32,10 @@ class Post extends Component {
     handleClick(e) {
         e.preventDefault();
         console.log("clicked");
+        var { title, type, url } = this.state;
+        axios.post("/api/posts", { title, type, url }).then(resp => {
+            console.log(resp);
+        });
     }
 
     render() {

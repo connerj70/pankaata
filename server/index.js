@@ -50,7 +50,7 @@ app.get("/api/admin", function(req, res) {
     }
 });
 
-//POST ENDPOINTS
+//POSTS ENDPOINTS
 app.get("/api/posts", function(req, res) {
     const db = req.app.get("db");
     const offset = req.query.offset;
@@ -62,6 +62,19 @@ app.get("/api/posts", function(req, res) {
         })
         .catch(err => {
             console.log(err);
+        });
+});
+
+app.post("/api/posts", function(req, res) {
+    var { title, type, url } = req.body;
+    const db = req.app.get("db");
+    db
+        .create_post([title, type, url])
+        .then(resp => {
+            res.status(200).send(resp);
+        })
+        .catch(err => {
+            res.status(500).send(err);
         });
 });
 
