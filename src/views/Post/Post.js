@@ -39,8 +39,8 @@ class Post extends Component {
         } else if (!this.state.url) {
             alert("Please input a url");
         } else {
-            var { title, type, url } = this.state;
-            axios.post("/api/posts", { title, type, url }).then(resp => {
+            var { title, type, url, tags } = this.state;
+            axios.post("/api/posts", { title, type, url, tags }).then(resp => {
                 console.log(resp);
                 this.props.history.push("/");
             });

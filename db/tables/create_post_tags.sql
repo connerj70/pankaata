@@ -1,0 +1,1 @@
+create table post_tags(post_tags_id serial primary key, post_id int references posts (post_id), tag_id int references tags (tag_id))

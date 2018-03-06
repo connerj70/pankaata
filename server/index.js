@@ -73,10 +73,23 @@ app.get("/api/posts", function(req, res) {
 
 app.post("/api/posts", function(req, res) {
     var { title, type, url } = req.body;
+    var tags = req.body.tags.split(",");
+    tags = tags.map(val => val.trim());
+    console.log(tags);
     const db = req.app.get("db");
     db
         .create_post([title, type, url])
         .then(resp => {
+            console.log("CREATE POST RESP", resp);
+            for (let i = 0; i < tags.length; i++) {
+                db.create_tag([tags[i]]).then(resp2 => {
+                    db
+                        .create_post_tag([resp[0].post_id, resp2[0].tag_id])
+                        .then(resp3 => {
+                            console.log("RESP3", resp3);
+                        });
+                });
+            }
             res.status(200).send(resp);
         })
         .catch(err => {
