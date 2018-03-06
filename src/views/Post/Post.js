@@ -98,6 +98,7 @@ class Post extends Component {
                                         below
                                     </h3>
                                     <img
+                                        alt="twitter"
                                         className="social-helper-image"
                                         src={twitter}
                                     />
@@ -116,6 +117,7 @@ class Post extends Component {
                                         into the box below
                                     </h3>
                                     <img
+                                        alt="instagram"
                                         className="social-helper-image"
                                         src={instagram}
                                     />
@@ -134,6 +136,7 @@ class Post extends Component {
                                         box below
                                     </h3>
                                     <img
+                                        alt="youtube"
                                         className="social-helper-image"
                                         src={youtube}
                                     />

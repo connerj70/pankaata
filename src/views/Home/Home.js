@@ -82,6 +82,12 @@ class Home extends Component {
         }
     }
 
+    componentWillUnmount() {
+        this.setState({
+            offset: 0
+        });
+    }
+
     handleSearchTerm(e) {
         this.setState(
             {
