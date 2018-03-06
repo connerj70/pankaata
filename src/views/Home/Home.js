@@ -19,11 +19,31 @@ class Home extends Component {
         };
         this.handleSearchTerm = this.handleSearchTerm.bind(this);
         this.handleSearchEnter = this.handleSearchEnter.bind(this);
+        this.scrollFnc = this.scrollFnc.bind(this);
     }
+
+    scrollFnc(e) {
+        const windowHeight =
+            "innerHeight" in window
+                ? window.innerHeight
+                : document.documentElement.offsetHeight;
+        const body = document.body;
+        const html = document.documentElement;
+        const docHeight = Math.max(
+            body.scrollHeight,
+            body.offsetHeight,
+            html.clientHeight,
+            html.scrollHeight,
+            html.offsetHeight
+        );
+        const windowBottom = windowHeight + window.pageYOffset;
+        if (windowBottom >= docHeight) {
+            console.log("bottom");
+        }
+    }
+
     componentDidMount() {
-        window.addEventListener("scroll", event => {
-            console.log(event);
-        });
+        window.addEventListener("scroll", e => this.scrollFnc(e));
 
         axios.get("/api/admin").then(resp => {
             console.log(resp);
