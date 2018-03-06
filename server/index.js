@@ -101,10 +101,12 @@ app.post("/api/posts", function(req, res) {
                         .create_post_tag([resp[0].post_id, resp2[0].tag_id])
                         .then(resp3 => {
                             console.log("RESP3", resp3);
+                            if (i === tags.length - 1) {
+                                res.status(200).send(resp);
+                            }
                         });
                 });
             }
-            res.status(200).send(resp);
         })
         .catch(err => {
             res.status(500).send(err);

@@ -43,7 +43,7 @@ class Home extends Component {
             this.setState(
                 prevProps => {
                     return {
-                        offset: prevProps.offset + 1
+                        offset: prevProps.offset + 4
                     };
                 },
                 () => {
@@ -99,6 +99,7 @@ class Home extends Component {
 
     handleSearchEnter() {
         console.log("enter button pressed");
+
         axios.get("/api/posts?q=" + this.state.searchTerm).then(resp => {
             console.log(resp);
             this.setState({ posts: resp.data }, () =>
