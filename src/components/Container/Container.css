@@ -26,7 +26,11 @@
 }
 
 .admin-controls-container .fa-trash-alt {
-    color: red;
+    color: var(--red);
+}
+
+.admin-controls-container .fa-edit {
+    color: var(--blue);
 }
 
 .tags-container {

@@ -80,12 +80,18 @@ class Navbar extends Component {
                         </Link>
                     </ul>
                 </div>
-                <div className="navbar_secondary-nav-container">
-                    <SecondaryNav />
-                </div>
+                {this.props.secondaryNav ? (
+                    <div className="navbar_secondary-nav-container">
+                        <SecondaryNav />
+                    </div>
+                ) : null}
             </div>
         );
     }
 }
 
 export default Navbar;
+
+Navbar.defaultProps = {
+    secondaryNav: true
+};

@@ -13,6 +13,12 @@ body {
     --navbar-background: #2f3e4e;
     --second-font-color: #bec2c7;
     --secondary-highlights: #26313f;
+    --blue: #1b75bc;
+    --yellow: #fbb040;
+    --red: #ef4136;
+    --light-brown: #c59575;
+    --medium-brown: #a06232;
+    --dark-brown: #7d4e24;
 }
 
 .App {

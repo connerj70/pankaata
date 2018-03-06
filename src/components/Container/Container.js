@@ -15,8 +15,8 @@ class Container extends Component {
                     <h1>{this.props.title}</h1>
                     {this.props.admin ? (
                         <div className="admin-controls-container">
-                            <i class="far fa-edit" />
-                            <i class="far fa-trash-alt" />
+                            <i className="far fa-edit" />
+                            <i className="far fa-trash-alt" />
                         </div>
                     ) : null}
                 </div>
