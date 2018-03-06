@@ -23,6 +23,13 @@ class SecondaryNav extends Component {
         }
     }
 
+    handleSearchClear() {
+        this.props.clearSearch();
+        this.setState({
+            search: false
+        });
+    }
+
     render() {
         console.log(this.props);
         return (
@@ -32,6 +39,7 @@ class SecondaryNav extends Component {
                         <div>
                             <i className="fas fa-search" />
                             <input
+                                value={this.props.searchTerm}
                                 onKeyPress={e => this.handleKeyPress(e)}
                                 onChange={e =>
                                     this.props.handleSearchTerm(e.target.value)
@@ -41,6 +49,9 @@ class SecondaryNav extends Component {
                                 type="text"
                             />
                         </div>
+                        <span onClick={() => this.handleSearchClear()}>
+                            Clear
+                        </span>
                         <span onClick={() => this.handleSearchOpen()}>x</span>
                     </div>
                 ) : (

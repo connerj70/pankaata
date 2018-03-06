@@ -85,6 +85,8 @@ class Navbar extends Component {
                         <SecondaryNav
                             handleSearchTerm={this.props.handleSearchTerm}
                             handleSearchEnter={this.props.handleSearchEnter}
+                            clearSearch={this.props.clearSearch}
+                            searchTerm={this.props.searchTerm}
                         />
                     </div>
                 ) : null}

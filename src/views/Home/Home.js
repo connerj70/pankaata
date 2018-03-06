@@ -21,6 +21,7 @@ class Home extends Component {
         this.handleSearchTerm = this.handleSearchTerm.bind(this);
         this.handleSearchEnter = this.handleSearchEnter.bind(this);
         this.scrollFnc = this.scrollFnc.bind(this);
+        this.clearSearchTerm = this.clearSearchTerm.bind(this);
     }
 
     scrollFnc(e) {
@@ -108,6 +109,25 @@ class Home extends Component {
         });
     }
 
+    clearSearchTerm() {
+        this.setState(
+            {
+                searchTerm: "",
+                offset: 0
+            },
+            () => {
+                axios
+                    .get("/api/posts?offset=" + this.state.offset)
+                    .then(resp => {
+                        console.log("RESP AFTER CLEAR", resp);
+                        this.setState({ posts: resp.data }, () =>
+                            console.log(this.state.posts)
+                        );
+                    });
+            }
+        );
+    }
+
     render() {
         var postsToRender = this.state.posts.map((value, i) => {
             console.log(value);
@@ -168,6 +188,8 @@ class Home extends Component {
                 <Navbar
                     handleSearchTerm={this.handleSearchTerm}
                     handleSearchEnter={this.handleSearchEnter}
+                    clearSearch={this.clearSearchTerm}
+                    searchTerm={this.state.searchTerm}
                 />
                 <div
                     style={{ display: "flex", flexWrap: "wrap", width: "100%" }}
