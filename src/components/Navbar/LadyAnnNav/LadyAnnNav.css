@@ -1,0 +1,23 @@
+.lady-ann-container {
+    height: 60px;
+    width: 100%;
+    background-color: var(--red);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.lady-ann-container ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    padding: 20px;
+}
+
+.lady-ann-container ul li {
+    color: #fff;
+    border-right: 1px solid rgba(255, 255, 255, 0.384);
+    padding: 5px;
+    height: 100%;
+}

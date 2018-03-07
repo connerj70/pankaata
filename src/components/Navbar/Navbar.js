@@ -3,6 +3,7 @@ import "./Navbar.css";
 import logo from "../../assets/pankaata-final.svg";
 import SecondaryNav from "./SecondaryNav/SecondaryNav.js";
 import { Link } from "react-router-dom";
+import LadyAnnNav from "./LadyAnnNav/LadyAnnNav";
 
 class Navbar extends Component {
     constructor(props) {
@@ -82,12 +83,16 @@ class Navbar extends Component {
                 </div>
                 {this.props.secondaryNav ? (
                     <div className="navbar_secondary-nav-container">
-                        <SecondaryNav
-                            handleSearchTerm={this.props.handleSearchTerm}
-                            handleSearchEnter={this.props.handleSearchEnter}
-                            clearSearch={this.props.clearSearch}
-                            searchTerm={this.props.searchTerm}
-                        />
+                        {!this.props.ladyAnn ? (
+                            <SecondaryNav
+                                handleSearchTerm={this.props.handleSearchTerm}
+                                handleSearchEnter={this.props.handleSearchEnter}
+                                clearSearch={this.props.clearSearch}
+                                searchTerm={this.props.searchTerm}
+                            />
+                        ) : (
+                            <LadyAnnNav />
+                        )}
                     </div>
                 ) : null}
             </div>
@@ -98,5 +103,6 @@ class Navbar extends Component {
 export default Navbar;
 
 Navbar.defaultProps = {
-    secondaryNav: true
+    secondaryNav: true,
+    ladyAnn: false
 };

@@ -87,13 +87,14 @@ app.get("/api/posts", function(req, res) {
 });
 
 app.post("/api/posts", function(req, res) {
-    var { title, type, url } = req.body;
+    var { title, type, url, category } = req.body;
     var tags = req.body.tags.split(",");
     tags = tags.map(val => val.trim());
     console.log(tags);
+    console.log(category);
     const db = req.app.get("db");
     db
-        .create_post([title, type, url])
+        .create_post([title, type, url, category])
         .then(resp => {
             console.log("CREATE POST RESP", resp);
             for (let i = 0; i < tags.length; i++) {
