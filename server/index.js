@@ -86,6 +86,14 @@ app.get("/api/posts", function(req, res) {
     }
 });
 
+app.get("/api/posts/:category", function(req, res) {
+    const db = req.app.get("db");
+    const { category } = req.params;
+    db.posts_by_category([category]).then(resp => {
+        res.status(200).send(resp);
+    });
+});
+
 app.post("/api/posts", function(req, res) {
     var { title, type, url, category } = req.body;
     var tags = req.body.tags.split(",");

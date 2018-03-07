@@ -1,0 +1,16 @@
+.email_sub-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    margin: 20px auto;
+}
+
+.lady-ann-to {
+    margin-top: 20px;
+}
+
+.email_sub-container input {
+    width: 70%;
+    margin-top: 10px;
+}

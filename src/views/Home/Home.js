@@ -41,26 +41,28 @@ class Home extends Component {
         const windowBottom = windowHeight + window.pageYOffset;
         if (windowBottom >= docHeight) {
             console.log("bottom");
-            this.setState(
-                prevProps => {
-                    return {
-                        offset: prevProps.offset + 4
-                    };
-                },
-                () => {
-                    axios
-                        .get("/api/posts?offset=" + this.state.offset)
-                        .then(resp => {
-                            console.log(resp);
-                            var posts = this.state.posts.slice();
-                            posts = [...posts, ...resp.data];
-                            console.log("POSTS FROM BOTTOM", posts);
-                            this.setState({ posts: posts }, () =>
-                                console.log(this.state.posts)
-                            );
-                        });
-                }
-            );
+            if (this.state.searchTerm === "") {
+                this.setState(
+                    prevProps => {
+                        return {
+                            offset: prevProps.offset + 4
+                        };
+                    },
+                    () => {
+                        axios
+                            .get("/api/posts?offset=" + this.state.offset)
+                            .then(resp => {
+                                console.log(resp);
+                                var posts = this.state.posts.slice();
+                                posts = [...posts, ...resp.data];
+                                console.log("POSTS FROM BOTTOM", posts);
+                                this.setState({ posts: posts }, () =>
+                                    console.log(this.state.posts)
+                                );
+                            });
+                    }
+                );
+            }
         }
     }
 
