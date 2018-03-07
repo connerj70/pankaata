@@ -16,9 +16,15 @@ class LadyAnnNav extends Component {
                     <Link to="/relationships/videos">
                         <li>Videos</li>
                     </Link>
-                    <li>Letters</li>
-                    <li>Email Lady Ann</li>
-                    <li>About Lady Ann</li>
+                    <Link to="/relationships/letters">
+                        <li>Letters</li>
+                    </Link>
+                    <Link to="/relationships/email">
+                        <li>Email Lady Ann</li>
+                    </Link>
+                    <Link to="/relationships/about">
+                        <li>About Lady Ann</li>
+                    </Link>
                 </ul>
             </div>
         );
