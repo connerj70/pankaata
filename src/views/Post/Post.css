@@ -23,6 +23,7 @@
     background-color: var(--body-background);
     border: 1px solid #d3d3d3;
     font-size: 16px;
+    box-sizing: border-box;
 }
 
 .post_inner-container select {
@@ -32,14 +33,15 @@
     border: 1px solid #d3d3d3;
     padding: 5px 10px;
     background-color: #fff;
-    background: url("../../assets/arrow.png");
+    /* background: url("../../assets/arrow.png");
     background-position: right;
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: contain; */
 }
 
 .social-helper-h3 {
-    margin-top: 20px;
+    width: 90%;
+    margin: 20px auto;
 }
 
 .social-helper-image {
