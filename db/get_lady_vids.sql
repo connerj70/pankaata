@@ -1,1 +1,1 @@
-select * from posts where category = 'relationship'
+select * from posts where category = 'relationship' order by post_id desc;
