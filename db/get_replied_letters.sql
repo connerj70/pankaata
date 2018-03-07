@@ -1,0 +1,1 @@
+select * from letters where show = true;

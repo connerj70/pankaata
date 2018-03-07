@@ -25,7 +25,11 @@ class Letter extends Component {
                         ) : null}
                     </p>
                 </div>
-                <div className="letter_user_div">User: {this.props.sender}</div>
+                {this.props.sender ? (
+                    <div className="letter_user_div">
+                        User: {this.props.sender}
+                    </div>
+                ) : null}
                 <div>
                     {this.props.show ? (
                         <div>
