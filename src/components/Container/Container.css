@@ -24,6 +24,7 @@
 
 .admin-controls-container {
     min-width: 60px;
+    margin-bottom: 10px;
 }
 
 .admin-controls-container i {
