@@ -12,7 +12,7 @@
 }
 
 .admin-letter-container div {
-    margin-top: 8px;
+    margin-top: 10px;
     font-size: 12px;
 }
 
@@ -39,4 +39,8 @@
 
 a {
     color: black;
+}
+
+.fa-check {
+    color: var(--blue);
 }

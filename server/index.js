@@ -165,7 +165,24 @@ app.get("/api/lady/letters", function(req, res) {
 app.get("/api/lady/letter/:id", function(req, res) {
     const db = req.app.get("db");
     db.get_letter([req.params.id]).then(resp => {
-        res.status(200).send(resp);
+        console.log("RESP", resp[0]);
+        let toReturn = Object.assign({}, resp[0]);
+        db.get_response([req.params.id]).then(resp2 => {
+            console.log(resp2);
+            toReturn.response = resp2[0].response;
+            console.log("TO RETURN", toReturn);
+            res.status(200).send(toReturn);
+        });
+    });
+});
+
+app.post("/api/lady/reply", function(req, res) {
+    const db = req.app.get("db");
+    const { response, letter_id } = req.body;
+    db.create_response([response, letter_id]).then(resp => {
+        db.update_letter_show([letter_id]).then(resp => {
+            res.status(200).send(resp);
+        });
     });
 });
 // EMAIL ENDPOINT

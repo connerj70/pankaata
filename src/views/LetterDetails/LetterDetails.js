@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Navbar from "../../components/Navbar/Navbar";
 import axios from "axios";
+import "./LetterDetails.css";
 import Letter from "../../components/Letter/Letter";
 class LetterDetails extends Component {
     constructor(props) {
@@ -10,7 +11,8 @@ class LetterDetails extends Component {
             subject: "",
             situation: "",
             sender: "",
-            anonymous: ""
+            anonymous: "",
+            response: ""
         };
     }
 
@@ -20,11 +22,30 @@ class LetterDetails extends Component {
             .then(resp => {
                 console.log(resp);
                 this.setState({
-                    subject: resp.data[0].subject,
-                    situation: resp.data[0].situation,
-                    sender: resp.data[0].sender,
-                    anonymous: resp.data[0].anonymous
+                    subject: resp.data.subject,
+                    situation: resp.data.situation,
+                    sender: resp.data.sender,
+                    anonymous: resp.data.anonymous,
+                    response: resp.data.response
                 });
+            });
+    }
+
+    handleChange(e) {
+        this.setState({
+            response: e
+        });
+    }
+
+    handleClick() {
+        console.log("clicked");
+        axios
+            .post("/api/lady/reply", {
+                response: this.state.response,
+                letter_id: this.props.match.params.id
+            })
+            .then(resp => {
+                this.props.history.push("/admin/letters");
             });
     }
 
@@ -39,6 +60,22 @@ class LetterDetails extends Component {
                     anonymous={this.state.anonymous}
                     cut={false}
                 />
+                <div>
+                    <textarea
+                        value={this.state.response}
+                        placeholder="Respond to message here"
+                        className="reply-box"
+                        onChange={e => this.handleChange(e.target.value)}
+                    />
+                </div>
+                <div className="publish-btn-container">
+                    <button
+                        className="publish-btn"
+                        onClick={() => this.handleClick()}
+                    >
+                        Publish Reply
+                    </button>
+                </div>
             </div>
         );
     }

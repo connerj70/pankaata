@@ -29,6 +29,7 @@ class AdminLetters extends Component {
                         sender={val.sender}
                         situation={val.situation}
                         subject={val.subject}
+                        show={val.show}
                     />
                 </Link>
             );

@@ -18,10 +18,21 @@ class Letter extends Component {
                 </div>
                 <div>
                     <p className={this.props.cut ? "p_cut-text" : null}>
-                        {this.props.situation}
+                        Dear Lady Ann: {this.props.situation}
+                        <br />
+                        {this.props.response ? (
+                            <div>{this.props.response}</div>
+                        ) : null}
                     </p>
                 </div>
-                <div>{this.props.sender}</div>
+                <div className="letter_user_div">User: {this.props.sender}</div>
+                <div>
+                    {this.props.show ? (
+                        <div>
+                            Response has been sent <i class="fas fa-check" />
+                        </div>
+                    ) : null}
+                </div>
             </div>
         );
     }
