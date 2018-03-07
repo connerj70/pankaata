@@ -33,10 +33,15 @@
     border: 1px solid #d3d3d3;
     padding: 5px 10px;
     background-color: #fff;
-    /* background: url("../../assets/arrow.png");
+    appearance: none;
+    background: url("../../assets/arrow.png");
     background-position: right;
     background-repeat: no-repeat;
-    background-size: contain; */
+    background-size: contain;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-indent: 1px;
+    text-overflow: "";
 }
 
 .social-helper-h3 {
