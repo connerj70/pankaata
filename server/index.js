@@ -133,6 +133,15 @@ app.get("/api/post/:id", function(req, res) {
     });
 });
 
+//LADY ANN ENDPOINTS ********************************
+app.get("/api/lady/videos", function(req, res) {
+    const db = req.app.get("db");
+
+    db.get_lady_vids().then(resp => {
+        res.status(200).send(resp);
+    });
+});
+
 const PORT = 3030;
 
 app.listen(PORT, function() {

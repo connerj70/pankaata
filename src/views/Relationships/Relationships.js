@@ -12,7 +12,6 @@ class Relationships extends Component {
         return (
             <div>
                 <Navbar ladyAnn={true} />
-                Relationships
                 <Route path={"/relationships/videos"} component={Videos} />
                 <Route path={"/relationships/letters"} component={Letters} />
                 <Route path={"/relationships/email"} component={Email} />
