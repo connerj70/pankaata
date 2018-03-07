@@ -10,7 +10,31 @@
     margin-top: 20px;
 }
 
+.email_sub-container h3 {
+    text-align: left;
+}
+
 .email_sub-container input {
     width: 70%;
     margin-top: 10px;
+    padding: 5px 10px;
+    font-size: 12px;
+}
+
+.email_sub-container textarea {
+    width: 70%;
+    margin-top: 10px;
+    padding: 5px 10px;
+    font-size: 12px;
+}
+
+.button-container {
+    justify-content: flex-end;
+}
+
+.button-container button {
+    padding: 10px 25px;
+    background: var(--blue);
+    color: #fff;
+    border-radius: 5px;
 }

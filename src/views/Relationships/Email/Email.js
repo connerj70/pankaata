@@ -1,22 +1,63 @@
 import React, { Component } from "react";
 import "./Email.css";
+import axios from "axios";
 
 class Email extends Component {
+    constructor(props) {
+        super(props);
+        this.state = { from: "", subject: "", situation: "" };
+    }
+    handleChange(e) {
+        let value = e.target.value;
+        let name = e.target.name;
+
+        this.setState({
+            [name]: value
+        });
+    }
+
+    handleClick() {
+        axios
+            .post("/api/lady/email", {
+                from: this.state.from,
+                subject: this.state.subject,
+                situation: this.state.situation
+            })
+            .then(resp => {
+                console.log(resp);
+            });
+    }
+
     render() {
         return (
             <div className="lady-ann-email">
                 <h3 className="lady-ann-to">To: LadyAnn@Pankaata.com</h3>
                 <div className="email_sub-container">
                     <h3>From:</h3>
-                    <input type="text" />
+                    <input
+                        name="from"
+                        onChange={e => this.handleChange(e)}
+                        type="text"
+                    />
                 </div>
                 <div className="email_sub-container">
                     <h3>Subject:</h3>
-                    <input type="text" />
+                    <input
+                        name="subject"
+                        onChange={e => this.handleChange(e)}
+                        type="text"
+                    />
                 </div>
                 <div className="email_sub-container">
-                    <h3>Situation Box:</h3>
-                    <textarea />
+                    <h3>Situation:</h3>
+                    <textarea
+                        name="situation"
+                        onChange={e => this.handleChange(e)}
+                        rows="10"
+                    />
+                </div>
+                <div className="email_sub-container button-container">
+                    <button onClick={() => this.handleClick()}>Send</button>
                 </div>
             </div>
         );
