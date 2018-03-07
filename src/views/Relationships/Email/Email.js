@@ -5,7 +5,7 @@ import axios from "axios";
 class Email extends Component {
     constructor(props) {
         super(props);
-        this.state = { from: "", subject: "", situation: "" };
+        this.state = { from: "", subject: "", situation: "", anonymous: false };
     }
     handleChange(e) {
         let value = e.target.value;
@@ -16,12 +16,21 @@ class Email extends Component {
         });
     }
 
+    handleCheckbox() {
+        this.setState(prevProps => {
+            return {
+                anonymous: !prevProps.anonymous
+            };
+        });
+    }
+
     handleClick() {
         axios
             .post("/api/lady/email", {
                 from: this.state.from,
                 subject: this.state.subject,
-                situation: this.state.situation
+                situation: this.state.situation,
+                anonymous: this.state.anonymous
             })
             .then(resp => {
                 console.log(resp);
@@ -54,6 +63,14 @@ class Email extends Component {
                         name="situation"
                         onChange={e => this.handleChange(e)}
                         rows="10"
+                    />
+                </div>
+                <div className="email_sub-container">
+                    <h3>Lady Please Keep Me Anonymous:</h3>
+                    <input
+                        style={{ width: "auto" }}
+                        onChange={() => this.handleCheckbox()}
+                        type="checkbox"
                     />
                 </div>
                 <div className="email_sub-container button-container">

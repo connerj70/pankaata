@@ -67,19 +67,24 @@ app.get("/api/posts", function(req, res) {
             .then(resp => {
                 console.log("GET POSTS RESP", resp);
                 for (let i = 0; i < resp.length; i++) {
-                    db.get_tags([resp[i].post_id]).then(resp2 => {
-                        console.log("RESP2", resp2);
-                        resp[i].tags = [];
-                        for (let j = 0; j < resp2.length; j++) {
-                            resp[i].tags.push(resp2[j].name);
-                            console.log(resp[i]);
+                    db
+                        .get_tags([resp[i].post_id])
+                        .then(resp2 => {
+                            console.log("RESP2", resp2);
+                            resp[i].tags = [];
+                            for (let j = 0; j < resp2.length; j++) {
+                                resp[i].tags.push(resp2[j].name);
+                                console.log(resp[i]);
 
-                            if (i === resp.length - 1) {
-                                console.log("OBJ", resp);
-                                res.status(200).send(resp);
+                                if (i === resp.length - 1) {
+                                    console.log("OBJ", resp);
+                                    res.status(200).send(resp);
+                                }
                             }
-                        }
-                    });
+                        })
+                        .catch(err => {
+                            console.log(err);
+                        });
                 }
             })
             .catch(err => {
@@ -151,6 +156,14 @@ app.get("/api/lady/videos", function(req, res) {
         res.status(200).send(resp);
     });
 });
+
+app.get("/api/lady/letters", function(req, res) {
+    const db = req.app.get("db");
+
+    db.get_letters().then(resp => {
+        res.status(200).send(resp);
+    });
+});
 // EMAIL ENDPOINT
 var transporter = nodemailer.createTransport(
     smtpTransport({
@@ -163,7 +176,17 @@ var transporter = nodemailer.createTransport(
     })
 );
 app.post("/api/lady/email", function(req, res) {
-    const { subject, situation, from } = req.body;
+    const db = req.app.get("db");
+    const { subject, situation, from, anonymous } = req.body;
+    let x = new Date();
+
+    var day = x.getDate();
+    var month = x.getMonth() + 1;
+    var year = x.getFullYear();
+
+    console.log(`${month}/${day}/${year}`);
+    let date = `${month}/${day}/${year}`;
+
     let mailOptions = {
         from: from, // sender address
         to: process.env.NODEMAILER_EMAIL, // list of receivers
@@ -182,7 +205,11 @@ app.post("/api/lady/email", function(req, res) {
         // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
         // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
     });
-    res.status(200).send("Message sent");
+    db
+        .create_letter([from, subject, situation, anonymous, false, date])
+        .then(resp => {
+            res.status(200).send(resp);
+        });
 });
 
 const PORT = 3030;

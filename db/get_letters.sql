@@ -1,0 +1,1 @@
+select * from letters order by letter_id desc;

@@ -1,0 +1,1 @@
+create table letters(letter_id serial primary key, sender varchar(500), subject varchar(250), situation varchar(8000), anonymous boolean, show boolean, date varchar(50) )

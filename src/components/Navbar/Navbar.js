@@ -72,7 +72,7 @@ class Navbar extends Component {
                             <li className="navbar_dropdown">Food</li>
                         </Link>
 
-                        <Link to="/relationships">
+                        <Link to="/relationships/videos">
                             <li className="navbar_dropdown">Relationship</li>
                         </Link>
 
