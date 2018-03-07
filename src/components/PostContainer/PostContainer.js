@@ -124,6 +124,7 @@ class PostContainer extends Component {
         return (
             <div>
                 <Navbar
+                    secondaryNav={false}
                     handleSearchTerm={this.handleSearchTerm}
                     handleSearchEnter={this.handleSearchEnter}
                     clearSearch={this.clearSearchTerm}

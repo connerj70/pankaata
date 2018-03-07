@@ -1,0 +1,1 @@
+UPDATE posts set title=$1, url = $2, type = $3, category= $4 where post_id = $5

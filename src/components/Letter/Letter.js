@@ -10,14 +10,16 @@ class Letter extends Component {
             <div className="admin-letter-container">
                 {this.props.anonymous ? (
                     <div className="anon-highlight">
-                        *User Prefers to remain anonymous
+                        *User Prefers To Remain Anonymous
                     </div>
                 ) : null}
                 <div>
                     <h2>{this.props.subject}</h2>
                 </div>
                 <div>
-                    <p>{this.props.situation}</p>
+                    <p className={this.props.cut ? "p_cut-text" : null}>
+                        {this.props.situation}
+                    </p>
                 </div>
                 <div>{this.props.sender}</div>
             </div>
@@ -26,3 +28,7 @@ class Letter extends Component {
 }
 
 export default Letter;
+
+Letter.defaultProps = {
+    cut: true
+};

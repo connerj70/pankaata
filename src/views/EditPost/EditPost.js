@@ -33,7 +33,8 @@ class Post extends Component {
                 title: resp.data[0].title,
                 type: resp.data[0].type,
                 url: resp.data[0].url,
-                tags: resp.data[0].tags.join(",")
+                tags: resp.data[0].tags.join(","),
+                category: resp.data[0].category
             });
         });
     }
@@ -60,11 +61,14 @@ class Post extends Component {
         } else if (!this.state.url) {
             alert("Please input a url");
         } else {
-            var { title, type, url, tags } = this.state;
-            axios.post("/api/posts", { title, type, url, tags }).then(resp => {
-                console.log(resp);
-                this.props.history.push("/");
-            });
+            var { title, type, url, tags, category } = this.state;
+            let id = this.props.match.params.id;
+            axios
+                .put("/api/posts", { title, type, url, tags, category, id })
+                .then(resp => {
+                    console.log(resp);
+                    this.props.history.push("/");
+                });
         }
     }
 
@@ -169,6 +173,30 @@ class Post extends Component {
                                     placeholder="new article url"
                                 />
                             )}
+                            <fieldset>
+                                <label>Category</label>
+                                <select
+                                    value={this.state.category}
+                                    name="category"
+                                    onChange={e => this.handleChange(e)}
+                                >
+                                    <option value={null}>
+                                        Select An Option
+                                    </option>
+                                    <option value="news">Worthy News</option>
+                                    <option value="motivational">
+                                        Motivational Monday
+                                    </option>
+                                    <option value="food">Food</option>
+                                    <option value="relationship">
+                                        Relationship
+                                    </option>
+                                    <option value="animal">Animal World</option>
+                                    <option value="miscellaneous">
+                                        Miscellaneous
+                                    </option>
+                                </select>
+                            </fieldset>
                             <fieldset>
                                 <label>Tags</label>
                                 <input

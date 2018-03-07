@@ -25,13 +25,16 @@
 }
 
 .admin-letter-container div p {
+    font-size: 12px;
+    font-family: "Lora", serif;
+    min-height: 15px;
+}
+
+.p_cut-text {
     text-overflow: ellipsis;
     max-width: 200px;
     overflow: hidden;
     white-space: nowrap;
-    font-size: 12px;
-    font-family: "Lora", serif;
-    min-height: 15px;
 }
 
 a {
