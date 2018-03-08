@@ -22,13 +22,11 @@ class Post extends Component {
 
     componentDidMount() {
         axios.get("/api/admin").then(resp => {
-            console.log(resp);
             this.setState({
                 loggedIn: resp.data
             });
         });
         axios.get("/api/post/" + this.props.match.params.id).then(resp => {
-            console.log(resp);
             this.setState({
                 title: resp.data[0].title,
                 type: resp.data[0].type,
@@ -43,17 +41,13 @@ class Post extends Component {
         var name = e.target.name;
         var value = e.target.value;
 
-        this.setState(
-            {
-                [name]: value
-            },
-            () => console.log(this.state)
-        );
+        this.setState({
+            [name]: value
+        });
     }
 
     handleClick(e) {
         e.preventDefault();
-        console.log("clicked");
         if (!this.state.title) {
             alert("Please input a title");
         } else if (!this.state.type) {
@@ -66,7 +60,6 @@ class Post extends Component {
             axios
                 .put("/api/posts", { title, type, url, tags, category, id })
                 .then(resp => {
-                    console.log(resp);
                     this.props.history.push("/");
                 });
         }
@@ -115,6 +108,7 @@ class Post extends Component {
                                         below
                                     </h3>
                                     <img
+                                        alt="twitter"
                                         className="social-helper-image"
                                         src={twitter}
                                     />
@@ -134,6 +128,7 @@ class Post extends Component {
                                         into the box below
                                     </h3>
                                     <img
+                                        alt="instagram"
                                         className="social-helper-image"
                                         src={instagram}
                                     />
@@ -153,6 +148,7 @@ class Post extends Component {
                                         box below
                                     </h3>
                                     <img
+                                        alt="youtube"
                                         className="social-helper-image"
                                         src={youtube}
                                     />

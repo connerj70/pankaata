@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "./Food.css";
-import Navbar from "../../components/Navbar/Navbar";
 import PostContainer from "../../components/PostContainer/PostContainer";
 
 class Food extends Component {

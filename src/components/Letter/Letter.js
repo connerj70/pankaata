@@ -2,9 +2,6 @@ import React, { Component } from "react";
 import "./Letter.css";
 
 class Letter extends Component {
-    constructor(props) {
-        super(props);
-    }
     render() {
         return (
             <div className="admin-letter-container">
@@ -33,7 +30,8 @@ class Letter extends Component {
                 <div>
                     {this.props.show ? (
                         <div>
-                            Response has been sent <i class="fas fa-check" />
+                            Response has been sent{" "}
+                            <i className="fas fa-check" />
                         </div>
                     ) : null}
                 </div>

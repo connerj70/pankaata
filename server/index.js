@@ -74,14 +74,10 @@ app.get("/api/posts", function(req, res) {
                                 }
                             }
                         })
-                        .catch(err => {
-                            console.log(err);
-                        });
+                        .catch(err => {});
                 }
             })
-            .catch(err => {
-                console.log(err);
-            });
+            .catch(err => {});
     }
 });
 
@@ -127,13 +123,10 @@ app.post("/api/posts", function(req, res) {
 });
 
 app.put("/api/posts", function(req, res) {
-    console.log("put hit");
-    console.log(req.body);
     const db = req.app.get("db");
     var { title, type, url, category, id } = req.body;
 
     db.edit_post([title, url, type, category, +id]).then(resp => {
-        console.log("RESP FROM EDIT POST", resp);
         res.status(200).send(resp);
     });
 });
@@ -173,12 +166,9 @@ app.get("/api/lady/letters", function(req, res) {
 app.get("/api/lady/letter/:id", function(req, res) {
     const db = req.app.get("db");
     db.get_letter([req.params.id]).then(resp => {
-        console.log("RESP", resp[0]);
         let toReturn = Object.assign({}, resp[0]);
         db.get_response([req.params.id]).then(resp2 => {
-            console.log(resp2);
             toReturn.response = resp2[0].response;
-            console.log("TO RETURN", toReturn);
             res.status(200).send(toReturn);
         });
     });

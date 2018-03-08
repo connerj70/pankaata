@@ -22,7 +22,6 @@ class Post extends Component {
 
     componentDidMount() {
         axios.get("/api/admin").then(resp => {
-            console.log(resp);
             this.setState({
                 loggedIn: resp.data
             });
@@ -33,17 +32,13 @@ class Post extends Component {
         var name = e.target.name;
         var value = e.target.value;
 
-        this.setState(
-            {
-                [name]: value
-            },
-            () => console.log(this.state)
-        );
+        this.setState({
+            [name]: value
+        });
     }
 
     handleClick(e) {
         e.preventDefault();
-        console.log("clicked");
         if (!this.state.title) {
             alert("Please input a title");
         } else if (!this.state.type) {
@@ -55,7 +50,6 @@ class Post extends Component {
             axios
                 .post("/api/posts", { title, type, url, tags, category })
                 .then(resp => {
-                    console.log(resp);
                     this.props.history.push("/");
                 });
         }

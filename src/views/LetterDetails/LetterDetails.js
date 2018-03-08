@@ -20,7 +20,6 @@ class LetterDetails extends Component {
         axios
             .get("/api/lady/letter/" + this.props.match.params.id)
             .then(resp => {
-                console.log(resp);
                 this.setState({
                     subject: resp.data.subject,
                     situation: resp.data.situation,
@@ -38,7 +37,6 @@ class LetterDetails extends Component {
     }
 
     handleClick() {
-        console.log("clicked");
         axios
             .post("/api/lady/reply", {
                 response: this.state.response,

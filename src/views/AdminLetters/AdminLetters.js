@@ -13,7 +13,6 @@ class AdminLetters extends Component {
 
     componentDidMount() {
         axios.get("/api/lady/letters").then(resp => {
-            console.log(resp);
             this.setState({
                 letters: resp.data
             });
@@ -23,7 +22,7 @@ class AdminLetters extends Component {
     render() {
         let lettersToDisplay = this.state.letters.map((val, i) => {
             return (
-                <Link to={"/admin/letter/" + val.letter_id}>
+                <Link key={i} to={"/admin/letter/" + val.letter_id}>
                     <Letter
                         anonymous={val.anonymous}
                         sender={val.sender}

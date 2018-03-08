@@ -18,7 +18,6 @@ class Container extends Component {
         //           );
         //       })
         //     : null;
-        console.log(this.props.admin);
         return (
             <div className="container-comp">
                 <div className="container-comp_header">

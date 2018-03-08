@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "./Animal.css";
-import Navbar from "../../components/Navbar/Navbar";
 import PostContainer from "../../components/PostContainer/PostContainer";
 
 class Animal extends Component {

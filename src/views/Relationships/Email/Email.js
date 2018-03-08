@@ -32,9 +32,7 @@ class Email extends Component {
                 situation: this.state.situation,
                 anonymous: this.state.anonymous
             })
-            .then(resp => {
-                console.log(resp);
-            });
+            .then(resp => {});
     }
 
     render() {

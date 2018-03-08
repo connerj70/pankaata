@@ -13,7 +13,6 @@ class Videos extends Component {
 
     componentDidMount() {
         axios.get("/api/lady/videos").then(resp => {
-            console.log(resp);
             this.setState({
                 videos: resp.data
             });
@@ -36,6 +35,8 @@ class Videos extends Component {
                         </div>
                     </Container>
                 );
+            } else {
+                return null;
             }
         });
 

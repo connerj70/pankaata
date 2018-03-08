@@ -23,7 +23,6 @@ class AdminLogin extends Component {
                 password: this.state.password
             })
             .then(resp => {
-                console.log("RESP", resp);
                 if (resp.data.length) {
                     this.props.history.push("/");
                 }

@@ -11,7 +11,6 @@ class Letters extends Component {
 
     componentDidMount() {
         axios.get("/api/letters/replied").then(resp => {
-            console.log(resp);
             this.setState({
                 letters: resp.data
             });
@@ -19,9 +18,13 @@ class Letters extends Component {
     }
 
     render() {
-        let lettersToShow = this.state.letters.map(value => {
+        let lettersToShow = this.state.letters.map((value, i) => {
             return (
-                <Letter subject={value.subject} situation={value.situation} />
+                <Letter
+                    key={i}
+                    subject={value.subject}
+                    situation={value.situation}
+                />
             );
         });
 

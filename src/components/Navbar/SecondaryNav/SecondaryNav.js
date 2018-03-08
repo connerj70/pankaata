@@ -31,7 +31,6 @@ class SecondaryNav extends Component {
     }
 
     render() {
-        console.log(this.props);
         return (
             <div className="secondary-nav">
                 {this.state.search ? (

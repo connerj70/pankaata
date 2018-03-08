@@ -20,7 +20,6 @@ class Motivational extends Component {
 
     componentDidMount() {
         axios.get("/api/posts/motivational").then(resp => {
-            console.log(resp);
             this.setState({
                 posts: resp.data
             });
@@ -28,22 +27,14 @@ class Motivational extends Component {
     }
 
     handleSearchTerm(e) {
-        this.setState(
-            {
-                searchTerm: e
-            },
-            () => console.log(this.state.searchTerm)
-        );
+        this.setState({
+            searchTerm: e
+        });
     }
 
     handleSearchEnter() {
-        console.log("enter button pressed");
-
         axios.get("/api/posts?q=" + this.state.searchTerm).then(resp => {
-            console.log(resp);
-            this.setState({ posts: resp.data }, () =>
-                console.log(this.state.posts)
-            );
+            this.setState({ posts: resp.data });
         });
     }
 
@@ -57,10 +48,7 @@ class Motivational extends Component {
                 axios
                     .get("/api/posts?offset=" + this.state.offset)
                     .then(resp => {
-                        console.log("RESP AFTER CLEAR", resp);
-                        this.setState({ posts: resp.data }, () =>
-                            console.log(this.state.posts)
-                        );
+                        this.setState({ posts: resp.data });
                     });
             }
         );
@@ -68,7 +56,6 @@ class Motivational extends Component {
 
     render() {
         var postsToRender = this.state.posts.map((value, i) => {
-            console.log(value);
             if (value.type === "twitter") {
                 return (
                     <Container
@@ -118,6 +105,8 @@ class Motivational extends Component {
                         </div>
                     </Container>
                 );
+            } else {
+                return null;
             }
         });
 

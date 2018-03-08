@@ -40,7 +40,6 @@ class Home extends Component {
         );
         const windowBottom = windowHeight + window.pageYOffset;
         if (windowBottom >= docHeight) {
-            console.log("bottom");
             if (this.state.searchTerm === "") {
                 this.setState(
                     prevProps => {
@@ -52,13 +51,9 @@ class Home extends Component {
                         axios
                             .get("/api/posts?offset=" + this.state.offset)
                             .then(resp => {
-                                console.log(resp);
                                 var posts = this.state.posts.slice();
                                 posts = [...posts, ...resp.data];
-                                console.log("POSTS FROM BOTTOM", posts);
-                                this.setState({ posts: posts }, () =>
-                                    console.log(this.state.posts)
-                                );
+                                this.setState({ posts: posts });
                             });
                     }
                 );
@@ -70,17 +65,13 @@ class Home extends Component {
         window.addEventListener("scroll", e => this.scrollFnc(e));
 
         axios.get("/api/admin").then(resp => {
-            console.log(resp);
             this.setState({
                 loggedIn: resp.data
             });
         });
         if (!this.state.posts.length) {
             axios.get("/api/posts?offset=" + this.state.offset).then(resp => {
-                console.log(resp);
-                this.setState({ posts: resp.data }, () =>
-                    console.log(this.state.posts)
-                );
+                this.setState({ posts: resp.data });
             });
         }
     }
@@ -92,22 +83,14 @@ class Home extends Component {
     }
 
     handleSearchTerm(e) {
-        this.setState(
-            {
-                searchTerm: e
-            },
-            () => console.log(this.state.searchTerm)
-        );
+        this.setState({
+            searchTerm: e
+        });
     }
 
     handleSearchEnter() {
-        console.log("enter button pressed");
-
         axios.get("/api/posts?q=" + this.state.searchTerm).then(resp => {
-            console.log(resp);
-            this.setState({ posts: resp.data }, () =>
-                console.log(this.state.posts)
-            );
+            this.setState({ posts: resp.data });
         });
     }
 
@@ -121,10 +104,7 @@ class Home extends Component {
                 axios
                     .get("/api/posts?offset=" + this.state.offset)
                     .then(resp => {
-                        console.log("RESP AFTER CLEAR", resp);
-                        this.setState({ posts: resp.data }, () =>
-                            console.log(this.state.posts)
-                        );
+                        this.setState({ posts: resp.data });
                     });
             }
         );
@@ -132,7 +112,6 @@ class Home extends Component {
 
     render() {
         var postsToRender = this.state.posts.map((value, i) => {
-            console.log(value);
             if (value.type === "twitter") {
                 return (
                     <Container
@@ -185,6 +164,8 @@ class Home extends Component {
                         </div>
                     </Container>
                 );
+            } else {
+                return null;
             }
         });
 

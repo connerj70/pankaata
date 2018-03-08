@@ -16,7 +16,6 @@ class Relationships extends Component {
 
     componentDidMount() {
         axios.get("/api/admin").then(resp => {
-            console.log(resp);
             this.setState({
                 loggedIn: resp.data
             });
