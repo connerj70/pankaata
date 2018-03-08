@@ -1,6 +1,17 @@
 .navbar_wrapper {
 }
 
+.mail-chimp-wrapper {
+    position: fixed;
+    z-index: 20;
+    left: calc(50% - 180px);
+    top: calc(50% - 135px);
+    background-color: #efefef;
+    border-radius: 5px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
 .navbar {
     background-color: var(--navbar-background);
     height: 74px;
@@ -49,4 +60,15 @@
     color: var(--second-font-color);
     text-align: left;
     z-index: 10;
+}
+
+.subscribe-update-btn {
+    position: fixed;
+    bottom: 2%;
+    right: 6%;
+    background-color: var(--yellow);
+    color: #fff;
+    border-radius: 5px;
+    padding: 10px 15px;
+    z-index: 20;
 }
