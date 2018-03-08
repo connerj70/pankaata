@@ -196,9 +196,13 @@ app.get("/api/lady/letters", function(req, res) {
 app.get("/api/lady/letter/:id", function(req, res) {
     const db = req.app.get("db");
     db.get_letter([req.params.id]).then(resp => {
+        console.log("RESP", resp);
         let toReturn = Object.assign({}, resp[0]);
         db.get_response([req.params.id]).then(resp2 => {
-            toReturn.response = resp2[0].response;
+            console.log("RESP2", resp2);
+            if (resp2[0]) {
+                toReturn.response = resp2[0].response;
+            }
             res.status(200).send(toReturn);
         });
     });
