@@ -1,1 +1,1 @@
-select * from letters where show = true;
+select * from letters where show = true order by letter_id desc;

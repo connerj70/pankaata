@@ -1,0 +1,1 @@
+select * from letters where letter_id = $1;

@@ -5,7 +5,13 @@ import axios from "axios";
 class Email extends Component {
     constructor(props) {
         super(props);
-        this.state = { from: "", subject: "", situation: "", anonymous: false };
+        this.state = {
+            from: "",
+            subject: "",
+            situation: "",
+            anonymous: false,
+            nickname: ""
+        };
     }
     handleChange(e) {
         let value = e.target.value;
@@ -30,7 +36,8 @@ class Email extends Component {
                 from: this.state.from,
                 subject: this.state.subject,
                 situation: this.state.situation,
-                anonymous: this.state.anonymous
+                anonymous: this.state.anonymous,
+                nickname: this.state.nickname
             })
             .then(resp => {
                 this.props.history.push("/relationships/videos");
@@ -55,6 +62,13 @@ class Email extends Component {
                         name="subject"
                         onChange={e => this.handleChange(e)}
                         type="text"
+                    />
+                </div>
+                <div className="email_sub-container">
+                    <h3>Nickname:</h3>
+                    <input
+                        name="nickname"
+                        onChange={e => this.handleChange(e)}
                     />
                 </div>
                 <div className="email_sub-container">

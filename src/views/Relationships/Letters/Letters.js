@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./Letters.css";
 import Letter from "../../../components/Letter/Letter";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 class Letters extends Component {
     constructor(props) {
@@ -20,11 +21,14 @@ class Letters extends Component {
     render() {
         let lettersToShow = this.state.letters.map((value, i) => {
             return (
-                <Letter
-                    key={i}
-                    subject={value.subject}
-                    situation={value.situation}
-                />
+                <Link to={"/relationships/letter/" + value.letter_id}>
+                    <Letter
+                        key={i}
+                        subject={value.subject}
+                        situation={value.situation}
+                        cut={true}
+                    />
+                </Link>
             );
         });
 

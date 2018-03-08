@@ -45,3 +45,7 @@ a {
 .fa-check {
     color: var(--blue);
 }
+
+.paragraph-container p {
+    line-height: 1.5rem;
+}

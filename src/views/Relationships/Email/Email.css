@@ -15,21 +15,21 @@
 }
 
 .email_sub-container input {
-    width: 70%;
+    width: 65%;
     margin-top: 10px;
     padding: 5px 10px;
     font-size: 12px;
 }
 
 .email_sub-container textarea {
-    width: 70%;
+    width: 65%;
     margin-top: 10px;
     padding: 5px 10px;
     font-size: 12px;
 }
 
 .button-container {
-    justify-content: flex-end;
+    justify-content: flex-start;
 }
 
 .button-container button {

@@ -6,6 +6,7 @@ import Videos from "./Videos/Videos";
 import Letters from "./Letters/Letters";
 import Email from "./Email/Email";
 import About from "./About/About";
+import LetterDetailsUser from "./LetterDetailsUser/LetterDetailsUser";
 import axios from "axios";
 
 class Relationships extends Component {
@@ -37,6 +38,10 @@ class Relationships extends Component {
                 ) : null}
                 <Route path={"/relationships/videos"} component={Videos} />
                 <Route path={"/relationships/letters"} component={Letters} />
+                <Route
+                    path={"/relationships/letter/:id"}
+                    component={LetterDetailsUser}
+                />
                 <Route path={"/relationships/email"} component={Email} />
                 <Route path={"/relationships/about"} component={About} />
             </div>

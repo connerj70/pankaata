@@ -14,13 +14,21 @@ class Letter extends Component {
                     <h2>{this.props.subject}</h2>
                 </div>
                 <div>
-                    <p className={this.props.cut ? "p_cut-text" : null}>
-                        Dear Lady Ann: {this.props.situation}
+                    <div className="paragraph-container">
+                        Dear Lady Ann:{" "}
+                        <p className={this.props.cut ? "p_cut-text" : null}>
+                            {this.props.situation}
+                        </p>
                         <br />
                         {this.props.response ? (
-                            <div>{this.props.response}</div>
+                            <p>
+                                {!this.props.anonymous && this.props.nickname
+                                    ? `Dear ${this.props.nickname}: `
+                                    : "Dear Anonymous: "}
+                                {this.props.response}
+                            </p>
                         ) : null}
-                    </p>
+                    </div>
                 </div>
                 {this.props.sender ? (
                     <div className="letter_user_div">

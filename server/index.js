@@ -216,6 +216,13 @@ app.get("/api/letters/replied", function(req, res) {
     });
 });
 
+app.get("/api/letter/user/:id", function(req, res) {
+    const db = req.app.get("db");
+    db.get_user_letter([req.params.id]).then(resp => {
+        res.status(200).send(resp);
+    });
+});
+
 app.post("/api/lady/reply", function(req, res) {
     const db = req.app.get("db");
     const { response, letter_id } = req.body;
@@ -238,7 +245,7 @@ var transporter = nodemailer.createTransport(
 );
 app.post("/api/lady/email", function(req, res) {
     const db = req.app.get("db");
-    const { subject, situation, from, anonymous } = req.body;
+    const { subject, situation, from, anonymous, nickname } = req.body;
     let x = new Date();
 
     var day = x.getDate();
@@ -266,7 +273,15 @@ app.post("/api/lady/email", function(req, res) {
         // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
     });
     db
-        .create_letter([from, subject, situation, anonymous, false, date])
+        .create_letter([
+            from,
+            subject,
+            situation,
+            anonymous,
+            false,
+            date,
+            nickname
+        ])
         .then(resp => {
             res.status(200).send(resp);
         });
