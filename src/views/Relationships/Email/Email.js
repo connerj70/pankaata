@@ -32,7 +32,9 @@ class Email extends Component {
                 situation: this.state.situation,
                 anonymous: this.state.anonymous
             })
-            .then(resp => {});
+            .then(resp => {
+                this.props.history.push("/relationships/videos");
+            });
     }
 
     render() {
