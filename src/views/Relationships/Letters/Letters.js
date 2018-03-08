@@ -32,7 +32,7 @@ class Letters extends Component {
             );
         });
 
-        return <div>{lettersToShow}</div>;
+        return <div className="user-letter-wrapper">{lettersToShow}</div>;
     }
 }
 

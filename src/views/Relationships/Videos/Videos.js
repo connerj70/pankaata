@@ -40,7 +40,11 @@ class Videos extends Component {
             }
         });
 
-        return <div>{videosToDisplay}</div>;
+        return (
+            <div className="relationship-videos-container">
+                {videosToDisplay}
+            </div>
+        );
     }
 }
 

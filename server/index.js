@@ -216,13 +216,6 @@ app.get("/api/letters/replied", function(req, res) {
     });
 });
 
-app.get("/api/letter/user/:id", function(req, res) {
-    const db = req.app.get("db");
-    db.get_user_letter([req.params.id]).then(resp => {
-        res.status(200).send(resp);
-    });
-});
-
 app.post("/api/lady/reply", function(req, res) {
     const db = req.app.get("db");
     const { response, letter_id } = req.body;

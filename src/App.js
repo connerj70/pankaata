@@ -16,6 +16,7 @@ import EditPost from "./views/EditPost/EditPost";
 import AdminLetters from "./views/AdminLetters/AdminLetters";
 import LetterDetails from "./views/LetterDetails/LetterDetails";
 import FourOhFour from "./views/FourOhFour/FourOhFour";
+import Footer from "./components/Footer/Footer";
 
 class App extends Component {
     render() {
@@ -35,6 +36,7 @@ class App extends Component {
                     <Route path="/editpost/:id" component={EditPost} />
                     <Route component={FourOhFour} />
                 </Switch>
+                <Footer />
             </div>
         );
     }
