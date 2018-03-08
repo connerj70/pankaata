@@ -1,0 +1,3 @@
+.letter-details-user-container {
+    min-height: calc(100vh - 60px - 75px);
+}

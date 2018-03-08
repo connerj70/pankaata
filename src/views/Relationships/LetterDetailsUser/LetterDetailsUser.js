@@ -40,7 +40,7 @@ class componentName extends Component {
 
     render() {
         return (
-            <div>
+            <div className="letter-details-user-container">
                 <Letter
                     subject={this.state.subject}
                     situation={this.state.situation}
