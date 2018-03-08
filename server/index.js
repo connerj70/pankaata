@@ -33,7 +33,11 @@ app.post("/api/admin", function(req, res) {
         .check_admin([req.body.username, req.body.password])
         .then(resp => {
             if (resp.length !== 0) {
-                req.session.user = { username: resp[0].username };
+                req.session.user = {
+                    username: resp[0].username,
+                    firstVisit: false,
+                    subscribed: true
+                };
                 res.status(200).send(resp);
             } else {
                 res.status(401).send(resp);
@@ -45,7 +49,7 @@ app.post("/api/admin", function(req, res) {
 });
 
 app.get("/api/admin", function(req, res) {
-    if (req.session.user) {
+    if (req.session.user.username) {
         res.status(200).send(true);
     } else {
         res.send(false);
@@ -66,6 +70,7 @@ app.get("/api/check-user", function(req, res) {
     } else {
         subscribed = true;
     }
+    console.log(req.session.admin);
     res.status(200).send({ firstVisit, subscribed });
 });
 

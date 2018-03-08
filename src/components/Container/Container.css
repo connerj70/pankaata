@@ -75,3 +75,13 @@
     text-align: left;
     margin-top: 10px;
 }
+
+.share-container {
+    display: flex;
+    margin-top: 10px;
+    align-items: center;
+}
+
+.share-container h5 {
+    margin-right: 10px;
+}

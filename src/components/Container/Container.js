@@ -39,6 +39,21 @@ class Container extends Component {
                 </div>
                 <div>{this.props.children}</div>
                 {/* <div className="tags-container">{tagsToRender}</div> */}
+                <div className="share-container">
+                    <h5>Share this post:</h5>
+                    <a
+                        className="twitter-share-button"
+                        href={
+                            "https://twitter.com/intent/tweet?text=Checkout%20this%20post%20on%20Pankaata:%20" +
+                            this.props.title
+                        }
+                    >
+                        <i
+                            style={{ color: "#1DA1F2" }}
+                            className="fab fa-twitter"
+                        />
+                    </a>
+                </div>
             </div>
         );
     }

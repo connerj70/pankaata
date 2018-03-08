@@ -8,13 +8,19 @@ class AdminLetters extends Component {
     constructor(props) {
         super(props);
 
-        this.state = { letters: [] };
+        this.state = { letters: [], loggedIn: false };
     }
 
     componentDidMount() {
         axios.get("/api/lady/letters").then(resp => {
             this.setState({
                 letters: resp.data
+            });
+        });
+        axios.get("/api/admin").then(resp => {
+            console.log(resp);
+            this.setState({
+                loggedIn: resp.data
             });
         });
     }
@@ -36,8 +42,14 @@ class AdminLetters extends Component {
 
         return (
             <div>
-                <Navbar ladyAnn={true} />
-                {lettersToDisplay}
+                {this.state.loggedIn ? (
+                    <div>
+                        <Navbar ladyAnn={true} />
+                        {lettersToDisplay}
+                    </div>
+                ) : (
+                    <h1>Permission denied</h1>
+                )}
             </div>
         );
     }

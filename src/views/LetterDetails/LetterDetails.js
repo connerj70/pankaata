@@ -12,7 +12,8 @@ class LetterDetails extends Component {
             situation: "",
             sender: "",
             anonymous: "",
-            response: ""
+            response: "",
+            loggedIn: false
         };
     }
 
@@ -28,6 +29,12 @@ class LetterDetails extends Component {
                     response: resp.data.response
                 });
             });
+        axios.get("/api/admin").then(resp => {
+            console.log(resp);
+            this.setState({
+                loggedIn: resp.data
+            });
+        });
     }
 
     handleChange(e) {
@@ -48,34 +55,38 @@ class LetterDetails extends Component {
     }
 
     render() {
-        return (
-            <div>
-                <Navbar ladyAnn={true} />
-                <Letter
-                    subject={this.state.subject}
-                    situation={this.state.situation}
-                    sender={this.state.sender}
-                    anonymous={this.state.anonymous}
-                    cut={false}
-                />
+        if (this.state.loggedIn) {
+            return (
                 <div>
-                    <textarea
-                        value={this.state.response}
-                        placeholder="Respond to message here"
-                        className="reply-box"
-                        onChange={e => this.handleChange(e.target.value)}
+                    <Navbar ladyAnn={true} />
+                    <Letter
+                        subject={this.state.subject}
+                        situation={this.state.situation}
+                        sender={this.state.sender}
+                        anonymous={this.state.anonymous}
+                        cut={false}
                     />
+                    <div>
+                        <textarea
+                            value={this.state.response}
+                            placeholder="Respond to message here"
+                            className="reply-box"
+                            onChange={e => this.handleChange(e.target.value)}
+                        />
+                    </div>
+                    <div className="publish-btn-container">
+                        <button
+                            className="publish-btn"
+                            onClick={() => this.handleClick()}
+                        >
+                            Publish Reply
+                        </button>
+                    </div>
                 </div>
-                <div className="publish-btn-container">
-                    <button
-                        className="publish-btn"
-                        onClick={() => this.handleClick()}
-                    >
-                        Publish Reply
-                    </button>
-                </div>
-            </div>
-        );
+            );
+        } else {
+            return <h1>Unauthorized</h1>;
+        }
     }
 }
 
