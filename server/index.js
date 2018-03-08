@@ -97,9 +97,17 @@ app.post("/api/posts", function(req, res) {
     var { title, type, url, category } = req.body;
     var tags = req.body.tags.split(",");
     tags = tags.map(val => val.trim());
+    let x = new Date();
+
+    var day = x.getDate();
+    var month = x.getMonth() + 1;
+    var year = x.getFullYear();
+
+    let date = `${month}/${day}/${year}`;
+
     const db = req.app.get("db");
     db
-        .create_post([title, type, url, category])
+        .create_post([title, type, url, category, date])
         .then(resp => {
             for (let i = 0; i < tags.length; i++) {
                 db.create_tag([tags[i]]).then(resp2 => {

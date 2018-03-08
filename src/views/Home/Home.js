@@ -141,6 +141,7 @@ class Home extends Component {
                         title={value.title}
                         tags={value.tags}
                         postId={value.post_id}
+                        creation_date={value.creation_date}
                     >
                         <div className="media-wrapper">
                             <TwitterTweetEmbed tweetId={value.url} />
@@ -155,6 +156,7 @@ class Home extends Component {
                         title={value.title}
                         tags={value.tags}
                         postId={value.post_id}
+                        creation_date={value.creation_date}
                     >
                         <Link to={value.url}>
                             {" "}
@@ -176,6 +178,7 @@ class Home extends Component {
                         title={value.title}
                         tags={value.tags}
                         postId={value.post_id}
+                        creation_date={value.creation_date}
                     >
                         <div className="media-wrapper">
                             <YouTube videoId={value.url} />

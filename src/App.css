@@ -8,12 +8,14 @@ body {
     padding: 0;
     font-family: arial;
     background-color: var(--body-background);
+    color: var(--font-color);
 }
 
 :root {
     --body-background: #edf0f1;
     --navbar-background: #2f3e4e;
     --second-font-color: #bec2c7;
+    --third-font: #788289;
     --secondary-highlights: #26313f;
     --blue: #1b75bc;
     --yellow: #fbb040;
@@ -21,6 +23,7 @@ body {
     --light-brown: #c59575;
     --medium-brown: #a06232;
     --dark-brown: #7d4e24;
+    --font-color: #1f2b38;
 }
 
 .App {

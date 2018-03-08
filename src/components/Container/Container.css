@@ -11,14 +11,28 @@
 .container-comp_header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: top;
     width: 100%;
+}
+
+.container-comp_sub-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: left;
+}
+
+.published-date {
+    font-size: 14px;
+    color: var(--third-font);
+    text-align: left;
+    margin-top: 10px;
 }
 
 .container-comp h1 {
     margin-bottom: 10px;
     text-align: left;
-    font-size: 22px;
+    font-size: 20px;
     margin-right: 5px;
 }
 
@@ -50,4 +64,11 @@
     text-align: center;
     margin-right: 5px;
     border-radius: 5px;
+}
+
+.published-by {
+    font-size: 14px;
+    color: var(--third-font);
+    text-align: left;
+    margin-top: 10px;
 }

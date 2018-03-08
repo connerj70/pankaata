@@ -60,24 +60,29 @@ class Navbar extends Component {
                     }
                 >
                     <ul>
-                        <Link to="/worthynews">
-                            <li className="navbar_dropdown">Worthy News</li>
-                        </Link>
                         <Link to="/motivational">
                             <li className="navbar_dropdown">
-                                Motivational Monday
+                                MotivationalMonday
                             </li>
                         </Link>
+                        <Link to="/worthynews">
+                            <li className="navbar_dropdown">WorthyNews</li>
+                        </Link>
                         <Link to="/food">
-                            <li className="navbar_dropdown">Food</li>
+                            <li className="navbar_dropdown">FoodPorn</li>
+                        </Link>
+                        <Link to="/animal">
+                            <li className="navbar_dropdown">AnimalLovers</li>
+                        </Link>
+                        <Link to="/thousandwords">
+                            <li className="navbar_dropdown">ThousandWords</li>
+                        </Link>
+                        <Link to="/entertainment">
+                            <li className="navbar_dropdown">Entertainment</li>
                         </Link>
 
                         <Link to="/relationships/videos">
                             <li className="navbar_dropdown">Relationship</li>
-                        </Link>
-
-                        <Link to="/animal">
-                            <li className="navbar_dropdown">Animal World</li>
                         </Link>
                     </ul>
                 </div>

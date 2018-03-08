@@ -1,6 +1,7 @@
 .media-wrapper {
     max-width: 400px;
     margin: 0 auto;
+    display: flex;
 }
 
 .new-post-button-container {
@@ -21,13 +22,16 @@
 }
 
 .media-wrapper iframe {
-    width: 300px;
+    width: 100%;
     margin: 0 auto;
 }
 
+.media-wrapper > span {
+    width: 100%;
+}
+
 .media-wrapper div {
-    width: 300px;
-    margin: 0 auto;
+    width: 100%;
 }
 
 .postsToRender-container {
