@@ -6,14 +6,30 @@ import { Link } from "react-router-dom";
 import LadyAnnNav from "./LadyAnnNav/LadyAnnNav";
 import CustomForm from "../../components/CustomForm/CustomForm";
 import MailchimpSubscribe from "react-mailchimp-subscribe";
+import axios from "axios";
 
 class Navbar extends Component {
     constructor(props) {
         super(props);
         this.state = {
             menu: false,
-            popup: true
+            popup: false,
+            hideBtn: false
         };
+        this.handleClick = this.handleClick.bind(this);
+    }
+
+    componentDidMount() {
+        axios.get("/api/check-user").then(resp => {
+            console.log(resp);
+            if (resp.data.subscribed) {
+                this.setState({
+                    hideBtn: true
+                });
+            } else if (resp.data.firstVisit && !resp.data.subscribed) {
+                this.setState({ popup: true });
+            }
+        });
     }
 
     handleMenu() {
@@ -47,6 +63,7 @@ class Navbar extends Component {
                             url="https://connerjensen.us12.list-manage.com/subscribe/post?u=d027a268dc690865020f8ba3c&amp;id=bed3d31b47"
                             render={({ subscribe, status, message }) => (
                                 <CustomForm
+                                    handleClick={this.handleClick}
                                     status={status}
                                     message={message}
                                     onValidated={formData =>
@@ -134,13 +151,15 @@ class Navbar extends Component {
                     </div>
                 ) : null}
 
-                {!this.state.popup ? (
-                    <div
-                        className="subscribe-update-btn"
-                        onClick={() => this.handleClick()}
-                    >
-                        Subscribe
-                    </div>
+                {!this.state.hideBtn ? (
+                    !this.state.popup ? (
+                        <div
+                            className="subscribe-update-btn"
+                            onClick={() => this.handleClick()}
+                        >
+                            Subscribe
+                        </div>
+                    ) : null
                 ) : null}
             </div>
         );

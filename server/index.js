@@ -6,7 +6,8 @@ const express = require("express"),
     session = require("express-session"),
     bodyParser = require("body-parser"),
     nodemailer = require("nodemailer"),
-    smtpTransport = require("nodemailer-smtp-transport");
+    smtpTransport = require("nodemailer-smtp-transport"),
+    initialSession = require("./middlewares/checkForSession").checkForSession;
 
 const app = express();
 app.use(bodyParser.json());
@@ -22,6 +23,8 @@ app.use(
         saveUninitialized: false
     })
 );
+
+app.use((req, res, next) => initialSession(req, res, next));
 
 //ADMIN ENDPOINTS
 app.post("/api/admin", function(req, res) {
@@ -47,6 +50,28 @@ app.get("/api/admin", function(req, res) {
     } else {
         res.send(false);
     }
+});
+
+//USER ENDPOINTS
+app.get("/api/check-user", function(req, res) {
+    let firstVisit;
+    let subscribed;
+    if (req.session.user.firstVisit) {
+        firstVisit = true;
+    } else {
+        firstVisit = false;
+    }
+    if (!req.session.user.subscribed) {
+        subscribed = false;
+    } else {
+        subscribed = true;
+    }
+    res.status(200).send({ firstVisit, subscribed });
+});
+
+app.post("/api/user-subscribe", function(req, res) {
+    req.session.user.subscribed = true;
+    res.status(200).send("User Subscribed");
 });
 
 //POSTS ENDPOINTS

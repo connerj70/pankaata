@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import "./CustomForm.css";
+import axios from "axios";
 
-const CustomForm = ({ status, message, onValidated }) => {
+const CustomForm = ({ status, message, onValidated, handleClick }) => {
     let email, name;
     const submit = () =>
         email &&
@@ -11,6 +12,11 @@ const CustomForm = ({ status, message, onValidated }) => {
             EMAIL: email.value,
             NAME: name.value
         });
+
+    const handleBoth = () => {
+        submit();
+        axios.post("/api/user-subscribe");
+    };
 
     return (
         <div
@@ -54,7 +60,7 @@ const CustomForm = ({ status, message, onValidated }) => {
             <button
                 className="chimp-mail-button"
                 style={{ fontSize: "2em", padding: 5 }}
-                onClick={submit}
+                onClick={handleBoth}
             >
                 Submit
             </button>
