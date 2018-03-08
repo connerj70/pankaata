@@ -27,6 +27,7 @@
     color: var(--third-font);
     text-align: left;
     margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .container-comp h1 {

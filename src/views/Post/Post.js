@@ -4,6 +4,7 @@ import Navbar from "../../components/Navbar/Navbar";
 import instagram from "../../assets/instagram-example2.png";
 import youtube from "../../assets/youtube-example2.png";
 import twitter from "../../assets/twitter-example2.png";
+import facebook from "../../assets/facebook-example.png";
 import axios from "axios";
 
 class Post extends Component {
@@ -82,6 +83,7 @@ class Post extends Component {
                                     </option>
                                     <option value="twitter">Twitter</option>
                                     <option value="instagram">Instagram</option>
+                                    <option value="facebook">Facebook</option>
                                     <option value="youtube">Youtube</option>
                                     <option value="news">News</option>
                                 </select>
@@ -145,6 +147,25 @@ class Post extends Component {
                                         placeholder="youtube video id"
                                     />
                                 </div>
+                            ) : this.state.type === "facebook" ? (
+                                <div>
+                                    <h3 className="social-helper-h3">
+                                        Please copy the entire url of the
+                                        facebook page you would like to post
+                                        into the box below.
+                                    </h3>
+                                    <img
+                                        alt="facebook"
+                                        className="social-helper-image"
+                                        src={facebook}
+                                    />
+                                    <input
+                                        name="url"
+                                        onChange={e => this.handleChange(e)}
+                                        type="text"
+                                        placeholder="facebook url"
+                                    />
+                                </div>
                             ) : (
                                 <input
                                     name="url"
@@ -171,6 +192,12 @@ class Post extends Component {
                                         Relationship
                                     </option>
                                     <option value="animal">Animal World</option>
+                                    <option value="entertainment">
+                                        Entertainment
+                                    </option>
+                                    <option value="thousand">
+                                        Thousand Words
+                                    </option>
                                     <option value="miscellaneous">
                                         Miscellaneous
                                     </option>

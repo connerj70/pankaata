@@ -5,6 +5,7 @@ import axios from "axios";
 import { TwitterTweetEmbed } from "react-twitter-embed";
 import InstagramEmbed from "react-instagram-embed";
 import YouTube from "react-youtube";
+import FacebookProvider, { EmbeddedPost } from "react-facebook";
 import Container from "../../components/Container/Container";
 import { Link } from "react-router-dom";
 
@@ -102,6 +103,25 @@ class Motivational extends Component {
                     >
                         <div className="media-wrapper">
                             <YouTube videoId={value.url} />
+                        </div>
+                    </Container>
+                );
+            } else if (value.type === "facebook") {
+                return (
+                    <Container
+                        admin={this.state.loggedIn}
+                        key={i}
+                        title={value.title}
+                        tags={value.tags}
+                        postId={value.post_id}
+                        creation_date={value.creation_date}
+                    >
+                        <div className="media-wrapper">
+                            <FacebookProvider
+                                appId={process.env.REACT_APP_FACEBOOK_APP_ID}
+                            >
+                                <EmbeddedPost href={value.url} width="500" />
+                            </FacebookProvider>
                         </div>
                     </Container>
                 );

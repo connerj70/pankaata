@@ -216,7 +216,7 @@ app.post("/api/lady/email", function(req, res) {
     let mailOptions = {
         from: from, // sender address
         to: process.env.NODEMAILER_EMAIL, // list of receivers
-        subject: subject, // Subject line
+        subject: `Lady Ann Message ${subject}`, // Subject line
         text: situation // plain text body
     };
 
