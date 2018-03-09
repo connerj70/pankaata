@@ -257,6 +257,10 @@ var transporter = nodemailer.createTransport(
 );
 app.post("/api/lady/email", function(req, res) {
     const db = req.app.get("db");
+    req.session.user.pastLadyEmail.subject = "";
+    req.session.user.pastLadyEmail.from = "";
+    req.session.user.pastLadyEmail.situation = "";
+
     const { subject, situation, from, anonymous } = req.body;
     let x = new Date();
 

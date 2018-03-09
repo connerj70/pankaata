@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./Email.css";
 import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
 
 class Email extends Component {
     constructor(props) {
@@ -67,7 +68,10 @@ class Email extends Component {
                 anonymous: this.state.anonymous
             })
             .then(resp => {
-                this.props.history.push("/relationships/videos");
+                toast.info("Message Sent");
+                setTimeout(() => {
+                    this.props.history.push("/relationships/videos");
+                }, 2000);
             });
     }
 
@@ -115,6 +119,7 @@ class Email extends Component {
                 <div className="email_sub-container button-container">
                     <button onClick={() => this.handleClick()}>Send</button>
                 </div>
+                <ToastContainer autoClose={1800} />
             </div>
         );
     }
