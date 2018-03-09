@@ -161,7 +161,10 @@ class Home extends Component {
                         creation_date={value.creation_date}
                     >
                         <div className="media-wrapper">
-                            <YouTube videoId={value.url} />
+                            <YouTube
+                                videoId={value.url}
+                                opts={{ suggestedQuality: "small" }}
+                            />
                         </div>
                     </Container>
                 );
