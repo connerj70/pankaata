@@ -95,6 +95,25 @@ class Home extends Component {
         });
     }
 
+    loadMore() {
+        this.setState(
+            prevProps => {
+                return {
+                    offset: prevProps.offset + 4
+                };
+            },
+            () => {
+                axios
+                    .get("/api/posts?offset=" + this.state.offset)
+                    .then(resp => {
+                        var posts = this.state.posts.slice();
+                        posts = [...posts, ...resp.data];
+                        this.setState({ posts: posts });
+                    });
+            }
+        );
+    }
+
     clearSearchTerm() {
         this.setState(
             {
@@ -218,10 +237,13 @@ class Home extends Component {
                         <div className="postsToRender-container">
                             {postsToRender}
                             {this.state.offset >= 8 ? (
-                                <button className="next-page-btn">
-                                    next<i
+                                <button
+                                    onClick={() => this.loadMore()}
+                                    className="next-page-btn"
+                                >
+                                    Load More<i
                                         style={{ marginLeft: "5px" }}
-                                        className="fas fa-arrow-right"
+                                        className="fas fa-arrow-down"
                                     />
                                 </button>
                             ) : null}

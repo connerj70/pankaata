@@ -60,7 +60,7 @@ class Navbar extends Component {
                             X
                         </span>
                         <MailchimpSubscribe
-                            url="https://connerjensen.us12.list-manage.com/subscribe/post?u=d027a268dc690865020f8ba3c&amp;id=bed3d31b47"
+                            url="https://pankaata.us12.list-manage.com/subscribe/post?u=760e8048ea540051ed798d77f&amp;id=d91f68e130"
                             render={({ subscribe, status, message }) => (
                                 <CustomForm
                                     handleClick={this.handleClick}
