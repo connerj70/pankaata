@@ -6,7 +6,6 @@
     flex-direction: column;
 }
 .email-share-wrapper {
-    min-height: calc(100vh - 60px);
 }
 
 .email-share-wrapper h1 {
