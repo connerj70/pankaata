@@ -41,7 +41,10 @@ class Container extends Component {
                                 : "Pankaata"}
                         </div>
                         <div className="published-date">
-                            {this.props.creation_date}
+                            <div>{this.props.creation_date}</div>
+                            <div style={{ marginTop: "5px" }}>
+                                {this.props.time}
+                            </div>
                         </div>
                     </div>
                     {this.props.admin ? (

@@ -58,7 +58,7 @@ class LetterDetails extends Component {
     render() {
         if (this.state.loggedIn) {
             return (
-                <div>
+                <div style={{ minHeight: "calc(100vh - 60px)" }}>
                     <Navbar ladyAnn={true} />
                     <Letter
                         subject={this.state.subject}

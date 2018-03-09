@@ -70,7 +70,6 @@ app.get("/api/check-user", function(req, res) {
     } else {
         subscribed = true;
     }
-    console.log(req.session.admin);
     res.status(200).send({ firstVisit, subscribed });
 });
 
@@ -82,7 +81,6 @@ app.post("/api/user-subscribe", function(req, res) {
 //POSTS ENDPOINTS
 
 app.delete("/api/post/:id", function(req, res) {
-    console.log(req.params.id);
     const db = req.app.get("db");
     db.delete_post_tags([req.params.id]).then(resp => {
         db.delete_post([req.params.id]).then(resp => {
@@ -96,7 +94,6 @@ app.get("/api/get-count", function(req, res) {
     db
         .count_posts()
         .then(resp => {
-            console.log(resp);
             res.status(200).send(resp);
         })
         .catch(err => res.status(500).send(err));
@@ -150,12 +147,15 @@ app.post("/api/posts", function(req, res) {
     var day = x.getDate();
     var month = x.getMonth() + 1;
     var year = x.getFullYear();
+    var hour = x.getHours();
+    var minutes = x.getMinutes();
 
     let date = `${month}/${day}/${year}`;
+    let time = `${hour}:${minutes}`;
 
     const db = req.app.get("db");
     db
-        .create_post([title, type, url, category, date])
+        .create_post([title, type, url, category, date, time])
         .then(resp => {
             for (let i = 0; i < tags.length; i++) {
                 db.create_tag([tags[i]]).then(resp2 => {
@@ -237,15 +237,21 @@ app.get("/api/lady/letters", function(req, res) {
 app.get("/api/lady/letter/:id", function(req, res) {
     const db = req.app.get("db");
     db.get_letter([req.params.id]).then(resp => {
-        console.log("RESP", resp);
         let toReturn = Object.assign({}, resp[0]);
         db.get_response([req.params.id]).then(resp2 => {
-            console.log("RESP2", resp2);
             if (resp2[0]) {
                 toReturn.response = resp2[0].response;
             }
             res.status(200).send(toReturn);
         });
+    });
+});
+
+app.delete("/api/letter/:id", function(req, res) {
+    const db = req.app.get("db");
+    console.log(req.params.id);
+    db.delete_letter([req.params.id]).then(resp => {
+        res.status(200).send(resp);
     });
 });
 
@@ -279,7 +285,6 @@ var transporter = nodemailer.createTransport(
 );
 
 app.post("/api/share/post", function(req, res) {
-    console.log("BODY", req.body);
     const to = req.body.email;
     const subject = req.body.post[0].title;
     let mailOptions = {

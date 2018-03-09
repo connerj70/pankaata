@@ -5,6 +5,23 @@ class Letter extends Component {
     render() {
         return (
             <div className="admin-letter-container">
+                {this.props.admin ? (
+                    <div
+                        style={{
+                            display: "flex",
+                            justifyContent: "flex-end",
+                            width: "100%",
+                            minWidth: "50px"
+                        }}
+                    >
+                        <i
+                            onClick={() =>
+                                this.props.deleteLetter(this.props.letterId)
+                            }
+                            className="far fa-trash-alt"
+                        />
+                    </div>
+                ) : null}
                 {this.props.anonymous ? (
                     <div className="anon-highlight">
                         *User Prefers To Remain Anonymous

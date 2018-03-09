@@ -148,6 +148,7 @@ class Home extends Component {
                         postId={value.post_id}
                         creation_date={value.creation_date}
                         category={value.category}
+                        time={value.time}
                     >
                         <div className="media-wrapper">
                             <TwitterTweetEmbed tweetId={value.url} />
@@ -164,6 +165,7 @@ class Home extends Component {
                         postId={value.post_id}
                         creation_date={value.creation_date}
                         category={value.category}
+                        time={value.time}
                     >
                         <Link to={value.url}>
                             {" "}
@@ -187,6 +189,7 @@ class Home extends Component {
                         postId={value.post_id}
                         creation_date={value.creation_date}
                         category={value.category}
+                        time={value.time}
                     >
                         <div className="media-wrapper">
                             <YouTube
@@ -206,6 +209,7 @@ class Home extends Component {
                         postId={value.post_id}
                         creation_date={value.creation_date}
                         category={value.category}
+                        time={value.time}
                     >
                         <div className="media-wrapper">
                             <FacebookProvider

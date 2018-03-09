@@ -66,6 +66,7 @@ class PostContainer extends Component {
                         tags={value.tags}
                         postId={value.post_id}
                         category={value.category}
+                        time={value.time}
                     >
                         <div className="media-wrapper">
                             <TwitterTweetEmbed tweetId={value.url} />
@@ -81,6 +82,7 @@ class PostContainer extends Component {
                         tags={value.tags}
                         postId={value.post_id}
                         category={value.category}
+                        time={value.time}
                     >
                         <Link to={value.url}>
                             {" "}
@@ -103,6 +105,7 @@ class PostContainer extends Component {
                         tags={value.tags}
                         postId={value.post_id}
                         category={value.category}
+                        time={value.time}
                     >
                         <div className="media-wrapper">
                             <YouTube videoId={value.url} />
@@ -119,6 +122,7 @@ class PostContainer extends Component {
                         postId={value.post_id}
                         creation_date={value.creation_date}
                         category={value.category}
+                        time={value.time}
                     >
                         <div className="media-wrapper">
                             <FacebookProvider
