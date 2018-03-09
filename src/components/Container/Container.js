@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./Container.css";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
 
 class Container extends Component {
     constructor(props) {
@@ -10,9 +11,13 @@ class Container extends Component {
     }
 
     deletePost(postId) {
-        axios.delete("/api/post/" + postId).then(resp => {
-            console.log(resp);
-        });
+        var x = window.confirm("Are you sure you want to delete?");
+        if (x) {
+            axios.delete("/api/post/" + postId).then(resp => {
+                console.log(resp);
+                toast.error("Post deleted. Will apply after refresh");
+            });
+        }
     }
 
     render() {
@@ -76,6 +81,7 @@ class Container extends Component {
                         />
                     </Link>
                 </div>
+                <ToastContainer autoClose={2000} />
             </div>
         );
     }
