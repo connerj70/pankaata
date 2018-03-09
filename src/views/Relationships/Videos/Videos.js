@@ -29,6 +29,7 @@ class Videos extends Component {
                         title={value.title}
                         tags={value.tags}
                         postId={value.post_id}
+                        category={value.category}
                     >
                         <div className="media-wrapper">
                             <YouTube videoId={value.url} />
