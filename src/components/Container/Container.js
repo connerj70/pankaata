@@ -23,7 +23,11 @@ class Container extends Component {
                 <div className="container-comp_header">
                     <div className="container-comp_sub-header">
                         <h1>{this.props.title}</h1>
-                        <div className="published-by">Pankaata</div>
+                        <div className="published-by">
+                            {this.props.category === "relationships"
+                                ? "Lady Ann."
+                                : "Pankaata"}
+                        </div>
                         <div className="published-date">
                             {this.props.creation_date}
                         </div>
