@@ -1,11 +1,12 @@
 .lady-ann-container {
     height: 60px;
     width: 100%;
-    background-color: var(--red);
+    background-color: #fff;
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin-top: -1px;
+    box-shadow: 1px 2px 3px #d3d3d3;
 }
 
 .lady-ann-container ul {
@@ -17,8 +18,11 @@
 }
 
 .lady-ann-container ul li {
-    color: #fff;
-    border-right: 1px solid rgba(255, 255, 255, 0.384);
+    color: #333;
     padding: 5px;
     height: 100%;
+}
+
+.lady-ann-container ul li:hover {
+    color: var(--blue);
 }

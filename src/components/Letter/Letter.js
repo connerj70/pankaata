@@ -12,29 +12,24 @@ class Letter extends Component {
                 ) : null}
                 <div>
                     <h2>{this.props.subject}</h2>
+                    <h4 style={{ marginTop: "5px" }}> {this.props.date}</h4>
                 </div>
                 <div>
                     <div className="paragraph-container">
-                        Dear Lady Ann:{" "}
+                        Dear Lady Ann:
                         <p className={this.props.cut ? "p_cut-text" : null}>
                             {this.props.situation}
                         </p>
                         <br />
                         {this.props.response ? (
-                            <p>
-                                {!this.props.anonymous && this.props.nickname
-                                    ? `Dear ${this.props.nickname}: `
-                                    : "Dear Anonymous: "}
-                                {this.props.response}
-                            </p>
+                            <div>
+                                Dear Anonymous:
+                                <p>{this.props.response}</p>
+                            </div>
                         ) : null}
                     </div>
                 </div>
-                {this.props.sender ? (
-                    <div className="letter_user_div">
-                        User: {this.props.sender}
-                    </div>
-                ) : null}
+
                 <div>
                     {this.props.show ? (
                         <div>

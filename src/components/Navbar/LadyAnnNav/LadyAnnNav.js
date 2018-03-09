@@ -20,10 +20,10 @@ class LadyAnnNav extends Component {
                         <li>Letters</li>
                     </Link>
                     <Link to="/relationships/email">
-                        <li>Email Lady Ann</li>
+                        <li>Email Lady. Ann</li>
                     </Link>
                     <Link to="/relationships/about">
-                        <li>About Lady Ann</li>
+                        <li>About Lady. Ann</li>
                     </Link>
                 </ul>
             </div>

@@ -12,7 +12,7 @@ class componentName extends Component {
             sender: "",
             anonymous: false,
             response: "",
-            nickname: ""
+            date: ""
         };
     }
 
@@ -26,14 +26,14 @@ class componentName extends Component {
                     situation,
                     sender,
                     response,
-                    nickname
+                    date
                 } = resp.data;
                 this.setState({
                     subject,
                     situation,
                     sender,
                     response,
-                    nickname
+                    date
                 });
             });
     }
@@ -48,7 +48,7 @@ class componentName extends Component {
                     anonymous={this.state.anonymous}
                     cut={false}
                     response={this.state.response}
-                    nickname={this.state.nickname}
+                    date={this.state.date}
                 />
             </div>
         );

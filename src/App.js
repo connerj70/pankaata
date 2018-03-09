@@ -17,6 +17,7 @@ import AdminLetters from "./views/AdminLetters/AdminLetters";
 import LetterDetails from "./views/LetterDetails/LetterDetails";
 import FourOhFour from "./views/FourOhFour/FourOhFour";
 import Footer from "./components/Footer/Footer";
+import EmailShare from "./views/EmailShare/EmailShare";
 
 class App extends Component {
     render() {
@@ -34,6 +35,7 @@ class App extends Component {
                     <Route path="/relationships" component={Relationships} />
                     <Route path="/post" component={Post} />
                     <Route path="/editpost/:id" component={EditPost} />
+                    <Route path="/email/share/:id" component={EmailShare} />
                     <Route component={FourOhFour} />
                 </Switch>
                 <Footer />

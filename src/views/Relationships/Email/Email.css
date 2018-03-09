@@ -8,10 +8,12 @@
 
 .lady-ann-to {
     margin-top: 20px;
+    font-style: italic;
 }
 
 .email_sub-container h3 {
     text-align: left;
+    font-style: italic;
 }
 
 .email_sub-container input {
@@ -34,7 +36,17 @@
 
 .button-container button {
     padding: 10px 25px;
-    background: var(--blue);
-    color: #fff;
+    background-color: #fff;
+    border: 1px solid var(--blue);
+    color: #333;
     border-radius: 5px;
+    box-shadow: 2px 3px 3px #d3d3d3;
+    font-size: 16px;
+    letter-spacing: 3px;
+    transition: all 0.3s;
+}
+
+.button-container button:hover {
+    background-color: var(--blue);
+    color: #fff;
 }

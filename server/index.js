@@ -238,7 +238,7 @@ var transporter = nodemailer.createTransport(
 );
 app.post("/api/lady/email", function(req, res) {
     const db = req.app.get("db");
-    const { subject, situation, from, anonymous, nickname } = req.body;
+    const { subject, situation, from, anonymous } = req.body;
     let x = new Date();
 
     var day = x.getDate();
@@ -266,15 +266,7 @@ app.post("/api/lady/email", function(req, res) {
         // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
     });
     db
-        .create_letter([
-            from,
-            subject,
-            situation,
-            anonymous,
-            false,
-            date,
-            nickname
-        ])
+        .create_letter([from, subject, situation, anonymous, false, date])
         .then(resp => {
             res.status(200).send(resp);
         });

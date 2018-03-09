@@ -53,6 +53,12 @@ class Container extends Component {
                             className="fab fa-twitter"
                         />
                     </a>
+                    <Link to={"/email/share/" + this.props.postId}>
+                        <i
+                            style={{ marginLeft: "10px" }}
+                            className="far fa-envelope"
+                        />
+                    </Link>
                 </div>
             </div>
         );

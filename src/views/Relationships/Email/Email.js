@@ -9,8 +9,7 @@ class Email extends Component {
             from: "",
             subject: "",
             situation: "",
-            anonymous: false,
-            nickname: ""
+            anonymous: false
         };
     }
     handleChange(e) {
@@ -36,8 +35,7 @@ class Email extends Component {
                 from: this.state.from,
                 subject: this.state.subject,
                 situation: this.state.situation,
-                anonymous: this.state.anonymous,
-                nickname: this.state.nickname
+                anonymous: this.state.anonymous
             })
             .then(resp => {
                 this.props.history.push("/relationships/videos");
@@ -65,22 +63,17 @@ class Email extends Component {
                     />
                 </div>
                 <div className="email_sub-container">
-                    <h3>Nickname:</h3>
-                    <input
-                        name="nickname"
-                        onChange={e => this.handleChange(e)}
-                    />
-                </div>
-                <div className="email_sub-container">
-                    <h3>Situation:</h3>
+                    <h3>Situation Box:</h3>
                     <textarea
+                        placeholder="Dear Lady. Ann"
                         name="situation"
                         onChange={e => this.handleChange(e)}
                         rows="10"
                     />
                 </div>
+
                 <div className="email_sub-container">
-                    <h3>Lady Please Keep Me Anonymous:</h3>
+                    <h3>Dear Lady. Ann, please keep me anonymous</h3>
                     <input
                         style={{ width: "auto" }}
                         onChange={() => this.handleCheckbox()}
