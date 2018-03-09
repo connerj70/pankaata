@@ -8,6 +8,7 @@ import InstagramEmbed from "react-instagram-embed";
 import YouTube from "react-youtube";
 import FacebookProvider, { EmbeddedPost } from "react-facebook";
 import Navbar from "../../components/Navbar/Navbar";
+import { ToastContainer, toast } from "react-toastify";
 
 class EmailShare extends Component {
     constructor(props) {
@@ -28,6 +29,20 @@ class EmailShare extends Component {
                 post: resp.data
             });
         });
+    }
+
+    sharePost() {
+        const { email, post } = this.state;
+        axios
+            .post("/api/share/post", { email: email, post: post })
+            .then(resp => {
+                if (resp.status === 200) {
+                    toast.info("Email sent");
+                    setTimeout(function() {
+                        this.props.history.push("/");
+                    }, 2000);
+                }
+            });
     }
 
     render() {
@@ -116,9 +131,10 @@ class EmailShare extends Component {
                             type="text"
                         />
                     </div>
-                    <button>Share</button>
+                    <button onClick={() => this.sharePost()}>Share</button>
                 </div>
                 {postsToRender}
+                <ToastContainer autoClose={1800} />
             </div>
         );
     }

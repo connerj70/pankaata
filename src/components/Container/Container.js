@@ -1,11 +1,18 @@
 import React, { Component } from "react";
 import "./Container.css";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 class Container extends Component {
     constructor(props) {
         super(props);
         this.state = {};
+    }
+
+    deletePost(postId) {
+        axios.delete("/api/post/" + postId).then(resp => {
+            console.log(resp);
+        });
     }
 
     render() {
@@ -37,7 +44,12 @@ class Container extends Component {
                             <Link to={`/editpost/${this.props.postId}`}>
                                 <i className="far fa-edit" />
                             </Link>
-                            <i className="far fa-trash-alt" />
+                            <i
+                                onClick={() =>
+                                    this.deletePost(this.props.postId)
+                                }
+                                className="far fa-trash-alt"
+                            />
                         </div>
                     ) : null}
                 </div>

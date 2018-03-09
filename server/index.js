@@ -80,6 +80,17 @@ app.post("/api/user-subscribe", function(req, res) {
 });
 
 //POSTS ENDPOINTS
+
+app.delete("/api/post/:id", function(req, res) {
+    console.log(req.params.id);
+    const db = req.app.get("db");
+    db.delete_post_tags([req.params.id]).then(resp => {
+        db.delete_post([req.params.id]).then(resp => {
+            res.status(200).send("post deleted");
+        });
+    });
+});
+
 app.get("/api/get-count", function(req, res) {
     const db = req.app.get("db");
     db
@@ -266,6 +277,32 @@ var transporter = nodemailer.createTransport(
         }
     })
 );
+
+app.post("/api/share/post", function(req, res) {
+    console.log("BODY", req.body);
+    const to = req.body.email;
+    const subject = req.body.post[0].title;
+    let mailOptions = {
+        from: process.env.NODEMAILER_EMAIL, // sender address
+        to: to, // list of receivers
+        subject: `Your friend shared this post with you: ${subject}`, // Subject line
+        text: "Checkout this post your friend shared with you on pankaata.com" // plain text body
+    };
+
+    transporter.sendMail(mailOptions, (error, info) => {
+        if (error) {
+            return console.log("ERROR", error);
+        }
+        console.log("Message sent: %s", info.messageId);
+        // Preview only available when sending through an Ethereal account
+        console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
+
+        // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
+        // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
+    });
+    res.status(200).send("post shared");
+});
+
 app.post("/api/lady/email", function(req, res) {
     const db = req.app.get("db");
     req.session.user.pastLadyEmail.subject = "";
