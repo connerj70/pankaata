@@ -46,3 +46,13 @@
     width: 100%;
     min-height: 100vh;
 }
+
+.next-page-btn {
+    padding: 10px 25px;
+    background-color: var(--blue);
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 16px;
+}

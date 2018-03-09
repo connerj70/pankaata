@@ -41,7 +41,7 @@ class Home extends Component {
         );
         const windowBottom = windowHeight + window.pageYOffset;
         if (windowBottom >= docHeight) {
-            if (this.state.searchTerm === "") {
+            if (this.state.searchTerm === "" && this.state.offset < 8) {
                 this.setState(
                     prevProps => {
                         return {
@@ -217,6 +217,9 @@ class Home extends Component {
                     {this.state.posts.length ? (
                         <div className="postsToRender-container">
                             {postsToRender}
+                            {this.state.offset >= 8 ? (
+                                <button className="next-page-btn">next</button>
+                            ) : null}
                         </div>
                     ) : (
                         <div className="home_loading">Loading...</div>
