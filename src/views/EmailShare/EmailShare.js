@@ -7,6 +7,7 @@ import { TwitterTweetEmbed } from "react-twitter-embed";
 import InstagramEmbed from "react-instagram-embed";
 import YouTube from "react-youtube";
 import FacebookProvider, { EmbeddedPost } from "react-facebook";
+import Navbar from "../../components/Navbar/Navbar";
 
 class EmailShare extends Component {
     constructor(props) {
@@ -105,10 +106,11 @@ class EmailShare extends Component {
 
         return (
             <div className="outer-email-wrapper">
+                <Navbar secondaryNav={false} />
                 <div className="email-share-wrapper">
                     <h1>Share with a friend</h1>
                     <div>
-                        <h3>To: </h3>
+                        <h3>Friends Email: </h3>
                         <input
                             onChange={e => this.handleChange(e.target.value)}
                             type="text"

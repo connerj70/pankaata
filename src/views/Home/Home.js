@@ -17,7 +17,8 @@ class Home extends Component {
             offset: 0,
             loggedIn: false,
             searchTerm: "",
-            instagramTest: ""
+            instagramTest: "",
+            totalPosts: null
         };
         this.handleSearchTerm = this.handleSearchTerm.bind(this);
         this.handleSearchEnter = this.handleSearchEnter.bind(this);
@@ -64,7 +65,12 @@ class Home extends Component {
 
     componentDidMount() {
         window.addEventListener("scroll", e => this.scrollFnc(e));
-
+        axios.get("/api/get-count").then(resp => {
+            console.log(resp);
+            this.setState({
+                count: +resp.data[0].count
+            });
+        });
         axios.get("/api/admin").then(resp => {
             this.setState({
                 loggedIn: resp.data
@@ -237,15 +243,24 @@ class Home extends Component {
                         <div className="postsToRender-container">
                             {postsToRender}
                             {this.state.offset >= 8 ? (
-                                <button
-                                    onClick={() => this.loadMore()}
-                                    className="next-page-btn"
-                                >
-                                    Load More<i
-                                        style={{ marginLeft: "5px" }}
-                                        className="fas fa-arrow-down"
-                                    />
-                                </button>
+                                this.state.offset >= this.state.count ? (
+                                    <button
+                                        className="return-to-top-button"
+                                        onClick={() => window.scrollTo(0, 0)}
+                                    >
+                                        All Posts Loaded Return To Top
+                                    </button>
+                                ) : (
+                                    <button
+                                        onClick={() => this.loadMore()}
+                                        className="next-page-btn"
+                                    >
+                                        Load More<i
+                                            style={{ marginLeft: "5px" }}
+                                            className="fas fa-arrow-down"
+                                        />
+                                    </button>
+                                )
                             ) : null}
                         </div>
                     ) : (

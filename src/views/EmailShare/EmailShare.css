@@ -2,10 +2,18 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    align-content: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.email-share-wrapper {
+    display: flex;
     flex-direction: column;
 }
-.email-share-wrapper {
+
+.email-share-wrapper input {
+    padding: 5px 10px;
+    font-size: 12px;
 }
 
 .email-share-wrapper h1 {
@@ -25,8 +33,10 @@
 }
 
 .email-share-wrapper button {
-    padding: 10px 20px;
+    padding: 10px 30px;
     background-color: var(--blue);
     color: #fff;
     border-radius: 5px;
+    font-size: 18px;
+    font-weight: 500;
 }

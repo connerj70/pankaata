@@ -80,6 +80,17 @@ app.post("/api/user-subscribe", function(req, res) {
 });
 
 //POSTS ENDPOINTS
+app.get("/api/get-count", function(req, res) {
+    const db = req.app.get("db");
+    db
+        .count_posts()
+        .then(resp => {
+            console.log(resp);
+            res.status(200).send(resp);
+        })
+        .catch(err => res.status(500).send(err));
+});
+
 app.get("/api/posts", function(req, res) {
     const db = req.app.get("db");
     const offset = req.query.offset;
