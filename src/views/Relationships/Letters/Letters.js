@@ -21,9 +21,8 @@ class Letters extends Component {
     render() {
         let lettersToShow = this.state.letters.map((value, i) => {
             return (
-                <Link to={"/relationships/letter/" + value.letter_id}>
+                <Link key={i} to={"/relationships/letter/" + value.letter_id}>
                     <Letter
-                        key={i}
                         subject={value.subject}
                         situation={value.situation}
                         cut={true}

@@ -177,6 +177,25 @@ app.get("/api/post/:id", function(req, res) {
 });
 
 //LADY ANN ENDPOINTS ********************************
+
+app.get("/api-lady-ann-save", function(req, res) {
+    res.status(200).send(req.session.user.pastLadyEmail);
+});
+
+app.post("/api-lady-ann-save", function(req, res) {
+    const { from, subject, situation } = req.body;
+    if (from) {
+        req.session.user.pastLadyEmail.from = from;
+    }
+    if (subject) {
+        req.session.user.pastLadyEmail.subject = subject;
+    }
+    if (situation) {
+        req.session.user.pastLadyEmail.situation = situation;
+    }
+    res.status(200).send(req.session.user);
+});
+
 app.get("/api/lady/videos", function(req, res) {
     const db = req.app.get("db");
 

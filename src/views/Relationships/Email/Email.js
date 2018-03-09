@@ -12,6 +12,35 @@ class Email extends Component {
             anonymous: false
         };
     }
+
+    componentDidMount() {
+        axios.get("/api-lady-ann-save").then(resp => {
+            console.log("GET", resp);
+            this.setState({
+                subject: resp.data.subject,
+                from: resp.data.from,
+                situation: resp.data.situation
+            });
+        });
+        this.setState({
+            interval: setInterval(() => {
+                axios
+                    .post("/api-lady-ann-save", {
+                        from: this.state.from,
+                        subject: this.state.subject,
+                        situation: this.state.situation
+                    })
+                    .then(resp => {
+                        console.log(resp);
+                    });
+            }, 10000)
+        });
+    }
+
+    componentWillUnmount() {
+        clearInterval(this.state.interval);
+    }
+
     handleChange(e) {
         let value = e.target.value;
         let name = e.target.name;
@@ -49,6 +78,7 @@ class Email extends Component {
                 <div className="email_sub-container">
                     <h3>From:</h3>
                     <input
+                        value={this.state.from}
                         name="from"
                         onChange={e => this.handleChange(e)}
                         type="text"
@@ -57,6 +87,7 @@ class Email extends Component {
                 <div className="email_sub-container">
                     <h3>Subject:</h3>
                     <input
+                        value={this.state.subject}
                         name="subject"
                         onChange={e => this.handleChange(e)}
                         type="text"
@@ -65,6 +96,7 @@ class Email extends Component {
                 <div className="email_sub-container">
                     <h3>Situation Box:</h3>
                     <textarea
+                        value={this.state.situation}
                         placeholder="Dear Lady. Ann"
                         name="situation"
                         onChange={e => this.handleChange(e)}
