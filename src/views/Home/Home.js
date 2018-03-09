@@ -218,7 +218,12 @@ class Home extends Component {
                         <div className="postsToRender-container">
                             {postsToRender}
                             {this.state.offset >= 8 ? (
-                                <button className="next-page-btn">next</button>
+                                <button className="next-page-btn">
+                                    next<i
+                                        style={{ marginLeft: "5px" }}
+                                        className="fas fa-arrow-right"
+                                    />
+                                </button>
                             ) : null}
                         </div>
                     ) : (
