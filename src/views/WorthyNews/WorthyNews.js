@@ -7,7 +7,7 @@ class WorthyNews extends Component {
 
     render() {
         return (
-            <div>
+            <div className="worthy-news-container">
                 <Navbar />
             </div>
         );

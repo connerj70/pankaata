@@ -131,7 +131,7 @@ class Motivational extends Component {
         });
 
         return (
-            <div>
+            <div className="motivational_container">
                 <Navbar
                     secondaryNav={false}
                     handleSearchTerm={this.handleSearchTerm}
