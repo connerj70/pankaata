@@ -1,3 +1,7 @@
+.lady-ann-email {
+    min-height: calc(100vh - 220px);
+}
+
 .email_sub-container {
     display: flex;
     justify-content: space-between;

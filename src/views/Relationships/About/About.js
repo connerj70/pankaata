@@ -3,7 +3,7 @@ import "./About.css";
 
 class About extends Component {
     render() {
-        return <div>About</div>;
+        return <div className="lady-about-container">About</div>;
     }
 }
 

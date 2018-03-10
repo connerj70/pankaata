@@ -10,7 +10,7 @@ class Food extends Component {
 
     render() {
         return (
-            <div>
+            <div className="food-porn-container">
                 <PostContainer category="food" />
             </div>
         );
