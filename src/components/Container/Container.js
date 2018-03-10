@@ -71,31 +71,44 @@ class Container extends Component {
                 {/* <div className="tags-container">{tagsToRender}</div> */}
                 <div className="share-container">
                     <h5>Share this post:</h5>
-                    <FacebookShareButton
-                        url={"facebook.com"}
-                        children={<i className="fab fa-facebook-square" />}
-                    />
-                    <EmailShareButton
-                        subject={`Look what I found on pankaata.com ${
-                            this.props.title
-                        }`}
-                        url={"email"}
-                        children={
-                            <i
-                                style={{ marginLeft: "10px" }}
-                                className="far fa-envelope"
-                            />
-                        }
-                    />
-                    <TwitterShareButton
-                        url={"twitter"}
-                        children={
-                            <i
-                                style={{ color: "#1DA1F2" }}
-                                className="fab fa-twitter"
-                            />
-                        }
-                    />
+                    <div className="share-button-container">
+                        <FacebookShareButton
+                            quote={`Look what I found on pankaata.com ${
+                                this.props.title
+                            }`}
+                            url={"facebook.com"}
+                            children={
+                                <i
+                                    style={{ color: "#3B5998" }}
+                                    className="fab fa-facebook-square"
+                                />
+                            }
+                        />
+                    </div>
+                    <div className="share-button-container">
+                        <EmailShareButton
+                            subject={`Look what I found on pankaata.com ${
+                                this.props.title
+                            }`}
+                            url={"email"}
+                            children={<i className="far fa-envelope" />}
+                        />
+                    </div>
+                    <div className="share-button-container">
+                        <TwitterShareButton
+                            title={`Look what I found on pankaata.com ${
+                                this.props.title
+                            }`}
+                            via={"Pankaata"}
+                            url={"twitter"}
+                            children={
+                                <i
+                                    style={{ color: "#1DA1F2" }}
+                                    className="fab fa-twitter"
+                                />
+                            }
+                        />
+                    </div>
                 </div>
                 <ToastContainer autoClose={2000} />
             </div>
