@@ -3,6 +3,12 @@ import "./Container.css";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
+import {
+    FacebookShareButton,
+    GooglePlusShareButton,
+    TwitterShareButton,
+    EmailShareButton
+} from "react-share";
 
 class Container extends Component {
     constructor(props) {
@@ -65,24 +71,31 @@ class Container extends Component {
                 {/* <div className="tags-container">{tagsToRender}</div> */}
                 <div className="share-container">
                     <h5>Share this post:</h5>
-                    <a
-                        className="twitter-share-button"
-                        href={
-                            "https://twitter.com/intent/tweet?text=Checkout%20this%20post%20on%20Pankaata:%20" +
+                    <FacebookShareButton
+                        url={"facebook.com"}
+                        children={<i className="fab fa-facebook-square" />}
+                    />
+                    <EmailShareButton
+                        subject={`Look what I found on pankaata.com ${
                             this.props.title
+                        }`}
+                        url={"email"}
+                        children={
+                            <i
+                                style={{ marginLeft: "10px" }}
+                                className="far fa-envelope"
+                            />
                         }
-                    >
-                        <i
-                            style={{ color: "#1DA1F2" }}
-                            className="fab fa-twitter"
-                        />
-                    </a>
-                    <Link to={"/email/share/" + this.props.postId}>
-                        <i
-                            style={{ marginLeft: "10px" }}
-                            className="far fa-envelope"
-                        />
-                    </Link>
+                    />
+                    <TwitterShareButton
+                        url={"twitter"}
+                        children={
+                            <i
+                                style={{ color: "#1DA1F2" }}
+                                className="fab fa-twitter"
+                            />
+                        }
+                    />
                 </div>
                 <ToastContainer autoClose={2000} />
             </div>
