@@ -1,7 +1,54 @@
 .footer-wrapper {
-    height: 60px;
+    min-height: 70px;
     width: 100%;
     position: relative;
     bottom: 0px;
-    background-color: var(--navbar-background);
+    background: url("../../assets/drum-footer.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 20px;
+}
+
+.footer_inner-container {
+    display: flex;
+    font-size: 11px;
+    width: 100%;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.footer_inner-container h2 {
+    color: var(--blue);
+}
+
+.footer_inner-container ul {
+    display: flex;
+    justify-content: space-around;
+    flex-grow: 1.5;
+    margin-left: 10px;
+    align-items: center;
+}
+
+.final-container {
+    flex-direction: column;
+}
+
+.footer_paragraph {
+    line-height: 1.3rem;
+    text-align: left;
+}
+
+.footer_privacy-and-terms-div {
+    margin-top: 10px;
+}
+
+.footer_links-container {
+    margin-top: 10px;
+    display: flex;
+}
+
+.footer-link {
+    margin-right: 8px;
+    font-size: 12px;
 }

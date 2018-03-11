@@ -46,9 +46,12 @@ class Email extends Component {
         let value = e.target.value;
         let name = e.target.name;
 
-        this.setState({
-            [name]: value
-        });
+        this.setState(
+            {
+                [name]: value
+            },
+            () => console.log(this.state)
+        );
     }
 
     handleCheckbox() {

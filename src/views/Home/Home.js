@@ -8,6 +8,7 @@ import FacebookProvider, { EmbeddedPost } from "react-facebook";
 import "./Home.css";
 import Container from "../../components/Container/Container";
 import { Link } from "react-router-dom";
+import Ad from "../../components/Ad/Ad";
 
 class Home extends Component {
     constructor(props) {
@@ -55,6 +56,10 @@ class Home extends Component {
                             .then(resp => {
                                 var posts = this.state.posts.slice();
                                 posts = [...posts, ...resp.data];
+                                posts.splice(posts.length - 2, 0, {
+                                    type: "ad",
+                                    title: "Ad"
+                                });
                                 this.setState({ posts: posts });
                             });
                     }
@@ -64,6 +69,12 @@ class Home extends Component {
     }
 
     componentDidMount() {
+        var addScript = document.createElement("script");
+        addScript.setAttribute(
+            "src",
+            "//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+        );
+        document.body.appendChild(addScript);
         window.addEventListener("scroll", e => this.scrollFnc(e));
         axios.get("/api/get-count").then(resp => {
             console.log(resp);
@@ -78,6 +89,11 @@ class Home extends Component {
         });
         if (!this.state.posts.length) {
             axios.get("/api/posts?offset=" + this.state.offset).then(resp => {
+                console.log(resp.data);
+                for (let i = 2; i < resp.data.length; i += 3) {
+                    resp.data.splice(i, 0, { type: "ad", title: "Ad" });
+                }
+                console.log(resp.data);
                 this.setState({ posts: resp.data });
             });
         }
@@ -220,6 +236,23 @@ class Home extends Component {
                         </div>
                     </Container>
                 );
+            } else if (value.type === "ad") {
+                return (
+                    <Container
+                        admin={this.state.loggedIn}
+                        key={i}
+                        title={value.title}
+                        tags={value.tags}
+                        postId={value.post_id}
+                        creation_date={value.creation_date}
+                        category={value.category}
+                        time={value.time}
+                    >
+                        <div className="media-wrapper">
+                            <Ad />
+                        </div>
+                    </Container>
+                );
             } else {
                 return null;
             }
@@ -246,6 +279,7 @@ class Home extends Component {
                     {this.state.posts.length ? (
                         <div className="postsToRender-container">
                             {postsToRender}
+
                             {this.state.offset >= 8 ? (
                                 this.state.offset >= this.state.count ? (
                                     <button

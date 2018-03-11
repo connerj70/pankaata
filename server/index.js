@@ -11,10 +11,12 @@ const express = require("express"),
 
 const app = express();
 app.use(bodyParser.json());
-massive(process.env.CONNECTION_STRING).then(db => {
-    app.set("db", db);
-    console.log("massive connected");
-});
+massive(process.env.CONNECTION_STRING)
+    .then(db => {
+        app.set("db", db);
+        console.log("massive connected");
+    })
+    .catch(err => console.log(err));
 
 app.use(
     session({

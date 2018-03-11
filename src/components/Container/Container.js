@@ -5,7 +5,6 @@ import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import {
     FacebookShareButton,
-    GooglePlusShareButton,
     TwitterShareButton,
     EmailShareButton
 } from "react-share";
