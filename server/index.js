@@ -252,8 +252,10 @@ app.get("/api/lady/letter/:id", function(req, res) {
 app.delete("/api/letter/:id", function(req, res) {
     const db = req.app.get("db");
     console.log(req.params.id);
-    db.delete_letter([req.params.id]).then(resp => {
-        res.status(200).send(resp);
+    db.delete_response([req.params.id]).then(resp => {
+        db.delete_letter([req.params.id]).then(resp => {
+            res.status(200).send(resp);
+        });
     });
 });
 
