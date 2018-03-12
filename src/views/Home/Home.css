@@ -65,3 +65,32 @@
     color: #fff;
     border-radius: 5px;
 }
+
+.home_inner-posts-sidebar-container {
+    max-width: 900px;
+}
+
+@media (min-width: 680px) {
+    .home_inner-posts-sidebar-container {
+        display: flex;
+        justify-content: space-around;
+        width: 90%;
+        margin: 0 auto;
+    }
+}
+
+@media (min-width: 1050px) {
+    .home_inner-posts-sidebar-container {
+        width: 80%;
+    }
+}
+
+.home_sidebar {
+    width: 30%;
+    height: 85vh;
+    position: sticky;
+    top: 20px;
+    background-color: blue;
+    margin-top: 20px;
+    max-width: 300px;
+}

@@ -278,7 +278,10 @@ class Home extends Component {
                     ) : null}
                     {this.state.posts.length ? (
                         <div className="postsToRender-container">
-                            {postsToRender}
+                            <div className="home_inner-posts-sidebar-container">
+                                <div>{postsToRender}</div>
+                                <div className="home_sidebar" />
+                            </div>
 
                             {this.state.offset >= 8 ? (
                                 this.state.offset >= this.state.count ? (
