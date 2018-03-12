@@ -9,6 +9,7 @@ import "./Home.css";
 import Container from "../../components/Container/Container";
 import { Link } from "react-router-dom";
 import Ad from "../../components/Ad/Ad";
+import Sidebar from "../../components/Sidebar/Sidebar";
 
 class Home extends Component {
     constructor(props) {
@@ -19,12 +20,14 @@ class Home extends Component {
             loggedIn: false,
             searchTerm: "",
             instagramTest: "",
-            totalPosts: null
+            totalPosts: null,
+            loading: true
         };
         this.handleSearchTerm = this.handleSearchTerm.bind(this);
         this.handleSearchEnter = this.handleSearchEnter.bind(this);
         this.scrollFnc = this.scrollFnc.bind(this);
         this.clearSearchTerm = this.clearSearchTerm.bind(this);
+        this.handleTagClick = this.handleTagClick.bind(this);
     }
 
     scrollFnc(e) {
@@ -94,7 +97,7 @@ class Home extends Component {
                     resp.data.splice(i, 0, { type: "ad", title: "Ad" });
                 }
                 console.log(resp.data);
-                this.setState({ posts: resp.data });
+                this.setState({ posts: resp.data, loading: false });
             });
         }
     }
@@ -121,6 +124,27 @@ class Home extends Component {
                 }
             });
             this.setState({ posts: resp.data });
+        });
+    }
+
+    handleTagClick(q) {
+        window.scrollTo(0, 0);
+        axios.get("/api/posts?q=" + q).then(resp => {
+            console.log(resp);
+            resp.data = resp.data.filter(value => {
+                if (value.category !== "relationship") {
+                    return true;
+                } else {
+                    return false;
+                }
+            });
+            // for (let i = 2; i < resp.data.length; i += 3) {
+            //     resp.data.splice(i, 0, { type: "ad", title: "Ad" });
+            // }
+
+            this.setState({ posts: resp.data }, () =>
+                console.log(this.state.posts)
+            );
         });
     }
 
@@ -283,7 +307,7 @@ class Home extends Component {
                             </Link>
                         </div>
                     ) : null}
-                    {this.state.posts.length ? (
+                    {!this.state.loading ? (
                         <div className="postsToRender-container">
                             <div className="home_inner-posts-sidebar-container">
                                 <div>
@@ -314,7 +338,7 @@ class Home extends Component {
                                         )
                                     ) : null}
                                 </div>
-                                <div className="home_sidebar" />
+                                <Sidebar search={this.handleTagClick} />
                             </div>
                         </div>
                     ) : (

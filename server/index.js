@@ -199,6 +199,15 @@ app.get("/api/post/:id", function(req, res) {
         });
     });
 });
+
+//TAG ENDPOINTS
+app.get("/api/tags", function(req, res) {
+    const db = req.app.get("db");
+    db.get_all_tags().then(resp => {
+        res.status(200).send(resp);
+    });
+});
+
 const PORT = 3030;
 
 app.listen(PORT, function() {

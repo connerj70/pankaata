@@ -14,6 +14,7 @@ import Post from "./views/Post/Post";
 import EditPost from "./views/EditPost/EditPost";
 import FourOhFour from "./views/FourOhFour/FourOhFour";
 import Footer from "./components/Footer/Footer";
+import Entertainment from "./views/Entertainment/Entertainment";
 
 class App extends Component {
     render() {
@@ -29,6 +30,8 @@ class App extends Component {
                     <Route path="/animal" component={Animal} />
                     <Route path="/post" component={Post} />
                     <Route path="/editpost/:id" component={EditPost} />
+                    <Route path="/entertainment" component={Entertainment} />
+
                     <Route path="/:postId" component={Animal} />
                     <Route component={FourOhFour} />
                 </Switch>

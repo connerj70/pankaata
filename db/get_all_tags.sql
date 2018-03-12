@@ -1,0 +1,1 @@
+select count(*), name from post_tags join tags on tags.tag_id = post_tags.tag_id group by post_tags.tag_id, tags.name
