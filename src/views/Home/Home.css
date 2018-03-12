@@ -70,6 +70,17 @@
     max-width: 900px;
 }
 
+.home_sidebar {
+    width: 30%;
+    height: 85vh;
+    position: sticky;
+    top: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    margin-top: 20px;
+    max-width: 300px;
+}
+
 @media (min-width: 680px) {
     .home_inner-posts-sidebar-container {
         display: flex;
@@ -83,14 +94,4 @@
     .home_inner-posts-sidebar-container {
         width: 80%;
     }
-}
-
-.home_sidebar {
-    width: 30%;
-    height: 85vh;
-    position: sticky;
-    top: 20px;
-    background-color: blue;
-    margin-top: 20px;
-    max-width: 300px;
 }

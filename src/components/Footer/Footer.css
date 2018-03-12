@@ -31,6 +31,11 @@
     align-items: center;
 }
 
+.footer_inner-container ul li {
+    width: 33.3%;
+    text-align: center;
+}
+
 .final-container {
     flex-direction: column;
 }
@@ -52,4 +57,15 @@
 .footer-link {
     margin-right: 8px;
     font-size: 12px;
+}
+
+@media (min-width: 1000px) {
+    .footer-wrapper {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .footer_inner-container {
+        flex-direction: column;
+    }
 }

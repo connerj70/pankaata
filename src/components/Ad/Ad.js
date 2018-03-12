@@ -12,7 +12,7 @@ class Ad extends Component {
                     client="ca-pub-7292810486004926"
                     slot="7806394673"
                     style={{
-                        width: 500,
+                        width: 300,
                         height: 300,
                         margin: "0 auto"
                     }}

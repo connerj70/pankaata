@@ -279,30 +279,36 @@ class Home extends Component {
                     {this.state.posts.length ? (
                         <div className="postsToRender-container">
                             <div className="home_inner-posts-sidebar-container">
-                                <div>{postsToRender}</div>
+                                <div>
+                                    {postsToRender}{" "}
+                                    {this.state.offset >= 8 ? (
+                                        this.state.offset >=
+                                        this.state.count ? (
+                                            <button
+                                                className="return-to-top-button"
+                                                onClick={() =>
+                                                    window.scrollTo(0, 0)
+                                                }
+                                            >
+                                                All Posts Loaded Return To Top
+                                            </button>
+                                        ) : (
+                                            <button
+                                                onClick={() => this.loadMore()}
+                                                className="next-page-btn"
+                                            >
+                                                Load More<i
+                                                    style={{
+                                                        marginLeft: "5px"
+                                                    }}
+                                                    className="fas fa-arrow-down"
+                                                />
+                                            </button>
+                                        )
+                                    ) : null}
+                                </div>
                                 <div className="home_sidebar" />
                             </div>
-
-                            {this.state.offset >= 8 ? (
-                                this.state.offset >= this.state.count ? (
-                                    <button
-                                        className="return-to-top-button"
-                                        onClick={() => window.scrollTo(0, 0)}
-                                    >
-                                        All Posts Loaded Return To Top
-                                    </button>
-                                ) : (
-                                    <button
-                                        onClick={() => this.loadMore()}
-                                        className="next-page-btn"
-                                    >
-                                        Load More<i
-                                            style={{ marginLeft: "5px" }}
-                                            className="fas fa-arrow-down"
-                                        />
-                                    </button>
-                                )
-                            ) : null}
                         </div>
                     ) : (
                         <div className="home_loading">Loading...</div>
