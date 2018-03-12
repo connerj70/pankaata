@@ -3,7 +3,6 @@ import "./Navbar.css";
 import logo from "../../assets/pankaata-final.svg";
 import SecondaryNav from "./SecondaryNav/SecondaryNav.js";
 import { Link } from "react-router-dom";
-import LadyAnnNav from "./LadyAnnNav/LadyAnnNav";
 import CustomForm from "../../components/CustomForm/CustomForm";
 import MailchimpSubscribe from "react-mailchimp-subscribe";
 import axios from "axios";
@@ -130,10 +129,6 @@ class Navbar extends Component {
                         <Link to="/entertainment">
                             <li className="navbar_dropdown">Entertainment</li>
                         </Link>
-
-                        <Link to="/relationships/videos">
-                            <li className="navbar_dropdown">Relationship</li>
-                        </Link>
                     </ul>
                 </div>
                 {this.props.secondaryNav ? (
@@ -145,9 +140,7 @@ class Navbar extends Component {
                                 clearSearch={this.props.clearSearch}
                                 searchTerm={this.props.searchTerm}
                             />
-                        ) : (
-                            <LadyAnnNav />
-                        )}
+                        ) : null}
                     </div>
                 ) : null}
 

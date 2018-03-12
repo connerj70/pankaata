@@ -10,11 +10,8 @@ import WorthyNews from "./views/WorthyNews/WorthyNews";
 import Motivational from "./views/Motivational/Motivational";
 import Food from "./views/Food/Food";
 import Animal from "./views/Animal/Animal";
-import Relationships from "./views/Relationships/Relationships";
 import Post from "./views/Post/Post";
 import EditPost from "./views/EditPost/EditPost";
-import AdminLetters from "./views/AdminLetters/AdminLetters";
-import LetterDetails from "./views/LetterDetails/LetterDetails";
 import FourOhFour from "./views/FourOhFour/FourOhFour";
 import Footer from "./components/Footer/Footer";
 
@@ -25,14 +22,11 @@ class App extends Component {
                 <Switch>
                     <Route exact path="/" component={Home} />
 
-                    <Route path="/admin/letters" component={AdminLetters} />
-                    <Route path="/admin/letter/:id" component={LetterDetails} />
                     <Route path="/admin" component={AdminLogin} />
                     <Route path="/worthynews" component={WorthyNews} />
                     <Route path="/motivational" component={Motivational} />
                     <Route path="/food" component={Food} />
                     <Route path="/animal" component={Animal} />
-                    <Route path="/relationships" component={Relationships} />
                     <Route path="/post" component={Post} />
                     <Route path="/editpost/:id" component={EditPost} />
                     <Route path="/:postId" component={Animal} />
