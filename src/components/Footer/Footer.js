@@ -25,10 +25,12 @@ class Footer extends Component {
                 <div className="footer_inner-container">
                     <h2>Contact Us</h2>
                     <ul>
-                        <li>Tel: + 1 443 902 3860</li>
+                        <li>Tel:</li>
+                        <li className="footer_highlight">+ 1 443 902 3860</li>
                     </ul>
                     <ul>
-                        <li>Email: info@pankaata.com</li>
+                        <li>Email:</li>
+                        <li className="footer_highlight">info@pankaata.com</li>
                     </ul>
                 </div>
                 <div className="footer_inner-container final-container">

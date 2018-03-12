@@ -35,7 +35,7 @@ class SecondaryNav extends Component {
             <div className="secondary-nav">
                 {this.state.search ? (
                     <div className="secondary-nav_search-open-div">
-                        <div>
+                        <div className="search_container-2">
                             <i className="fas fa-search" />
                             <input
                                 value={this.props.searchTerm}
@@ -48,10 +48,17 @@ class SecondaryNav extends Component {
                                 type="text"
                             />
                         </div>
-                        <span onClick={() => this.handleSearchClear()}>
-                            Clear
-                        </span>
-                        <span onClick={() => this.handleSearchOpen()}>x</span>
+                        <div>
+                            <span
+                                style={{ marginRight: "15px" }}
+                                onClick={() => this.handleSearchClear()}
+                            >
+                                Clear
+                            </span>
+                            <span onClick={() => this.handleSearchOpen()}>
+                                x
+                            </span>
+                        </div>
                     </div>
                 ) : (
                     <div className="secondary-nav_initial-search">
