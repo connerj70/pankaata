@@ -21,12 +21,15 @@ class Sidebar extends Component {
         let tagsToRender = this.state.tags.map((value, i) => {
             let color = randomColor();
             return (
-                <div key={i} onClick={() => this.props.search(value.name)}>
+                <div key={i}>
                     <div
                         style={{ backgroundColor: color }}
                         className="sidebar_color"
                     />
-                    <div className="sidebar_tag">
+                    <div
+                        className="sidebar_tag"
+                        onClick={() => this.props.search(value.name)}
+                    >
                         <div>{value.name}</div>
                         <div>{value.count}</div>
                     </div>

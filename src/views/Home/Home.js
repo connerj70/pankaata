@@ -128,9 +128,10 @@ class Home extends Component {
     }
 
     handleTagClick(q) {
+        console.log("QUERY", q);
         window.scrollTo(0, 0);
         axios.get("/api/posts?q=" + q).then(resp => {
-            console.log(resp);
+            console.log("RESP", resp);
             resp.data = resp.data.filter(value => {
                 if (value.category !== "relationship") {
                     return true;
@@ -138,13 +139,10 @@ class Home extends Component {
                     return false;
                 }
             });
-            // for (let i = 2; i < resp.data.length; i += 3) {
-            //     resp.data.splice(i, 0, { type: "ad", title: "Ad" });
-            // }
 
-            this.setState({ posts: resp.data }, () =>
-                console.log(this.state.posts)
-            );
+            resp.data.splice(1, 0, { type: "ad", title: "Ad" });
+
+            this.setState({ posts: resp.data });
         });
     }
 
