@@ -61,10 +61,10 @@ class Home extends Component {
                             .then(resp => {
                                 var posts = this.state.posts.slice();
                                 posts = [...posts, ...resp.data];
-                                posts.splice(1, 0, {
-                                    type: "ad",
-                                    title: "Ad"
-                                });
+                                // posts.splice(1, 0, {
+                                //     type: "ad",
+                                //     title: "Ad"
+                                // });
                                 this.setState({ posts: posts });
                             });
                     }
