@@ -123,9 +123,9 @@ class Navbar extends Component {
                         <Link to="/animal">
                             <li className="navbar_dropdown">AnimalLovers</li>
                         </Link>
-                        <Link to="/thousandwords">
+                        {/* <Link to="/thousandwords">
                             <li className="navbar_dropdown">ThousandWords</li>
-                        </Link>
+                        </Link> */}
                         <Link to="/entertainment">
                             <li className="navbar_dropdown">Entertainment</li>
                         </Link>

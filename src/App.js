@@ -16,24 +16,74 @@ import FourOhFour from "./views/FourOhFour/FourOhFour";
 import Footer from "./components/Footer/Footer";
 import Entertainment from "./views/Entertainment/Entertainment";
 
+import ReactGA from "react-ga";
+ReactGA.initialize(process.env.REACT_APP_ANALYTICS, {
+    debug: true,
+    gaOptions: { cookieDomain: "none" }
+});
+
+function withTracker(WrappedComponent, options = {}) {
+    const trackPage = page => {
+        ReactGA.set({
+            page,
+            ...options
+        });
+        ReactGA.pageview(page);
+    };
+
+    const HOC = class extends Component {
+        componentDidMount() {
+            const page = this.props.location.pathname;
+            trackPage(page);
+        }
+
+        componentWillReceiveProps(nextProps) {
+            const currentPage = this.props.location.pathname;
+            const nextPage = nextProps.location.pathname;
+
+            if (currentPage !== nextPage) {
+                trackPage(nextPage);
+            }
+        }
+
+        render() {
+            return <WrappedComponent {...this.props} />;
+        }
+    };
+
+    return HOC;
+}
+
 class App extends Component {
     render() {
         return (
             <div className="App">
                 <Switch>
-                    <Route exact path="/" component={Home} />
+                    <Route exact path="/" component={withTracker(Home)} />
 
-                    <Route path="/admin" component={AdminLogin} />
-                    <Route path="/worthynews" component={WorthyNews} />
-                    <Route path="/motivational" component={Motivational} />
-                    <Route path="/food" component={Food} />
-                    <Route path="/animal" component={Animal} />
-                    <Route path="/post" component={Post} />
-                    <Route path="/editpost/:id" component={EditPost} />
-                    <Route path="/entertainment" component={Entertainment} />
+                    <Route path="/admin" component={withTracker(AdminLogin)} />
+                    <Route
+                        path="/worthynews"
+                        component={withTracker(WorthyNews)}
+                    />
+                    <Route
+                        path="/motivational"
+                        component={withTracker(Motivational)}
+                    />
+                    <Route path="/food" component={withTracker(Food)} />
+                    <Route path="/animal" component={withTracker(Animal)} />
+                    <Route path="/post" component={withTracker(Post)} />
+                    <Route
+                        path="/editpost/:id"
+                        component={withTracker(EditPost)}
+                    />
+                    <Route
+                        path="/entertainment"
+                        component={withTracker(Entertainment)}
+                    />
 
-                    <Route path="/:postId" component={Animal} />
-                    <Route component={FourOhFour} />
+                    <Route path="/:postId" component={withTracker(Animal)} />
+                    <Route component={withTracker(FourOhFour)} />
                 </Switch>
                 <Footer />
             </div>

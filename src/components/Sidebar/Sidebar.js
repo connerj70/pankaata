@@ -12,7 +12,9 @@ class Sidebar extends Component {
         axios.get("/api/tags").then(resp => {
             console.log(resp);
             this.setState({
-                tags: resp.data
+                tags: resp.data.sort((a, b) => {
+                    return b.count - a.count;
+                })
             });
         });
     }

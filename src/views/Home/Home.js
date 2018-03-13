@@ -11,6 +11,7 @@ import { Link } from "react-router-dom";
 import Ad from "../../components/Ad/Ad";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import TweetEmbed from "react-tweet-embed";
+import ReactGA from "react-ga";
 
 class Home extends Component {
     constructor(props) {
@@ -60,7 +61,7 @@ class Home extends Component {
                             .then(resp => {
                                 var posts = this.state.posts.slice();
                                 posts = [...posts, ...resp.data];
-                                posts.splice(posts.length - 2, 0, {
+                                posts.splice(1, 0, {
                                     type: "ad",
                                     title: "Ad"
                                 });
@@ -73,12 +74,12 @@ class Home extends Component {
     }
 
     componentDidMount() {
-        var addScript = document.createElement("script");
-        addScript.setAttribute(
-            "src",
-            "//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
-        );
-        document.body.appendChild(addScript);
+        // var addScript = document.createElement("script");
+        // addScript.setAttribute(
+        //     "src",
+        //     "//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+        // );
+        // document.body.appendChild(addScript);
         window.addEventListener("scroll", e => this.scrollFnc(e));
         axios.get("/api/get-count").then(resp => {
             console.log(resp);
@@ -91,9 +92,10 @@ class Home extends Component {
                 loggedIn: resp.data
             });
         });
+        console.log("POST LENGTH", this.state.posts.length);
         if (!this.state.posts.length) {
             axios.get("/api/posts?offset=" + this.state.offset).then(resp => {
-                console.log(resp.data);
+                console.log("POSTS", resp.data);
                 for (let i = 2; i < resp.data.length; i += 3) {
                     resp.data.splice(i, 0, { type: "ad", title: "Ad" });
                 }
@@ -147,7 +149,16 @@ class Home extends Component {
         });
     }
 
+    sendEvent = event => {
+        ReactGA.event({
+            category: "button click",
+            action: "click",
+            label: "next page button clicked"
+        });
+    };
+
     loadMore() {
+        this.sendEvent();
         this.setState(
             prevProps => {
                 return {

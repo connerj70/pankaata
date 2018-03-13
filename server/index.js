@@ -104,6 +104,7 @@ app.get("/api/get-count", function(req, res) {
 app.get("/api/posts", function(req, res) {
     const db = req.app.get("db");
     const offset = req.query.offset;
+    console.log("posts endpoint hit");
     if (req.query.q) {
         db.search_posts([req.query.q]).then(resp => {
             res.status(200).send(resp);
@@ -112,21 +113,9 @@ app.get("/api/posts", function(req, res) {
         db
             .get_posts([offset])
             .then(resp => {
-                for (let i = 0; i < resp.length; i++) {
-                    db
-                        .get_tags([resp[i].post_id])
-                        .then(resp2 => {
-                            resp[i].tags = [];
-                            for (let j = 0; j < resp2.length; j++) {
-                                resp[i].tags.push(resp2[j].name);
+                console.log("RESP 1", resp);
 
-                                if (i === resp.length - 1) {
-                                    res.status(200).send(resp);
-                                }
-                            }
-                        })
-                        .catch(err => {});
-                }
+                res.status(200).send(resp);
             })
             .catch(err => {});
     }

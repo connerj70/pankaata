@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import PostContainer from "../../components/PostContainer/PostContainer";
+import "./Entertainment.css";
 
 class Entertainment extends Component {
     render() {
         return (
-            <div>
+            <div className="entertainment-container">
                 <PostContainer category="entertainment" />
             </div>
         );
