@@ -8,6 +8,7 @@ import YouTube from "react-youtube";
 import FacebookProvider, { EmbeddedPost } from "react-facebook";
 import Container from "../../components/Container/Container";
 import { Link } from "react-router-dom";
+import TweetEmbed from "react-tweet-embed";
 
 class PostContainer extends Component {
     constructor(props) {
@@ -69,7 +70,8 @@ class PostContainer extends Component {
                         time={value.time}
                     >
                         <div className="media-wrapper">
-                            <TwitterTweetEmbed tweetId={value.url} />
+                            {/* <TwitterTweetEmbed tweetId={value.url} /> */}
+                            <TweetEmbed id={value.url} />
                         </div>
                     </Container>
                 );
