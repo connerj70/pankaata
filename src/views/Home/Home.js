@@ -311,6 +311,11 @@ class Home extends Component {
                         <div className="postsToRender-container">
                             <div className="home_inner-posts-sidebar-container">
                                 <div>
+                                    <button
+                                        onClick={() => this.clearSearchTerm()}
+                                    >
+                                        clear
+                                    </button>
                                     {postsToRender}{" "}
                                     {this.state.offset >= 8 ? (
                                         this.state.offset >=
@@ -338,6 +343,7 @@ class Home extends Component {
                                         )
                                     ) : null}
                                 </div>
+
                                 <Sidebar search={this.handleTagClick} />
                             </div>
                         </div>
