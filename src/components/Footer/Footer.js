@@ -27,8 +27,6 @@ class Footer extends Component {
                     <ul>
                         <li>Tel:</li>
                         <li className="footer_highlight">+ 1 443 902 3860</li>
-                    </ul>
-                    <ul>
                         <li>Email:</li>
                         <li className="footer_highlight">info@pankaata.com</li>
                     </ul>
@@ -39,7 +37,7 @@ class Footer extends Component {
                         typesetting industry. Lorem Ipsum has been the
                         industry's standard dummy text ever since the 1500s,
                     </p>
-                    <div classname="footer_privacy-and-terms">
+                    <div className="footer_privacy-and-terms">
                         <div className="footer_privacy-and-terms-div">
                             Pankaata © 2018.
                         </div>

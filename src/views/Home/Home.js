@@ -10,6 +10,7 @@ import Container from "../../components/Container/Container";
 import { Link } from "react-router-dom";
 import Ad from "../../components/Ad/Ad";
 import Sidebar from "../../components/Sidebar/Sidebar";
+import TweetEmbed from "react-tweet-embed";
 
 class Home extends Component {
     constructor(props) {
@@ -196,7 +197,8 @@ class Home extends Component {
                         time={value.time}
                     >
                         <div className="media-wrapper">
-                            <TwitterTweetEmbed tweetId={value.url} />
+                            {/* <TwitterTweetEmbed tweetId={value.url} /> */}
+                            <TweetEmbed id={value.url} />
                         </div>
                     </Container>
                 );
