@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import CustomForm from "../../components/CustomForm/CustomForm";
 import MailchimpSubscribe from "react-mailchimp-subscribe";
 import axios from "axios";
+import ReactGA from "react-ga";
 
 class Navbar extends Component {
     constructor(props) {
@@ -40,12 +41,21 @@ class Navbar extends Component {
     }
 
     handleClick() {
+        this.sendEvent();
         this.setState(prevProps => {
             return {
                 popup: !prevProps.popup
             };
         });
     }
+
+    sendEvent = event => {
+        ReactGA.event({
+            category: "button click",
+            action: "click",
+            label: "subscribe modal opened"
+        });
+    };
 
     render() {
         return (
@@ -85,6 +95,13 @@ class Navbar extends Component {
                     </div>
                     <div className="desktop-nav">
                         <ul>
+                            <li
+                                onClick={() => this.handleClick()}
+                                style={{ color: "var(--yellow)" }}
+                                className="navbar_dropdown"
+                            >
+                                <i className="fas fa-bell" />
+                            </li>
                             <Link to="/motivational">
                                 <li className="navbar_dropdown">
                                     MotivationalMonday

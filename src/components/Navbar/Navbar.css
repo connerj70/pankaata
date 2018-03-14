@@ -73,6 +73,7 @@
     border-radius: 5px;
     padding: 10px 15px;
     z-index: 20;
+    cursor: pointer;
 }
 
 .desktop-nav {
@@ -95,5 +96,18 @@
 
     .desktop-nav ul li {
         border: none;
+    }
+
+    .subscribe-update-btn {
+        position: absolute;
+        top: 20px;
+        max-height: 33px;
+        max-width: 110px;
+        left: 20%;
+        background-color: var(--yellow);
+        color: #fff;
+        border-radius: 5px;
+        padding: 10px 15px;
+        z-index: 20;
     }
 }

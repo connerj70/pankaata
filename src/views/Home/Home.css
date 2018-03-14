@@ -81,7 +81,9 @@
 
 @media (min-width: 680px) {
     .left-post-container {
-        padding-right: 50px;
+        padding-right: 80px;
+        width: 45%;
+        flex-grow: 0.5;
     }
     .home_inner-posts-sidebar-container {
         display: flex;
