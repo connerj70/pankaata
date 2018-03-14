@@ -83,6 +83,34 @@ class Navbar extends Component {
                             />
                         </Link>
                     </div>
+                    <div className="desktop-nav">
+                        <ul>
+                            <Link to="/motivational">
+                                <li className="navbar_dropdown">
+                                    MotivationalMonday
+                                </li>
+                            </Link>
+                            <Link to="/worthynews">
+                                <li className="navbar_dropdown">WorthyNews</li>
+                            </Link>
+                            <Link to="/food">
+                                <li className="navbar_dropdown">FoodPorn</li>
+                            </Link>
+                            <Link to="/animal">
+                                <li className="navbar_dropdown">
+                                    AnimalLovers
+                                </li>
+                            </Link>
+                            {/* <Link to="/thousandwords">
+                            <li className="navbar_dropdown">ThousandWords</li>
+                        </Link> */}
+                            <Link to="/entertainment">
+                                <li className="navbar_dropdown">
+                                    Entertainment
+                                </li>
+                            </Link>
+                        </ul>
+                    </div>
                     <div
                         className="menu-drop"
                         onClick={() => this.handleMenu()}

@@ -9,6 +9,7 @@ import FacebookProvider, { EmbeddedPost } from "react-facebook";
 import Container from "../../components/Container/Container";
 import { Link } from "react-router-dom";
 import TweetEmbed from "react-tweet-embed";
+import Sidebar from "../../components/Sidebar/Sidebar";
 
 class PostContainer extends Component {
     constructor(props) {
@@ -149,7 +150,10 @@ class PostContainer extends Component {
                     clearSearch={this.clearSearchTerm}
                     searchTerm={this.state.searchTerm}
                 />
-                {postsToRender}
+                <div className="home_inner-posts-sidebar-container">
+                    <div className="left-post-container">{postsToRender}</div>
+                    <Sidebar search={this.handleTagClick} />
+                </div>
             </div>
         );
     }

@@ -321,7 +321,7 @@ class Home extends Component {
                     {!this.state.loading ? (
                         <div className="postsToRender-container">
                             <div className="home_inner-posts-sidebar-container">
-                                <div>
+                                <div className="left-post-container">
                                     {postsToRender}{" "}
                                     {this.state.offset >= 8 ? (
                                         this.state.offset >=

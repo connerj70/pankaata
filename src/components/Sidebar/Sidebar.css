@@ -1,18 +1,25 @@
 .sidebar {
     display: none;
     overflow-x: scroll;
-    padding: 20px;
+    color: #788289;
+    padding-top: 30px;
 }
 
 .sidebar_tag {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #d3d3d375;
+    background-color: #fff;
     padding: 10px;
     border-radius: 5px;
-    margin-top: 10px;
+    margin-bottom: 10px;
     padding-left: 20px;
+    color: #788289;
+    cursor: pointer;
+}
+
+.sidebar_tag:hover {
+    background-color: rgb(230, 230, 230);
 }
 
 .sidebar_color {
@@ -24,13 +31,19 @@
     position: absolute;
 }
 
+.active {
+    border-bottom-left-radius: 0px;
+    border-top-right-radius: 5px;
+    width: 100%;
+    height: 8px;
+}
+
 @media (min-width: 680px) {
     .sidebar {
         width: 30%;
         height: 85vh;
         position: sticky;
         top: 20px;
-        background-color: #fff;
         border-radius: 5px;
         margin-top: 20px;
         max-width: 300px;

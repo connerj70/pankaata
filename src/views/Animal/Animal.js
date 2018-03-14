@@ -10,7 +10,7 @@ class Animal extends Component {
 
     render() {
         return (
-            <div>
+            <div style={{ minHeight: "85vh" }}>
                 <PostContainer category="animal" />
             </div>
         );

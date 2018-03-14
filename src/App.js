@@ -82,7 +82,7 @@ class App extends Component {
                         component={withTracker(Entertainment)}
                     />
 
-                    <Route path="/:postId" component={withTracker(Animal)} />
+                    {/* <Route path="/:postId" component={withTracker(Animal)} /> */}
                     <Route component={withTracker(FourOhFour)} />
                 </Switch>
                 <Footer />

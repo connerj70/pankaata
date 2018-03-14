@@ -40,6 +40,11 @@
     min-height: 100vh;
 }
 
+.left-post-container {
+    border-right: 1px solid #d3d3d3;
+    padding-top: 30px;
+}
+
 .home_loading {
     margin: 20px auto;
     text-align: center;
@@ -75,6 +80,9 @@
 }
 
 @media (min-width: 680px) {
+    .left-post-container {
+        padding-right: 50px;
+    }
     .home_inner-posts-sidebar-container {
         display: flex;
         justify-content: space-around;
