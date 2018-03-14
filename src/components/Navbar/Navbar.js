@@ -7,6 +7,8 @@ import CustomForm from "../../components/CustomForm/CustomForm";
 import MailchimpSubscribe from "react-mailchimp-subscribe";
 import axios from "axios";
 import ReactGA from "react-ga";
+import Notification from "react-web-notification";
+import Modal from "../Modal/Modal";
 
 class Navbar extends Component {
     constructor(props) {
@@ -14,9 +16,13 @@ class Navbar extends Component {
         this.state = {
             menu: false,
             popup: false,
-            hideBtn: false
+            hideBtn: false,
+            title: "",
+            options: { body: "" },
+            modal: false
         };
         this.handleClick = this.handleClick.bind(this);
+        this.handleBellClick = this.handleBellClick.bind(this);
     }
 
     componentDidMount() {
@@ -49,6 +55,15 @@ class Navbar extends Component {
         });
     }
 
+    handleBellClick() {
+        console.log("clicked");
+        this.setState(prevProps => {
+            return {
+                modal: !prevProps.modal
+            };
+        });
+    }
+
     sendEvent = event => {
         ReactGA.event({
             category: "button click",
@@ -60,6 +75,17 @@ class Navbar extends Component {
     render() {
         return (
             <div className="navbar_wrapper">
+                {this.state.modal ? (
+                    <Modal
+                        fnc={this.handleBellClick}
+                        title="Would you like to recieve notifications?"
+                    />
+                ) : null}
+                <Notification
+                    title={this.state.title}
+                    options={this.state.options}
+                    askAgain={true}
+                />
                 {this.state.popup ? (
                     <div className="mail-chimp-wrapper">
                         <span
@@ -96,7 +122,7 @@ class Navbar extends Component {
                     <div className="desktop-nav">
                         <ul>
                             <li
-                                onClick={() => this.handleClick()}
+                                onClick={() => this.handleBellClick()}
                                 style={{ color: "var(--yellow)" }}
                                 className="navbar_dropdown"
                             >
