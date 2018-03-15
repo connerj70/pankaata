@@ -17,8 +17,10 @@ class Navbar extends Component {
             menu: false,
             popup: false,
             hideBtn: false,
-            title: "",
-            options: { body: "" },
+            title: "Notifications set",
+            options: {
+                body: "You will receive notifications from  pankaata.com"
+            },
             modal: false
         };
         this.handleClick = this.handleClick.bind(this);
@@ -128,11 +130,19 @@ class Navbar extends Component {
                             >
                                 <i className="fas fa-bell" />
                             </li>
-                            <Link to="/motivational">
-                                <li className="navbar_dropdown">
-                                    MotivationalMonday
-                                </li>
-                            </Link>
+
+                            <li className="navbar_dropdown">
+                                {!this.state.hideBtn ? (
+                                    !this.state.popup ? (
+                                        <div
+                                            className="subscribe-update-btn"
+                                            onClick={() => this.handleClick()}
+                                        >
+                                            Subscribe
+                                        </div>
+                                    ) : null
+                                ) : null}
+                            </li>
                             <Link to="/worthynews">
                                 <li className="navbar_dropdown">WorthyNews</li>
                             </Link>
@@ -144,14 +154,24 @@ class Navbar extends Component {
                                     AnimalLovers
                                 </li>
                             </Link>
-                            {/* <Link to="/thousandwords">
-                            <li className="navbar_dropdown">ThousandWords</li>
-                        </Link> */}
                             <Link to="/entertainment">
                                 <li className="navbar_dropdown">
                                     Entertainment
                                 </li>
                             </Link>
+                            <Link to="/thousandwords">
+                                <li className="navbar_dropdown">
+                                    ThousandWords
+                                </li>
+                            </Link>
+                            <Link to="/motivational">
+                                <li className="navbar_dropdown">
+                                    MotivationalMonday
+                                </li>
+                            </Link>
+                            {/* <Link to="/thousandwords">
+                            <li className="navbar_dropdown">ThousandWords</li>
+                        </Link> */}
                         </ul>
                     </div>
                     <div
@@ -180,11 +200,6 @@ class Navbar extends Component {
                     }
                 >
                     <ul>
-                        <Link to="/motivational">
-                            <li className="navbar_dropdown">
-                                MotivationalMonday
-                            </li>
-                        </Link>
                         <Link to="/worthynews">
                             <li className="navbar_dropdown">WorthyNews</li>
                         </Link>
@@ -194,11 +209,16 @@ class Navbar extends Component {
                         <Link to="/animal">
                             <li className="navbar_dropdown">AnimalLovers</li>
                         </Link>
-                        {/* <Link to="/thousandwords">
-                            <li className="navbar_dropdown">ThousandWords</li>
-                        </Link> */}
                         <Link to="/entertainment">
                             <li className="navbar_dropdown">Entertainment</li>
+                        </Link>
+                        <Link to="/thousandwords">
+                            <li className="navbar_dropdown">ThousandWords</li>
+                        </Link>
+                        <Link to="/motivational">
+                            <li className="navbar_dropdown">
+                                MotivationalMonday
+                            </li>
                         </Link>
                     </ul>
                 </div>
@@ -218,7 +238,7 @@ class Navbar extends Component {
                 {!this.state.hideBtn ? (
                     !this.state.popup ? (
                         <div
-                            className="subscribe-update-btn"
+                            className="subscribe-update-btn hide"
                             onClick={() => this.handleClick()}
                         >
                             Subscribe

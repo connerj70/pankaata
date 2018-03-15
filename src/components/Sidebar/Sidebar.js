@@ -110,6 +110,23 @@ class Sidebar extends Component {
                         </div>
                     </div>
                 </Link>
+                <Link to="/thousandwords">
+                    <div>
+                        <div
+                            style={{ backgroundColor: "var(--red)" }}
+                            className={
+                                window.location.hash === "#/thousandwords"
+                                    ? "sidebar_color active"
+                                    : "sidebar_color"
+                            }
+                        />
+                        <div className="sidebar_tag">
+                            {/* <div>{value.name}</div> */}
+                            {/* <div>{value.count}</div> */}
+                            ThousandWords
+                        </div>
+                    </div>
+                </Link>
                 <Link to="/entertainment">
                     <div>
                         <div

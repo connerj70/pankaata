@@ -44,7 +44,7 @@
 
 .navbar_mobile-dropdown {
     transition: all 0.3s;
-    height: 236px;
+    height: 282px;
     opacity: 1;
 }
 
@@ -81,6 +81,22 @@
 }
 
 @media (min-width: 1000px) {
+    .hide {
+        display: none;
+    }
+    .navbar {
+        justify-content: flex-start;
+        font-size: 12px;
+        align-items: center;
+    }
+
+    .navbar_dropdown {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .no-margin {
+        margin: 0;
+    }
     .menu-drop {
         display: none;
     }
@@ -92,6 +108,8 @@
     .desktop-nav ul {
         display: flex;
         flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
     }
 
     .desktop-nav ul li {
@@ -99,15 +117,23 @@
     }
 
     .subscribe-update-btn {
-        position: absolute;
-        top: 20px;
+        position: static;
         max-height: 33px;
         max-width: 110px;
-        left: 20%;
         background-color: var(--yellow);
         color: #fff;
         border-radius: 5px;
         padding: 10px 15px;
         z-index: 20;
+    }
+}
+
+@media (min-width: 1200px) {
+    .navbar_dropdown {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .navbar {
+        font-size: 14px;
     }
 }

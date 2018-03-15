@@ -62,7 +62,7 @@ class SecondaryNav extends Component {
                     </div>
                 ) : (
                     <div className="secondary-nav_initial-search">
-                        <div>HOME</div>
+                        <div />
                         <div
                             className="secondary-nav_search"
                             onClick={() => this.handleSearchOpen()}
