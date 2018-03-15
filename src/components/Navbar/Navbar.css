@@ -116,6 +116,10 @@
         border: none;
     }
 
+    .desktop-nav ul li:hover {
+        color: var(--yellow);
+    }
+
     .subscribe-update-btn {
         position: static;
         max-height: 33px;

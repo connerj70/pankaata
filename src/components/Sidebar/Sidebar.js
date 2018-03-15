@@ -3,6 +3,7 @@ import "./Sidebar.css";
 import randomColor from "randomcolor";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import Ad from "../../components/Ad/Ad";
 
 class Sidebar extends Component {
     constructor(props) {
@@ -144,6 +145,9 @@ class Sidebar extends Component {
                         </div>
                     </div>
                 </Link>
+                <div className="sidebar_ad-container">
+                    <Ad />
+                </div>
             </div>
         );
     }

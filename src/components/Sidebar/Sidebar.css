@@ -41,7 +41,7 @@
 
 @media (min-width: 680px) {
     .sidebar {
-        width: 30%;
+        width: 35%;
         height: 85vh;
         position: sticky;
         top: 20px;
@@ -50,5 +50,9 @@
         max-width: 300px;
         margin-bottom: 10px;
         display: block;
+    }
+
+    .sidebar_ad-container {
+        margin-top: 55px;
     }
 }
