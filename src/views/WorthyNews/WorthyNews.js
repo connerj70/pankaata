@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./WorthyNews.css";
 import Navbar from "../../components/Navbar/Navbar";
 import Sidebar from "../../components/Sidebar/Sidebar";
+import PostContainer from "../../components/PostContainer/PostContainer";
 
 class WorthyNews extends Component {
     componentDidMount() {}
@@ -9,11 +10,7 @@ class WorthyNews extends Component {
     render() {
         return (
             <div className="worthy-news-container">
-                <Navbar />
-                <div className="home_inner-posts-sidebar-container">
-                    <div className="left-post-container" />
-                    <Sidebar search={this.handleTagClick} />
-                </div>
+                <PostContainer category="news" />
             </div>
         );
     }
