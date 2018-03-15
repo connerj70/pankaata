@@ -114,6 +114,7 @@
 
     .desktop-nav ul li {
         border: none;
+        transition: all 0.4s;
     }
 
     .desktop-nav ul li:hover {
