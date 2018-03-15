@@ -16,11 +16,21 @@ class Footer extends Component {
                 </div>
                 <div className="footer_links-container">
                     <ul>
-                        <li>About Pankaata</li>
-                        <li>Privacy Policy</li>
-                        <li>Communications Preference</li>
-                        <li>Terms of Use</li>
-                        <li>Advertisement</li>
+                        <li style={{ color: "rgb(125,78,36)" }}>
+                            About Pankaata
+                        </li>
+                        <li style={{ color: "rgb(27,117,188)" }}>
+                            Privacy Policy
+                        </li>
+                        <li style={{ color: "rgb(251,176,64)" }}>
+                            Communications Preference
+                        </li>
+                        <li style={{ color: "rgb(197,147,117)" }}>
+                            Terms of Use
+                        </li>
+                        <li style={{ color: "rgb(239,65,54)" }}>
+                            Advertisement
+                        </li>
                     </ul>
                 </div>
             </div>
