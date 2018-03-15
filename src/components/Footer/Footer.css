@@ -9,6 +9,7 @@
     width: 400px;
     margin-top: -130px;
     border-bottom: 1px solid #d3d3d32d;
+    position: relative;
 }
 
 .footer_social-container {

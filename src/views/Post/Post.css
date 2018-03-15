@@ -2,6 +2,10 @@
     padding: 20px;
 }
 
+.post_inner-container form {
+    margin-bottom: 80px;
+}
+
 .post_inner-container h1 {
     margin-right: 10px;
     margin-bottom: 30px;

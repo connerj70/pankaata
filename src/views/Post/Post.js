@@ -184,6 +184,9 @@ class Post extends Component {
                                         Select An Option
                                     </option>
                                     <option value="news">Worthy News</option>
+                                    <option value="thousand">
+                                        Thousand Words
+                                    </option>
                                     <option value="motivational">
                                         Motivational Monday
                                     </option>
