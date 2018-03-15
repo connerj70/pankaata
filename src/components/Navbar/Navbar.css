@@ -66,8 +66,8 @@
 
 .subscribe-update-btn {
     position: fixed;
-    bottom: 2%;
-    right: 6%;
+    bottom: 10%;
+    right: 14%;
     background-color: var(--yellow);
     color: #fff;
     border-radius: 5px;
