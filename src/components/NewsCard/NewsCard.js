@@ -3,30 +3,50 @@ import "./NewsCard.css";
 import letters from "../../assets/letters.jpg";
 
 class NewsCard extends Component {
+    constructor(props) {
+        super(props);
+    }
     render() {
+        let months = [
+            "January",
+            "February",
+            "March",
+            "April",
+            "May",
+            "June",
+            "July",
+            "August",
+            "September",
+            "October",
+            "November",
+            "December"
+        ];
+        let imgShow;
+        if (this.props.image) {
+            imgShow = this.props.image;
+        } else {
+            imgShow = letters;
+        }
         return (
             <div>
                 <div class="container">
                     <div class="post-module">
                         <div class="thumbnail">
                             <div class="date">
-                                <div class="day">27</div>
-                                <div class="month">Mar</div>
+                                <div class="day">{this.props.day}</div>
+                                <div class="month">
+                                    {months[this.props.month]}
+                                </div>
                             </div>
-                            <img src={letters} alt="news" />
+                            <img src={imgShow} alt="news" />
                         </div>
                         <div class="post-content">
                             <div class="category">News</div>
                             <div class="post-text">
-                                <h1 class="title">City Lights in New York</h1>
-                                <h2 class="sub_title">
-                                    The city that never sleeps.
-                                </h2>
+                                <h1 class="title">{this.props.title}</h1>
+                                <h2 class="sub_title">{this.props.subtitle}</h2>
                                 <p class="description">
-                                    New York, the largest city in the U.S., is
-                                    an architectural marvel with plenty of
-                                    historic monuments, magnificent buildings
-                                    and countless dazzling skyscrapers.
+                                    {this.props.description}
                                 </p>
                             </div>
                         </div>

@@ -12,6 +12,7 @@ import Ad from "../../components/Ad/Ad";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import TweetEmbed from "react-tweet-embed";
 import ReactGA from "react-ga";
+import NewsCard from "../../components/NewsCard/NewsCard";
 
 class Home extends Component {
     constructor(props) {
@@ -294,6 +295,16 @@ class Home extends Component {
                             <Ad />
                         </div>
                     </Container>
+                );
+            } else if (value.type === "news") {
+                return (
+                    <NewsCard
+                        title={value.title}
+                        description={value.description}
+                        image={value.url}
+                        day={value.creation_date.split("/")[1]}
+                        month={value.creation_date.split("/")[0]}
+                    />
                 );
             } else {
                 return null;

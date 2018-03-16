@@ -130,7 +130,7 @@ app.get("/api/posts/:category", function(req, res) {
 });
 
 app.post("/api/posts", function(req, res) {
-    var { title, type, url, category } = req.body;
+    var { title, type, url, category, description } = req.body;
     var tags = req.body.tags.split(",");
     tags = tags.map(val => val.trim());
     let x = new Date();
@@ -146,7 +146,7 @@ app.post("/api/posts", function(req, res) {
 
     const db = req.app.get("db");
     db
-        .create_post([title, type, url, category, date, time])
+        .create_post([title, type, url, category, date, time, description])
         .then(resp => {
             for (let i = 0; i < tags.length; i++) {
                 db.create_tag([tags[i]]).then(resp2 => {

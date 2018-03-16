@@ -17,6 +17,7 @@ class Post extends Component {
             url: "",
             category: "",
             tags: "",
+            description: "",
             loggedIn: false
         };
     }
@@ -47,9 +48,16 @@ class Post extends Component {
         } else if (!this.state.url) {
             alert("Please input a url");
         } else {
-            var { title, type, url, tags, category } = this.state;
+            var { title, type, url, tags, category, description } = this.state;
             axios
-                .post("/api/posts", { title, type, url, tags, category })
+                .post("/api/posts", {
+                    title,
+                    type,
+                    url,
+                    tags,
+                    category,
+                    description
+                })
                 .then(resp => {
                     this.props.history.push("/");
                 });
@@ -167,12 +175,27 @@ class Post extends Component {
                                     />
                                 </div>
                             ) : (
-                                <input
-                                    name="url"
-                                    onChange={e => this.handleChange(e)}
-                                    type="text"
-                                    placeholder="new article url"
-                                />
+                                <div>
+                                    <input
+                                        name="url"
+                                        onChange={e => this.handleChange(e)}
+                                        type="text"
+                                        placeholder="news image url"
+                                    />
+                                    <textarea
+                                        style={{
+                                            marginTop: "20px",
+                                            width: "90%",
+                                            minHeight: "100px",
+                                            padding: "10px",
+                                            boxSizing: "border-box"
+                                        }}
+                                        name="description"
+                                        onChange={e => this.handleChange(e)}
+                                        type="text"
+                                        placeholder="description"
+                                    />
+                                </div>
                             )}
                             <fieldset>
                                 <label>Category</label>

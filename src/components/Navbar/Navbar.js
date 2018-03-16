@@ -32,7 +32,8 @@ class Navbar extends Component {
             console.log(resp);
             if (resp.data.subscribed) {
                 this.setState({
-                    hideBtn: true
+                    hideBtn: true,
+                    notifications: false
                 });
             } else if (resp.data.firstVisit && !resp.data.subscribed) {
                 this.setState({ popup: true });
@@ -61,7 +62,8 @@ class Navbar extends Component {
         console.log("clicked");
         this.setState(prevProps => {
             return {
-                modal: !prevProps.modal
+                modal: !prevProps.modal,
+                notifications: true
             };
         });
     }
@@ -75,6 +77,16 @@ class Navbar extends Component {
     };
 
     render() {
+        let noti;
+        if (this.props.notifications) {
+            noti = (
+                <Notification
+                    title={this.state.title}
+                    options={this.state.options}
+                    askAgain={true}
+                />
+            );
+        }
         return (
             <div className="navbar_wrapper">
                 {this.state.modal ? (
@@ -83,11 +95,7 @@ class Navbar extends Component {
                         title="Would you like to recieve notifications?"
                     />
                 ) : null}
-                <Notification
-                    title={this.state.title}
-                    options={this.state.options}
-                    askAgain={true}
-                />
+                {noti}
                 {this.state.popup ? (
                     <div className="mail-chimp-wrapper">
                         <span

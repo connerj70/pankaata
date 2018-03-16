@@ -10,10 +10,16 @@ class Footer extends Component {
                     <img className="footer-logo" src={logo} />
                 </div>
                 <div className="footer_social-container">
-                    <i
-                        style={{ cursor: "pointer", color: "rgb(27,117,188)" }}
-                        className="fab fa-facebook-f"
-                    />
+                    <a href="https://www.facebook.com/pankaata/?ref=br_rs">
+                        {" "}
+                        <i
+                            style={{
+                                cursor: "pointer",
+                                color: "rgb(27,117,188)"
+                            }}
+                            className="fab fa-facebook-f"
+                        />
+                    </a>
                     <i
                         style={{ cursor: "pointer", color: "rgb(251,176,64)" }}
                         className="fab fa-twitter"
