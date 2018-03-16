@@ -21,10 +21,12 @@ class Navbar extends Component {
             options: {
                 body: "You will receive notifications from  pankaata.com"
             },
-            modal: false
+            modal: false,
+            notifications: false
         };
         this.handleClick = this.handleClick.bind(this);
         this.handleBellClick = this.handleBellClick.bind(this);
+        this.handleBellClick2 = this.handleBellClick2.bind(this);
     }
 
     componentDidMount() {
@@ -62,6 +64,15 @@ class Navbar extends Component {
         console.log("clicked");
         this.setState(prevProps => {
             return {
+                modal: !prevProps.modal
+            };
+        });
+    }
+
+    handleBellClick2() {
+        console.log("clicked");
+        this.setState(prevProps => {
+            return {
                 modal: !prevProps.modal,
                 notifications: true
             };
@@ -78,7 +89,7 @@ class Navbar extends Component {
 
     render() {
         let noti;
-        if (this.props.notifications) {
+        if (this.state.notifications) {
             noti = (
                 <Notification
                     title={this.state.title}
@@ -92,6 +103,7 @@ class Navbar extends Component {
                 {this.state.modal ? (
                     <Modal
                         fnc={this.handleBellClick}
+                        fnc2={this.handleBellClick2}
                         title="Would you like to recieve notifications?"
                     />
                 ) : null}

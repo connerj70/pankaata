@@ -16,7 +16,7 @@ class Modal extends Component {
                 <h1>{this.props.title}</h1>
                 <div>{this.props.text}</div>
                 <div className="button-container">
-                    <button onClick={this.props.fnc}>Yes</button>
+                    <button onClick={this.props.fnc2}>Yes</button>
                     <button onClick={this.props.fnc}>No</button>
                 </div>
             </div>
