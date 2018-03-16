@@ -29,23 +29,25 @@ class NewsCard extends Component {
         }
         return (
             <div>
-                <div class="container">
-                    <div class="post-module">
-                        <div class="thumbnail">
-                            <div class="date">
-                                <div class="day">{this.props.day}</div>
-                                <div class="month">
+                <div className="container">
+                    <div className="post-module">
+                        <div className="thumbnail">
+                            <div className="date">
+                                <div className="day">{this.props.day}</div>
+                                <div className="month">
                                     {months[this.props.month]}
                                 </div>
                             </div>
                             <img src={imgShow} alt="news" />
                         </div>
-                        <div class="post-content">
-                            <div class="category">News</div>
-                            <div class="post-text">
-                                <h1 class="title">{this.props.title}</h1>
-                                <h2 class="sub_title">{this.props.subtitle}</h2>
-                                <p class="description">
+                        <div className="post-content">
+                            <div className="category">News</div>
+                            <div className="post-text">
+                                <h1 className="title">{this.props.title}</h1>
+                                <h2 className="sub_title">
+                                    {this.props.subtitle}
+                                </h2>
+                                <p className="description">
                                     {this.props.description}
                                 </p>
                             </div>

@@ -297,6 +297,7 @@ class Home extends Component {
                     </Container>
                 );
             } else if (value.type === "news") {
+                console.log(value);
                 return (
                     <Container
                         admin={this.state.loggedIn}
