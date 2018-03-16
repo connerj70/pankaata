@@ -32,12 +32,12 @@ class NewsCard extends Component {
                 <div className="container">
                     <div className="post-module">
                         <div className="thumbnail">
-                            <div className="date">
+                            {/* <div className="date">
                                 <div className="day">{this.props.day}</div>
                                 <div className="month">
                                     {months[this.props.month]}
                                 </div>
-                            </div>
+                            </div> */}
                             <img src={imgShow} alt="news" />
                         </div>
                         <div className="post-content">

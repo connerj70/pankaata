@@ -300,18 +300,20 @@ class Home extends Component {
                 console.log(value);
                 return (
                     <Container
+                        creation_date={value.creation_date}
                         admin={this.state.loggedIn}
                         key={i}
                         tags={value.tags}
                         postId={value.post_id}
                         category={value.category}
+                        time={value.time}
                     >
                         <NewsCard
                             title={value.title}
                             description={value.description}
                             image={value.url}
-                            day={value.creation_date.split("/")[1]}
-                            month={value.creation_date.split("/")[0]}
+                            // day={value.creation_date.split("/")[1]}
+                            // month={value.creation_date.split("/")[0]}
                         />
                     </Container>
                 );
