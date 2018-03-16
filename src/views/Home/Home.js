@@ -298,13 +298,21 @@ class Home extends Component {
                 );
             } else if (value.type === "news") {
                 return (
-                    <NewsCard
-                        title={value.title}
-                        description={value.description}
-                        image={value.url}
-                        day={value.creation_date.split("/")[1]}
-                        month={value.creation_date.split("/")[0]}
-                    />
+                    <Container
+                        admin={this.state.loggedIn}
+                        key={i}
+                        tags={value.tags}
+                        postId={value.post_id}
+                        category={value.category}
+                    >
+                        <NewsCard
+                            title={value.title}
+                            description={value.description}
+                            image={value.url}
+                            day={value.creation_date.split("/")[1]}
+                            month={value.creation_date.split("/")[0]}
+                        />
+                    </Container>
                 );
             } else {
                 return null;

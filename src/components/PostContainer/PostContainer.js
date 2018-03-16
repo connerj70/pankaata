@@ -10,6 +10,7 @@ import Container from "../../components/Container/Container";
 import { Link } from "react-router-dom";
 import TweetEmbed from "react-tweet-embed";
 import Sidebar from "../../components/Sidebar/Sidebar";
+import NewsCard from "../../components/NewsCard/NewsCard";
 
 class PostContainer extends Component {
     constructor(props) {
@@ -134,6 +135,24 @@ class PostContainer extends Component {
                                 <EmbeddedPost href={value.url} width="500" />
                             </FacebookProvider>
                         </div>
+                    </Container>
+                );
+            } else if (value.type === "news") {
+                return (
+                    <Container
+                        admin={this.state.loggedIn}
+                        key={i}
+                        tags={value.tags}
+                        postId={value.post_id}
+                        category={value.category}
+                    >
+                        <NewsCard
+                            title={value.title}
+                            description={value.description}
+                            image={value.url}
+                            day={value.creation_date.split("/")[1]}
+                            month={value.creation_date.split("/")[0]}
+                        />
                     </Container>
                 );
             } else {
