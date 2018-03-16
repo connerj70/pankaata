@@ -10,6 +10,9 @@ const express = require("express"),
     initialSession = require("./middlewares/checkForSession").checkForSession;
 
 const app = express();
+
+app.use(express.static(`${__dirname}/../build`));
+
 app.use(bodyParser.json());
 massive(process.env.CONNECTION_STRING)
     .then(db => {

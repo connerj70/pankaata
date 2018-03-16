@@ -143,26 +143,6 @@ class Navbar extends Component {
                     </div>
                     <div className="desktop-nav">
                         <ul>
-                            <li
-                                onClick={() => this.handleBellClick()}
-                                style={{ color: "var(--yellow)" }}
-                                className="navbar_dropdown"
-                            >
-                                <i className="fas fa-bell" />
-                            </li>
-
-                            <li className="navbar_dropdown">
-                                {!this.state.hideBtn ? (
-                                    !this.state.popup ? (
-                                        <div
-                                            className="subscribe-update-btn"
-                                            onClick={() => this.handleClick()}
-                                        >
-                                            Subscribe
-                                        </div>
-                                    ) : null
-                                ) : null}
-                            </li>
                             <Link to="/worthynews">
                                 <li className="navbar_dropdown">WorthyNews</li>
                             </Link>
@@ -189,6 +169,26 @@ class Navbar extends Component {
                                     MotivationalMonday
                                 </li>
                             </Link>
+                            <li
+                                onClick={() => this.handleBellClick()}
+                                style={{ color: "var(--yellow)" }}
+                                className="navbar_dropdown"
+                            >
+                                <i className="fas fa-bell" />
+                            </li>
+
+                            <li className="navbar_dropdown">
+                                {!this.state.hideBtn ? (
+                                    !this.state.popup ? (
+                                        <div
+                                            className="subscribe-update-btn"
+                                            onClick={() => this.handleClick()}
+                                        >
+                                            Subscribe
+                                        </div>
+                                    ) : null
+                                ) : null}
+                            </li>
                             {/* <Link to="/thousandwords">
                             <li className="navbar_dropdown">ThousandWords</li>
                         </Link> */}

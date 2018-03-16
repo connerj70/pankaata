@@ -43,23 +43,6 @@ class Sidebar extends Component {
         });
         return (
             <div className="sidebar">
-                <Link to="/motivational">
-                    <div>
-                        <div
-                            style={{ backgroundColor: "var(--red)" }}
-                            className={
-                                window.location.hash === "#/motivational"
-                                    ? "sidebar_color active"
-                                    : "sidebar_color"
-                            }
-                        />
-                        <div className="sidebar_tag">
-                            {/* <div>{value.name}</div> */}
-                            {/* <div>{value.count}</div> */}
-                            MotivationalMonday
-                        </div>
-                    </div>
-                </Link>
                 <Link to="/worthynews">
                     <div>
                         <div
@@ -111,23 +94,6 @@ class Sidebar extends Component {
                         </div>
                     </div>
                 </Link>
-                <Link to="/thousandwords">
-                    <div>
-                        <div
-                            style={{ backgroundColor: "var(--red)" }}
-                            className={
-                                window.location.hash === "#/thousandwords"
-                                    ? "sidebar_color active"
-                                    : "sidebar_color"
-                            }
-                        />
-                        <div className="sidebar_tag">
-                            {/* <div>{value.name}</div> */}
-                            {/* <div>{value.count}</div> */}
-                            ThousandWords
-                        </div>
-                    </div>
-                </Link>
                 <Link to="/entertainment">
                     <div>
                         <div
@@ -142,6 +108,40 @@ class Sidebar extends Component {
                             {/* <div>{value.name}</div> */}
                             {/* <div>{value.count}</div> */}
                             Entertainment
+                        </div>
+                    </div>
+                </Link>
+                <Link to="/thousandwords">
+                    <div>
+                        <div
+                            style={{ backgroundColor: "var(--medium-brown)" }}
+                            className={
+                                window.location.hash === "#/thousandwords"
+                                    ? "sidebar_color active"
+                                    : "sidebar_color"
+                            }
+                        />
+                        <div className="sidebar_tag">
+                            {/* <div>{value.name}</div> */}
+                            {/* <div>{value.count}</div> */}
+                            ThousandWords
+                        </div>
+                    </div>
+                </Link>
+                <Link to="/motivational">
+                    <div>
+                        <div
+                            style={{ backgroundColor: "var(--red)" }}
+                            className={
+                                window.location.hash === "#/motivational"
+                                    ? "sidebar_color active"
+                                    : "sidebar_color"
+                            }
+                        />
+                        <div className="sidebar_tag">
+                            {/* <div>{value.name}</div> */}
+                            {/* <div>{value.count}</div> */}
+                            MotivationalMonday
                         </div>
                     </div>
                 </Link>

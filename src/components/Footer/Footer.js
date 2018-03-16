@@ -31,7 +31,7 @@ class Footer extends Component {
                 </div>
                 <div className="footer_links-container">
                     <ul>
-                        <li style={{ color: "rgb(125,78,36)" }}>
+                        <li style={{ color: "var(--second-font-color)" }}>
                             About Pankaata
                         </li>
                         <li style={{ color: "rgb(27,117,188)" }}>
@@ -44,7 +44,7 @@ class Footer extends Component {
                             Terms of Use
                         </li>
                         <li style={{ color: "rgb(239,65,54)" }}>
-                            Advertisement
+                            Place An Advert With Pankaata
                         </li>
                     </ul>
                 </div>
