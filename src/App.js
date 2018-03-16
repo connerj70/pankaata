@@ -19,7 +19,7 @@ import ThousandWords from "./views/ThousandWords/ThousandWords";
 
 import ReactGA from "react-ga";
 ReactGA.initialize(process.env.REACT_APP_ANALYTICS, {
-    debug: true,
+    debug: false,
     gaOptions: { cookieDomain: "none" }
 });
 

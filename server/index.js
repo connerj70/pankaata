@@ -107,7 +107,6 @@ app.get("/api/get-count", function(req, res) {
 app.get("/api/posts", function(req, res) {
     const db = req.app.get("db");
     const offset = req.query.offset;
-    console.log("posts endpoint hit");
     if (req.query.q) {
         db.search_posts([req.query.q]).then(resp => {
             res.status(200).send(resp);
@@ -116,8 +115,6 @@ app.get("/api/posts", function(req, res) {
         db
             .get_posts([offset])
             .then(resp => {
-                console.log("RESP 1", resp);
-
                 res.status(200).send(resp);
             })
             .catch(err => {});

@@ -19,7 +19,6 @@ class Container extends Component {
         var x = window.confirm("Are you sure you want to delete?");
         if (x) {
             axios.delete("/api/post/" + postId).then(resp => {
-                console.log(resp);
                 toast.error("Post deleted. Will apply after refresh");
             });
         }

@@ -31,7 +31,6 @@ class Navbar extends Component {
 
     componentDidMount() {
         axios.get("/api/check-user").then(resp => {
-            console.log(resp);
             if (resp.data.subscribed) {
                 this.setState({
                     hideBtn: true,
@@ -61,7 +60,6 @@ class Navbar extends Component {
     }
 
     handleBellClick() {
-        console.log("clicked");
         this.setState(prevProps => {
             return {
                 modal: !prevProps.modal
@@ -70,7 +68,6 @@ class Navbar extends Component {
     }
 
     handleBellClick2() {
-        console.log("clicked");
         this.setState(prevProps => {
             return {
                 modal: !prevProps.modal,

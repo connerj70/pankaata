@@ -12,7 +12,6 @@ class Sidebar extends Component {
     }
     componentDidMount() {
         axios.get("/api/tags").then(resp => {
-            console.log(resp);
             this.setState({
                 tags: resp.data.sort((a, b) => {
                     return b.count - a.count;
@@ -22,7 +21,6 @@ class Sidebar extends Component {
     }
 
     render() {
-        console.log(window.location);
         let tagsToRender = this.state.tags.map((value, i) => {
             let color = randomColor();
             return (

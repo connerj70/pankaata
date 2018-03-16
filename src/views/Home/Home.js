@@ -83,7 +83,6 @@ class Home extends Component {
         // document.body.appendChild(addScript);
         window.addEventListener("scroll", e => this.scrollFnc(e));
         axios.get("/api/get-count").then(resp => {
-            console.log(resp);
             this.setState({
                 count: +resp.data[0].count
             });
@@ -93,14 +92,11 @@ class Home extends Component {
                 loggedIn: resp.data
             });
         });
-        console.log("POST LENGTH", this.state.posts.length);
         if (!this.state.posts.length) {
             axios.get("/api/posts?offset=" + this.state.offset).then(resp => {
-                console.log("POSTS", resp.data);
                 for (let i = 2; i < resp.data.length; i += 3) {
                     resp.data.splice(i, 0, { type: "ad", title: "Ad" });
                 }
-                console.log(resp.data);
                 this.setState({ posts: resp.data, loading: false });
             });
         }
@@ -132,10 +128,8 @@ class Home extends Component {
     }
 
     handleTagClick(q) {
-        console.log("QUERY", q);
         window.scrollTo(0, 0);
         axios.get("/api/posts?q=" + q).then(resp => {
-            console.log("RESP", resp);
             resp.data = resp.data.filter(value => {
                 if (value.category !== "relationship") {
                     return true;
@@ -297,7 +291,6 @@ class Home extends Component {
                     </Container>
                 );
             } else if (value.type === "news") {
-                console.log(value);
                 return (
                     <Container
                         creation_date={value.creation_date}
