@@ -42,8 +42,9 @@
 
 @media (min-width: 680px) {
     .sidebar {
+        overflow-x: hidden;
         width: 35%;
-        height: 85vh;
+        height: 90vh;
         position: sticky;
         top: 20px;
         border-radius: 5px;

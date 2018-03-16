@@ -65,8 +65,8 @@
 .return-to-top-button {
     padding: 10px 20px;
     background-color: var(--blue);
-    margin-top: 5px;
-    margin-bottom: 10px;
+    margin-top: 20px;
+    margin-bottom: 60px;
     color: #fff;
     border-radius: 5px;
 }
