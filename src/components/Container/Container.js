@@ -69,7 +69,7 @@ class Container extends Component {
                             quote={`Look what I found on pankaata.com ${
                                 this.props.title
                             }`}
-                            url={"facebook.com"}
+                            url={"pankaata.com"}
                             children={
                                 <i
                                     style={{ color: "#3B5998" }}
@@ -83,7 +83,7 @@ class Container extends Component {
                             subject={`Look what I found on pankaata.com ${
                                 this.props.title
                             }`}
-                            url={"email"}
+                            url={"www.pankaata.com"}
                             children={<i className="far fa-envelope" />}
                         />
                     </div>
@@ -93,7 +93,7 @@ class Container extends Component {
                                 this.props.title
                             }`}
                             via={"Pankaata"}
-                            url={"twitter"}
+                            url={"pankaata.com"}
                             children={
                                 <i
                                     style={{ color: "#1DA1F2" }}
