@@ -38,7 +38,7 @@ class Container extends Component {
             <div className="container-comp">
                 <div className="container-comp_header">
                     <div className="container-comp_sub-header">
-                        <h1>{this.props.title}</h1>
+                        {!this.props.news ? <h1>{this.props.title}</h1> : null}
                         <div className="published-date">
                             <div>{this.props.creation_date}</div>
                             <div style={{ marginTop: "5px" }}>

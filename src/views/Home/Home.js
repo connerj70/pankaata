@@ -300,6 +300,8 @@ class Home extends Component {
                         postId={value.post_id}
                         category={value.category}
                         time={value.time}
+                        title={value.title}
+                        news={true}
                     >
                         <NewsCard
                             title={value.title}
