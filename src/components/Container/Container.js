@@ -66,7 +66,7 @@ class Container extends Component {
                     <h5>Share this post:</h5>
                     <div className="share-button-container">
                         <FacebookShareButton
-                            quote={`Look what I found on www.pankaata.com/singlepost/${
+                            quote={`Look what I found on www.pankaata.com/#/singlepost/${
                                 this.props.postId
                             } ${this.props.title}`}
                             url={"pankaata.com"}
@@ -80,7 +80,7 @@ class Container extends Component {
                     </div>
                     <div className="share-button-container">
                         <EmailShareButton
-                            subject={`Look what I found on www.pankaata.com/singlepost/${
+                            subject={`Look what I found on www.pankaata.com/#/singlepost/${
                                 this.props.postId
                             } ${this.props.title}`}
                             url={`www.pankaata.com/singlepost/${
@@ -91,7 +91,7 @@ class Container extends Component {
                     </div>
                     <div className="share-button-container">
                         <TwitterShareButton
-                            title={`Look what I found on www.pankaata.com/singlepost/${
+                            title={`Look what I found on www.pankaata.com/#/singlepost/${
                                 this.props.postId
                             } ${this.props.title}`}
                             via={"Pankaata"}
