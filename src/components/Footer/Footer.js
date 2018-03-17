@@ -7,7 +7,11 @@ class Footer extends Component {
         return (
             <div className="footer-wrapper">
                 <div className="footer_logo-container">
-                    <img className="footer-logo" src={logo} />
+                    <img
+                        alt="pankaata logo"
+                        className="footer-logo"
+                        src={logo}
+                    />
                 </div>
                 <div className="footer_social-container">
                     <a href="https://www.facebook.com/pankaata/?ref=br_rs">

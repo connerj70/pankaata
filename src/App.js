@@ -16,6 +16,7 @@ import FourOhFour from "./views/FourOhFour/FourOhFour";
 import Footer from "./components/Footer/Footer";
 import Entertainment from "./views/Entertainment/Entertainment";
 import ThousandWords from "./views/ThousandWords/ThousandWords";
+import SinglePost from "./views/SinglePost/SinglePost";
 
 import ReactGA from "react-ga";
 ReactGA.initialize(process.env.REACT_APP_ANALYTICS, {
@@ -74,6 +75,10 @@ class App extends Component {
                     <Route path="/food" component={withTracker(Food)} />
                     <Route path="/animal" component={withTracker(Animal)} />
                     <Route path="/post" component={withTracker(Post)} />
+                    <Route
+                        path="/singlepost/:id"
+                        component={withTracker(SinglePost)}
+                    />
                     <Route
                         path="/thousandwords"
                         component={withTracker(ThousandWords)}

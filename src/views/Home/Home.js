@@ -349,7 +349,7 @@ class Home extends Component {
                                                     window.scrollTo(0, 0)
                                                 }
                                             >
-                                                All Posts Loaded Return To Top
+                                                All Posts Loaded. Return To Top
                                             </button>
                                         ) : (
                                             <button
