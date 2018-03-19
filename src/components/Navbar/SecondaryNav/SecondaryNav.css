@@ -52,3 +52,15 @@
 .search_container-2 {
     flex-grow: 1;
 }
+
+@media (min-width: 1000px) {
+    .secondary-nav_initial-search {
+        width: 83%;
+        margin: 0 auto;
+    }
+
+    .secondary-nav_search-open-div {
+        width: 83%;
+        margin: 0 auto;
+    }
+}

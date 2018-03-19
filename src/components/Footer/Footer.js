@@ -24,14 +24,24 @@ class Footer extends Component {
                             className="fab fa-facebook-f"
                         />
                     </a>
-                    <i
-                        style={{ cursor: "pointer", color: "rgb(251,176,64)" }}
-                        className="fab fa-twitter"
-                    />
-                    <i
-                        style={{ cursor: "pointer", color: "rgb(239,65,54)" }}
-                        className="fab fa-instagram"
-                    />
+                    <a href="https://twitter.com/PankaataI">
+                        <i
+                            style={{
+                                cursor: "pointer",
+                                color: "rgb(251,176,64)"
+                            }}
+                            className="fab fa-twitter"
+                        />
+                    </a>
+                    <a href="https://www.instagram.com/pankaata/">
+                        <i
+                            style={{
+                                cursor: "pointer",
+                                color: "rgb(239,65,54)"
+                            }}
+                            className="fab fa-instagram"
+                        />
+                    </a>
                 </div>
                 <div className="footer_links-container">
                     <ul>

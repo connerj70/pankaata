@@ -145,6 +145,8 @@ class PostContainer extends Component {
                         tags={value.tags}
                         postId={value.post_id}
                         category={value.category}
+                        creation_date={value.creation_date}
+                        time={value.time}
                     >
                         <NewsCard
                             title={value.title}
@@ -163,7 +165,6 @@ class PostContainer extends Component {
         return (
             <div>
                 <Navbar
-                    secondaryNav={false}
                     handleSearchTerm={this.handleSearchTerm}
                     handleSearchEnter={this.handleSearchEnter}
                     clearSearch={this.clearSearchTerm}

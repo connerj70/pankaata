@@ -284,6 +284,7 @@ class Home extends Component {
                         creation_date={value.creation_date}
                         category={value.category}
                         time={value.time}
+                        ad={true}
                     >
                         <div className="media-wrapper">
                             <Ad />

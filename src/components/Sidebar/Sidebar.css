@@ -3,6 +3,7 @@
     overflow-x: scroll;
     color: #788289;
     padding-top: 30px;
+    margin-left: 40px;
 }
 
 .sidebar_tag {
@@ -43,7 +44,7 @@
 @media (min-width: 680px) {
     .sidebar {
         overflow-x: hidden;
-        width: 35%;
+        width: 40%;
         height: 90vh;
         position: sticky;
         top: 20px;

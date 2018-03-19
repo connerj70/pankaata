@@ -136,7 +136,6 @@ class Motivational extends Component {
         return (
             <div className="motivational_container">
                 <Navbar
-                    secondaryNav={false}
                     handleSearchTerm={this.handleSearchTerm}
                     handleSearchEnter={this.handleSearchEnter}
                     clearSearch={this.clearSearchTerm}

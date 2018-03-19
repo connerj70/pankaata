@@ -29,7 +29,7 @@ class NewsCard extends Component {
         }
         return (
             <div>
-                <div className="container">
+                <div className="news_container">
                     <div className="post-module">
                         <div className="thumbnail">
                             {/* <div className="date">

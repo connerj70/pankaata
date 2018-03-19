@@ -40,8 +40,14 @@ const CustomForm = ({ status, message, onValidated, handleClick }) => {
             {status === "success" && (
                 <div style={{ color: "green" }}>{message}</div>
             )}
-            <h1 style={{ fontSize: "20px", marginBottom: "20px" }}>
-                Subscribe for daily updates
+            <h1
+                style={{
+                    fontSize: "20px",
+                    marginBottom: "20px",
+                    lineHeight: "1.5rem"
+                }}
+            >
+                Subscribe To Receive Daily Updates From Pankaata
             </h1>
             <input
                 style={{ fontSize: "1.1em", padding: 5 }}

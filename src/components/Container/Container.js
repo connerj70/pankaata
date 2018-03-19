@@ -12,7 +12,22 @@ import {
 class Container extends Component {
     constructor(props) {
         super(props);
-        this.state = {};
+        this.state = {
+            months: [
+                "January",
+                "February",
+                "March",
+                "April",
+                "May",
+                "June",
+                "July",
+                "August",
+                "September",
+                "October",
+                "November",
+                "December"
+            ]
+        };
     }
 
     deletePost(postId) {
@@ -25,6 +40,33 @@ class Container extends Component {
     }
 
     render() {
+        let month = "";
+        let monthNum = "";
+        let dayNum = "";
+        let yearNum = "";
+        let hour = "";
+        let minutes = "";
+        let aOrP = "";
+        if (this.props.creation_date) {
+            console.log(this.props.creation_date.split("/"));
+            monthNum = this.props.creation_date.split("/")[0];
+            dayNum = this.props.creation_date.split("/")[1];
+            yearNum = this.props.creation_date.split("/")[2];
+            month = this.state.months[monthNum - 1];
+            console.log(month);
+        }
+        if (this.props.time) {
+            console.log(this.props.time.split(":"));
+            if (this.props.time.split(":")[0] > 12) {
+                hour = this.props.time.split(":")[0] - 12;
+                minutes = this.props.time.split(":")[1];
+                aOrP = "P.M.";
+            } else {
+                hour = this.props.time.split(":")[0];
+                minutes = this.props.time.split(":")[1];
+                aOrP = "A.M.";
+            }
+        }
         // let tagsToRender = this.props.tags
         //     ? this.props.tags.map((val, i) => {
         //           return (
@@ -39,12 +81,20 @@ class Container extends Component {
                 <div className="container-comp_header">
                     <div className="container-comp_sub-header">
                         {!this.props.news ? <h1>{this.props.title}</h1> : null}
-                        <div className="published-date">
-                            <div>{this.props.creation_date}</div>
-                            <div style={{ marginTop: "5px" }}>
-                                {this.props.time}
+                        {!this.props.ad ? (
+                            <div className="published-date">
+                                <div>
+                                    Published On:{" "}
+                                    {month + " " + dayNum + ", " + yearNum} at{" "}
+                                    {hour +
+                                        ":" +
+                                        minutes +
+                                        " " +
+                                        aOrP +
+                                        " (ET)"}
+                                </div>
                             </div>
-                        </div>
+                        ) : null}
                     </div>
                     {this.props.admin ? (
                         <div className="admin-controls-container">
@@ -114,5 +164,6 @@ class Container extends Component {
 export default Container;
 
 Container.defaultProps = {
-    tags: []
+    tags: [],
+    ad: false
 };

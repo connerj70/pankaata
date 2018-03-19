@@ -129,86 +129,95 @@ class Navbar extends Component {
                     </div>
                 ) : null}
                 <div className="navbar">
-                    <div className="navbar_logo">
-                        <Link to="/">
-                            <img
-                                className="pankaata-logo"
-                                alt="logo"
-                                src={logo}
-                            />
-                        </Link>
-                    </div>
-                    <div className="desktop-nav">
-                        <ul>
-                            <Link to="/worthynews">
-                                <li className="navbar_dropdown">WorthyNews</li>
+                    <div className="smaller-navbar-wrapper">
+                        <div className="navbar_logo">
+                            <Link to="/">
+                                <img
+                                    className="pankaata-logo"
+                                    alt="logo"
+                                    src={logo}
+                                />
                             </Link>
-                            <Link to="/food">
-                                <li className="navbar_dropdown">FoodPorn</li>
-                            </Link>
-                            <Link to="/animal">
-                                <li className="navbar_dropdown">
-                                    AnimalLovers
+                        </div>
+                        <div className="desktop-nav">
+                            <ul>
+                                <Link to="/worthynews">
+                                    <li className="navbar_dropdown">
+                                        WorthyNews
+                                    </li>
+                                </Link>
+                                <Link to="/food">
+                                    <li className="navbar_dropdown">
+                                        FoodPorn
+                                    </li>
+                                </Link>
+                                <Link to="/animal">
+                                    <li className="navbar_dropdown">
+                                        AnimalLovers
+                                    </li>
+                                </Link>
+                                <Link to="/entertainment">
+                                    <li className="navbar_dropdown">
+                                        Entertainment
+                                    </li>
+                                </Link>
+                                <Link to="/thousandwords">
+                                    <li className="navbar_dropdown">
+                                        ThousandWords
+                                    </li>
+                                </Link>
+                                <Link to="/motivational">
+                                    <li className="navbar_dropdown">
+                                        MotivationalMonday
+                                    </li>
+                                </Link>
+                                <li
+                                    onClick={() => this.handleBellClick()}
+                                    style={{ color: "var(--yellow)" }}
+                                    className="navbar_dropdown"
+                                >
+                                    <i className="fas fa-bell" />
                                 </li>
-                            </Link>
-                            <Link to="/entertainment">
-                                <li className="navbar_dropdown">
-                                    Entertainment
-                                </li>
-                            </Link>
-                            <Link to="/thousandwords">
-                                <li className="navbar_dropdown">
-                                    ThousandWords
-                                </li>
-                            </Link>
-                            <Link to="/motivational">
-                                <li className="navbar_dropdown">
-                                    MotivationalMonday
-                                </li>
-                            </Link>
-                            <li
-                                onClick={() => this.handleBellClick()}
-                                style={{ color: "var(--yellow)" }}
-                                className="navbar_dropdown"
-                            >
-                                <i className="fas fa-bell" />
-                            </li>
 
-                            <li className="navbar_dropdown">
-                                {!this.state.hideBtn ? (
-                                    !this.state.popup ? (
-                                        <div
-                                            className="subscribe-update-btn"
-                                            onClick={() => this.handleClick()}
-                                        >
-                                            Subscribe
-                                        </div>
-                                    ) : null
-                                ) : null}
-                            </li>
-                            {/* <Link to="/thousandwords">
+                                <li className="navbar_dropdown">
+                                    {!this.state.hideBtn ? (
+                                        !this.state.popup ? (
+                                            <div
+                                                className="subscribe-update-btn"
+                                                onClick={() =>
+                                                    this.handleClick()
+                                                }
+                                            >
+                                                Subscribe
+                                            </div>
+                                        ) : null
+                                    ) : null}
+                                </li>
+                                {/* <Link to="/thousandwords">
                             <li className="navbar_dropdown">ThousandWords</li>
                         </Link> */}
-                        </ul>
-                    </div>
-                    <div
-                        className="menu-drop"
-                        onClick={() => this.handleMenu()}
-                    >
-                        {this.state.menu ? (
-                            <div
-                                style={{
-                                    fontSize: "20px",
-                                    fontWeight: "100"
-                                }}
-                            >
-                                x
-                            </div>
-                        ) : (
-                            <div>MENU &#9660;</div>
-                        )}
+                            </ul>
+                        </div>
+                        <div
+                            className="menu-drop"
+                            onClick={() => this.handleMenu()}
+                        >
+                            {this.state.menu ? (
+                                <div
+                                    style={{
+                                        fontSize: "20px",
+                                        fontWeight: "100"
+                                    }}
+                                >
+                                    x
+                                </div>
+                            ) : (
+                                <div>MENU &#9660;</div>
+                            )}
+                        </div>
                     </div>
                 </div>
+
                 <div
                     className={
                         this.state.menu
