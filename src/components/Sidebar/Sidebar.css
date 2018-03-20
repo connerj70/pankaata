@@ -42,7 +42,7 @@
     height: 8px;
 }
 
-@media (min-width: 680px) {
+@media (min-width: 880px) {
     .sidebar {
         overflow-x: hidden;
         width: 40%;
