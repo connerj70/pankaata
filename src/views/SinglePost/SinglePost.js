@@ -2,14 +2,14 @@ import React, { Component } from "react";
 import "./SinglePost.css";
 import Navbar from "../../components/Navbar/Navbar";
 import axios from "axios";
-import { TwitterTweetEmbed } from "react-twitter-embed";
+// import { TwitterTweetEmbed } from "react-twitter-embed";
 import InstagramEmbed from "react-instagram-embed";
 import YouTube from "react-youtube";
 import FacebookProvider, { EmbeddedPost } from "react-facebook";
 import Container from "../../components/Container/Container";
 import { Link } from "react-router-dom";
 import TweetEmbed from "react-tweet-embed";
-import Sidebar from "../../components/Sidebar/Sidebar";
+// import Sidebar from "../../components/Sidebar/Sidebar";
 import NewsCard from "../../components/NewsCard/NewsCard";
 
 class SinglePost extends Component {

@@ -190,6 +190,7 @@ class Navbar extends Component {
                                     {!this.state.hideBtn ? (
                                         !this.state.popup ? (
                                             <div
+                                                role="button"
                                                 className="subscribe-update-btn"
                                                 onClick={() =>
                                                     this.handleClick()
@@ -272,6 +273,7 @@ class Navbar extends Component {
                 {!this.state.hideBtn ? (
                     !this.state.popup ? (
                         <div
+                            role="button"
                             className="subscribe-update-btn hide"
                             onClick={() => this.handleClick()}
                         >

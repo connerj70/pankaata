@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "./Sidebar.css";
-import randomColor from "randomcolor";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import Ad from "../../components/Ad/Ad";
@@ -21,24 +20,24 @@ class Sidebar extends Component {
     }
 
     render() {
-        let tagsToRender = this.state.tags.map((value, i) => {
-            let color = randomColor();
-            return (
-                <div key={i}>
-                    <div
-                        style={{ backgroundColor: color }}
-                        className="sidebar_color"
-                    />
-                    <div
-                        className="sidebar_tag"
-                        onClick={() => this.props.search(value.name)}
-                    >
-                        {/* <div>{value.name}</div> */}
-                        {/* <div>{value.count}</div> */}
-                    </div>
-                </div>
-            );
-        });
+        // let tagsToRender = this.state.tags.map((value, i) => {
+        //     let color = randomColor();
+        //     return (
+        //         <div key={i}>
+        //             <div
+        //                 style={{ backgroundColor: color }}
+        //                 className="sidebar_color"
+        //             />
+        //             <div
+        //                 className="sidebar_tag"
+        //                 onClick={() => this.props.search(value.name)}
+        //             >
+        //                 {/* <div>{value.name}</div> */}
+        //                 {/* <div>{value.count}</div> */}
+        //             </div>
+        //         </div>
+        //     );
+        // });
         return (
             <div className="sidebar">
                 <Link to="/worthynews">

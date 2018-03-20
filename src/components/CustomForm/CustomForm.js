@@ -9,7 +9,7 @@ const CustomForm = ({
     handleClick,
     closePopup
 }) => {
-    let email, name;
+    let email;
     const submit = () =>
         email &&
         // name &&

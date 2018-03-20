@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Navbar from "../../components/Navbar/Navbar";
 import axios from "axios";
-import { TwitterTweetEmbed } from "react-twitter-embed";
+// import { TwitterTweetEmbed } from "react-twitter-embed";
 import InstagramEmbed from "react-instagram-embed";
 import YouTube from "react-youtube";
 import FacebookProvider, { EmbeddedPost } from "react-facebook";

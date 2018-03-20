@@ -3,24 +3,21 @@ import "./NewsCard.css";
 import letters from "../../assets/letters.jpg";
 
 class NewsCard extends Component {
-    constructor(props) {
-        super(props);
-    }
     render() {
-        let months = [
-            "January",
-            "February",
-            "March",
-            "April",
-            "May",
-            "June",
-            "July",
-            "August",
-            "September",
-            "October",
-            "November",
-            "December"
-        ];
+        // let months = [
+        //     "January",
+        //     "February",
+        //     "March",
+        //     "April",
+        //     "May",
+        //     "June",
+        //     "July",
+        //     "August",
+        //     "September",
+        //     "October",
+        //     "November",
+        //     "December"
+        // ];
         let imgShow;
         if (this.props.image) {
             imgShow = this.props.image;
