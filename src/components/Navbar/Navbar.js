@@ -213,7 +213,8 @@ class Navbar extends Component {
                                 <div
                                     style={{
                                         fontSize: "20px",
-                                        fontWeight: "100"
+                                        fontWeight: "100",
+                                        marginLeft: "40px"
                                     }}
                                 >
                                     x

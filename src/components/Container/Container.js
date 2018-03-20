@@ -48,15 +48,12 @@ class Container extends Component {
         let minutes = "";
         let aOrP = "";
         if (this.props.creation_date) {
-            console.log(this.props.creation_date.split("/"));
             monthNum = this.props.creation_date.split("/")[0];
             dayNum = this.props.creation_date.split("/")[1];
             yearNum = this.props.creation_date.split("/")[2];
             month = this.state.months[monthNum - 1];
-            console.log(month);
         }
         if (this.props.time) {
-            console.log(this.props.time.split(":"));
             if (this.props.time.split(":")[0] > 12) {
                 hour = this.props.time.split(":")[0] - 12;
                 minutes = this.props.time.split(":")[1];

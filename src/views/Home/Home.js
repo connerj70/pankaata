@@ -289,9 +289,9 @@ class Home extends Component {
                         time={value.time}
                         ad={true}
                     >
-                        <div className="media-wrapper">
-                            <Ad />
-                        </div>
+                        {/* <div className="media-wrapper"> */}
+                        <Ad />
+                        {/* </div> */}
                     </Container>
                 );
             } else if (value.type === "news") {

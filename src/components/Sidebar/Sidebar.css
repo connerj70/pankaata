@@ -18,6 +18,7 @@
     color: #788289;
     cursor: pointer;
     transition: all 0.4s ease-out;
+    box-shadow: 1px 1px 8px #d3d3d3;
 }
 
 .sidebar_tag:hover {
