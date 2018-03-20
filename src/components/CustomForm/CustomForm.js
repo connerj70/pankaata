@@ -2,18 +2,27 @@ import React from "react";
 import "./CustomForm.css";
 import axios from "axios";
 
-const CustomForm = ({ status, message, onValidated, handleClick }) => {
+const CustomForm = ({
+    status,
+    message,
+    onValidated,
+    handleClick,
+    closePopup
+}) => {
     let email, name;
     const submit = () =>
         email &&
-        name &&
+        // name &&
         email.value.indexOf("@") > -1 &&
         onValidated({
-            EMAIL: email.value,
-            NAME: name.value
+            EMAIL: email.value
+            // NAME: name.value
         });
 
     const handleBoth = () => {
+        setTimeout(function() {
+            closePopup();
+        }, 1500);
         submit();
         axios.post("/api/user-subscribe");
     };
@@ -49,12 +58,12 @@ const CustomForm = ({ status, message, onValidated, handleClick }) => {
             >
                 Subscribe To Receive Daily Updates From Pankaata
             </h1>
-            <input
+            {/* <input
                 style={{ fontSize: "1.1em", padding: 5 }}
                 ref={node => (name = node)}
                 type="text"
                 placeholder="Your name"
-            />
+            /> */}
             <br />
             <input
                 style={{ fontSize: "1.1em", padding: 5 }}
@@ -65,7 +74,7 @@ const CustomForm = ({ status, message, onValidated, handleClick }) => {
             <br />
             <button
                 className="chimp-mail-button"
-                style={{ fontSize: "2em", padding: 5 }}
+                style={{ fontSize: "2em", padding: 5, marginTop: "25px" }}
                 onClick={handleBoth}
             >
                 Submit

@@ -6,14 +6,15 @@ class Ad extends Component {
         return false;
     }
     render() {
+        const { width, height } = this.props;
         return (
             <div>
                 <AdSense.Google
                     client="ca-pub-7292810486004926"
                     slot="7806394673"
                     style={{
-                        width: 300,
-                        height: 300,
+                        width: width,
+                        height: height,
                         margin: "0 auto"
                     }}
                     format=""
@@ -24,3 +25,8 @@ class Ad extends Component {
 }
 
 export default Ad;
+
+Ad.defaultProps = {
+    width: 300,
+    height: 300
+};

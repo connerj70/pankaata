@@ -244,7 +244,10 @@ class Home extends Component {
                         category={value.category}
                         time={value.time}
                     >
-                        <div className="media-wrapper">
+                        <div
+                            style={{ maxWidth: "700px" }}
+                            className="media-wrapper"
+                        >
                             <YouTube
                                 videoId={value.url}
                                 opts={{ suggestedQuality: "small" }}
@@ -320,6 +323,7 @@ class Home extends Component {
 
         return (
             <div>
+                {/* <Ad width={300} height={300} /> */}
                 <Navbar
                     handleSearchTerm={this.handleSearchTerm}
                     handleSearchEnter={this.handleSearchEnter}

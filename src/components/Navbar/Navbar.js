@@ -84,6 +84,11 @@ class Navbar extends Component {
         });
     };
 
+    closePopup = () => {
+        this.setState({
+            popup: false
+        });
+    };
     render() {
         let noti;
         if (this.state.notifications) {
@@ -117,12 +122,14 @@ class Navbar extends Component {
                             url="https://pankaata.us12.list-manage.com/subscribe/post?u=22c1870a1568339e5ca97c8f0&amp;id=148d98d01f"
                             render={({ subscribe, status, message }) => (
                                 <CustomForm
+                                    closePopup={this.closePopup}
                                     handleClick={this.handleClick}
                                     status={status}
                                     message={message}
-                                    onValidated={formData =>
-                                        subscribe(formData)
-                                    }
+                                    onValidated={formData => {
+                                        console.log("FORM DATA", formData);
+                                        subscribe(formData);
+                                    }}
                                 />
                             )}
                         />
