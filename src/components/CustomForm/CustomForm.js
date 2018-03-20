@@ -73,6 +73,7 @@ const CustomForm = ({
             />
             <br />
             <button
+                aria-label="Subscribe to pankaata email list"
                 className="chimp-mail-button"
                 style={{ fontSize: "2em", padding: 5, marginTop: "25px" }}
                 onClick={handleBoth}

@@ -191,6 +191,7 @@ class Navbar extends Component {
                                         !this.state.popup ? (
                                             <div
                                                 role="button"
+                                                aria-label="Add Chamukos tequila to cart"
                                                 className="subscribe-update-btn"
                                                 onClick={() =>
                                                     this.handleClick()
@@ -273,6 +274,7 @@ class Navbar extends Component {
                 {!this.state.hideBtn ? (
                     !this.state.popup ? (
                         <div
+                            aria-label="Open email list subscribe modal"
                             role="button"
                             className="subscribe-update-btn hide"
                             onClick={() => this.handleClick()}

@@ -81,7 +81,9 @@ class Home extends Component {
         //     "//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
         // );
         // document.body.appendChild(addScript);
-        window.addEventListener("scroll", e => this.scrollFnc(e));
+        window.addEventListener("scroll", e => this.scrollFnc(e), {
+            passive: true
+        });
         axios.get("/api/get-count").then(resp => {
             this.setState({
                 count: +resp.data[0].count
