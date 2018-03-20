@@ -44,7 +44,7 @@ class Sidebar extends Component {
                 <Link to="/worthynews">
                     <div>
                         <div
-                            style={{ backgroundColor: "var(--dark-brown)" }}
+                            style={{ backgroundColor: "var(--red)" }}
                             className={
                                 window.location.hash === "#/worthynews"
                                     ? "sidebar_color active"
@@ -61,7 +61,7 @@ class Sidebar extends Component {
                 <Link to="/food">
                     <div>
                         <div
-                            style={{ backgroundColor: "var(--light-brown)" }}
+                            style={{ backgroundColor: "var(--red)" }}
                             className={
                                 window.location.hash === "#/food"
                                     ? "sidebar_color active"
@@ -78,7 +78,7 @@ class Sidebar extends Component {
                 <Link to="/animal">
                     <div>
                         <div
-                            style={{ backgroundColor: "var(--yellow)" }}
+                            style={{ backgroundColor: "var(--red)" }}
                             className={
                                 window.location.hash === "#/animal"
                                     ? "sidebar_color active"
@@ -95,7 +95,7 @@ class Sidebar extends Component {
                 <Link to="/entertainment">
                     <div>
                         <div
-                            style={{ backgroundColor: "var(--blue)" }}
+                            style={{ backgroundColor: "var(--red)" }}
                             className={
                                 window.location.hash === "#/entertainment"
                                     ? "sidebar_color active"
@@ -112,7 +112,7 @@ class Sidebar extends Component {
                 <Link to="/thousandwords">
                     <div>
                         <div
-                            style={{ backgroundColor: "var(--medium-brown)" }}
+                            style={{ backgroundColor: "var(--red)" }}
                             className={
                                 window.location.hash === "#/thousandwords"
                                     ? "sidebar_color active"

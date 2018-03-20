@@ -323,7 +323,7 @@ class Home extends Component {
 
         return (
             <div>
-                {/* <Ad width={300} height={300} /> */}
+                {/* <Ad width={500} height={500} /> */}
                 <Navbar
                     handleSearchTerm={this.handleSearchTerm}
                     handleSearchEnter={this.handleSearchEnter}
