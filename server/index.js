@@ -179,14 +179,13 @@ app.get("/api/post/:id", function(req, res) {
 
     db.get_post([req.params.id]).then(resp => {
         console.log(resp);
-        // let obj = resp[0];
-        // obj.tags = [];
-        // db.get_tags([req.params.id]).then(resp2 => {
-        //     for (let i = 0; i < resp2.length; i++) {
-        //         obj.tags.push(resp2[i].name);
-        //     }
-
-        // });
+        let obj = resp[0];
+        obj.tags = [];
+        db.get_tags([req.params.id]).then(resp2 => {
+            for (let i = 0; i < resp2.length; i++) {
+                obj.tags.push(resp2[i].name);
+            }
+        });
         res.status(200).send(resp);
     });
 });

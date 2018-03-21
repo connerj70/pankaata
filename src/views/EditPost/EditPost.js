@@ -27,6 +27,7 @@ class Post extends Component {
             });
         });
         axios.get("/api/post/" + this.props.match.params.id).then(resp => {
+            console.log(resp);
             this.setState({
                 title: resp.data[0].title,
                 type: resp.data[0].type,
