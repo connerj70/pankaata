@@ -110,6 +110,7 @@ class PostContainer extends Component {
                         postId={value.post_id}
                         category={value.category}
                         time={value.time}
+                        youtubeContainer={true}
                     >
                         <div className="media-wrapper">
                             <YouTube videoId={value.url} />
@@ -147,6 +148,7 @@ class PostContainer extends Component {
                         category={value.category}
                         creation_date={value.creation_date}
                         time={value.time}
+                        news={true}
                     >
                         <NewsCard
                             title={value.title}
@@ -154,6 +156,8 @@ class PostContainer extends Component {
                             image={value.url}
                             day={value.creation_date.split("/")[1]}
                             month={value.creation_date.split("/")[0]}
+                            creation_date={value.creation_date}
+                            time={value.time}
                         />
                     </Container>
                 );

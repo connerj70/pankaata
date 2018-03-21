@@ -94,7 +94,7 @@ class Sidebar extends Component {
                 <Link to="/entertainment">
                     <div>
                         <div
-                            style={{ backgroundColor: "var(--red)" }}
+                            style={{ backgroundColor: "var(--light-brown)" }}
                             className={
                                 window.location.hash === "#/entertainment"
                                     ? "sidebar_color active"
@@ -111,7 +111,7 @@ class Sidebar extends Component {
                 <Link to="/thousandwords">
                     <div>
                         <div
-                            style={{ backgroundColor: "var(--light-brown)" }}
+                            style={{ backgroundColor: "var(--red)" }}
                             className={
                                 window.location.hash === "#/thousandwords"
                                     ? "sidebar_color active"

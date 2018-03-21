@@ -80,7 +80,9 @@
 
 @media (min-width: 680px) {
     .left-post-container {
-        padding-right: 80px;
+        border-right: 1px solid #d3d3d3;
+
+        /* padding-right: 80px; */
         /* width: 70%; */
         flex-grow: 0.5;
         padding-top: 30px;
@@ -111,5 +113,6 @@
     }
     .left-post-container {
         border-right: 1px solid #d3d3d3;
+        padding-right: 80px;
     }
 }
