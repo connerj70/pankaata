@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./Footer.css";
-import logo from "../../assets/pankaata-final.svg";
+import logo from "../../assets/pankaata-footer-logo.svg";
 
 class Footer extends Component {
     render() {

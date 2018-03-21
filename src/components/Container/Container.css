@@ -1,7 +1,21 @@
 .container-comp {
     margin: 20px auto;
     background-color: #fff;
-    padding: 20px;
+    padding: 5px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 8px #d3d3d3;
+    overflow: auto;
+    width: 95%;
+    /* max-width: 600px; */
+    display: flex;
+    flex-direction: column;
+}
+
+.youtube-container-comp {
+    width: 100%;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 5px;
     border-radius: 5px;
     box-shadow: 2px 2px 8px #d3d3d3;
     overflow: auto;
@@ -17,6 +31,14 @@
     align-items: top;
     width: 100%;
     max-width: 500px;
+    margin: 0 auto;
+}
+
+.youtube-container-comp_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: top;
+    width: 100%;
     margin: 0 auto;
 }
 
@@ -97,11 +119,21 @@
 
 @media (min-width: 600px) {
     .container-comp {
-        width: 100%;
+        width: 85%;
     }
 
-    .container-comp_header {
-        margin-bottom: 20px;
+    .youtube-container-comp {
+        width: 100%;
+        margin: 20px auto;
+        background-color: #fff;
+        padding: 5px;
+        border-radius: 5px;
+        box-shadow: 2px 2px 8px #d3d3d3;
+        overflow: auto;
+        width: 95%;
+        /* max-width: 600px; */
+        display: flex;
+        flex-direction: column;
     }
 
     .container-comp_sub-header h1 {

@@ -245,6 +245,7 @@ class Home extends Component {
                         creation_date={value.creation_date}
                         category={value.category}
                         time={value.time}
+                        youtubeContainer={true}
                     >
                         <div
                             style={{ maxWidth: "700px" }}

@@ -65,8 +65,20 @@ class Container extends Component {
             }
         }
         return (
-            <div className="container-comp">
-                <div className="container-comp_header">
+            <div
+                className={
+                    this.props.youtubeContainer
+                        ? "youtube-container-comp"
+                        : "container-comp"
+                }
+            >
+                <div
+                    className={
+                        this.props.youtubeContainer
+                            ? "youtube-container-comp_header"
+                            : "container-comp_header"
+                    }
+                >
                     <div className="container-comp_sub-header">
                         {!this.props.news ? <h1>{this.props.title}</h1> : null}
                         {!this.props.ad ? (
@@ -156,5 +168,6 @@ export default Container;
 
 Container.defaultProps = {
     tags: [],
-    ad: false
+    ad: false,
+    youtubeContainer: false
 };

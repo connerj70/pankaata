@@ -41,7 +41,6 @@
 }
 
 .left-post-container {
-    border-right: 1px solid #d3d3d3;
     padding-top: 30px;
 }
 
@@ -84,6 +83,7 @@
         padding-right: 80px;
         /* width: 70%; */
         flex-grow: 0.5;
+        padding-top: 30px;
     }
     .home_inner-posts-sidebar-container {
         display: flex;
@@ -108,5 +108,8 @@
 @media (min-width: 1050px) {
     .home_inner-posts-sidebar-container {
         width: 95%;
+    }
+    .left-post-container {
+        border-right: 1px solid #d3d3d3;
     }
 }
