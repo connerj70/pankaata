@@ -60,7 +60,7 @@ class Sidebar extends Component {
                 <Link to="/food">
                     <div>
                         <div
-                            style={{ backgroundColor: "var(--red)" }}
+                            style={{ backgroundColor: "var(--yellow)" }}
                             className={
                                 window.location.hash === "#/food"
                                     ? "sidebar_color active"
@@ -77,7 +77,7 @@ class Sidebar extends Component {
                 <Link to="/animal">
                     <div>
                         <div
-                            style={{ backgroundColor: "var(--red)" }}
+                            style={{ backgroundColor: "var(--blue)" }}
                             className={
                                 window.location.hash === "#/animal"
                                     ? "sidebar_color active"
@@ -111,7 +111,7 @@ class Sidebar extends Component {
                 <Link to="/thousandwords">
                     <div>
                         <div
-                            style={{ backgroundColor: "var(--red)" }}
+                            style={{ backgroundColor: "var(--light-brown)" }}
                             className={
                                 window.location.hash === "#/thousandwords"
                                     ? "sidebar_color active"
@@ -128,7 +128,7 @@ class Sidebar extends Component {
                 <Link to="/motivational">
                     <div>
                         <div
-                            style={{ backgroundColor: "var(--red)" }}
+                            style={{ backgroundColor: "var(--dark-brown)" }}
                             className={
                                 window.location.hash === "#/motivational"
                                     ? "sidebar_color active"

@@ -310,6 +310,8 @@ class Home extends Component {
                         news={true}
                     >
                         <NewsCard
+                            time={value.time}
+                            creation_date={value.creation_date}
                             title={value.title}
                             description={value.description}
                             image={value.url}

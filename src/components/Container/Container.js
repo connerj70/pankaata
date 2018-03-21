@@ -64,33 +64,27 @@ class Container extends Component {
                 aOrP = "A.M.";
             }
         }
-        // let tagsToRender = this.props.tags
-        //     ? this.props.tags.map((val, i) => {
-        //           return (
-        //               <div key={i} className="tag-wrapper">
-        //                   {val}
-        //               </div>
-        //           );
-        //       })
-        //     : null;
         return (
             <div className="container-comp">
                 <div className="container-comp_header">
                     <div className="container-comp_sub-header">
                         {!this.props.news ? <h1>{this.props.title}</h1> : null}
                         {!this.props.ad ? (
-                            <div className="published-date">
-                                <div>
-                                    Published On:{" "}
-                                    {month + " " + dayNum + ", " + yearNum} at{" "}
-                                    {hour +
-                                        ":" +
-                                        minutes +
-                                        " " +
-                                        aOrP +
-                                        " (ET)"}
+                            !this.props.news ? (
+                                <div className="published-date">
+                                    <div>
+                                        Published On:{" "}
+                                        {month + " " + dayNum + ", " + yearNum}{" "}
+                                        at{" "}
+                                        {hour +
+                                            ":" +
+                                            minutes +
+                                            " " +
+                                            aOrP +
+                                            " (ET)"}
+                                    </div>
                                 </div>
-                            </div>
+                            ) : null
                         ) : null}
                     </div>
                     {this.props.admin ? (
