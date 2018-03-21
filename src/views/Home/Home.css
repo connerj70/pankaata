@@ -80,8 +80,6 @@
 
 @media (min-width: 680px) {
     .left-post-container {
-        border-right: 1px solid #d3d3d3;
-
         /* padding-right: 80px; */
         /* width: 70%; */
         flex-grow: 0.5;
@@ -107,12 +105,19 @@
     }
 }
 
-@media (min-width: 1050px) {
-    .home_inner-posts-sidebar-container {
-        width: 95%;
-    }
+@media (min-width: 880px) {
     .left-post-container {
         border-right: 1px solid #d3d3d3;
         padding-right: 80px;
     }
+}
+
+@media (min-width: 1050px) {
+    .home_inner-posts-sidebar-container {
+        width: 95%;
+    }
+    /* .left-post-container {
+        border-right: 1px solid #d3d3d3;
+        padding-right: 80px;
+    } */
 }
