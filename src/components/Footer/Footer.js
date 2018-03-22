@@ -24,7 +24,7 @@ class Footer extends Component {
                             className="fab fa-facebook-f"
                         />
                     </a>
-                    <a href="https://twitter.com/PankaataI">
+                    <a href="https://twitter.com/pankaata">
                         <i
                             style={{
                                 cursor: "pointer",
