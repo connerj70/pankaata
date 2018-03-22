@@ -193,7 +193,6 @@ app.get("/api/post/:id", function(req, res) {
     const db = req.app.get("db");
 
     db.get_post([req.params.id]).then(resp => {
-        console.log(resp);
         let obj = resp[0];
         obj.tags = [];
         db.get_tags([req.params.id]).then(resp2 => {
