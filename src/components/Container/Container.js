@@ -49,9 +49,6 @@ class Container extends Component {
         let hour = "";
         let minutes = "";
         let aOrP = "";
-        console.log(this.props.creation_date);
-        console.log(this.props.time);
-        console.log("MOMENT", this.props.moment_date);
         if (this.props.creation_date) {
             monthNum = this.props.creation_date.split("/")[0];
             dayNum = this.props.creation_date.split("/")[1];
@@ -60,12 +57,9 @@ class Container extends Component {
         }
         if (this.props.time) {
             hour = +this.props.time.split(":")[0];
-            console.log(hour);
             if (hour > 24) {
                 if (+this.props.time.split(":")[0] > 12) {
-                    console.log(this.props.time.split(":")[0]);
                     hour = this.props.time.split(":")[0] - 12;
-                    console.log(hour);
                     minutes = this.props.time.split(":")[1];
                     aOrP = "P.M.";
                 } else {
@@ -75,13 +69,10 @@ class Container extends Component {
                 }
             } else {
                 if (+this.props.time.split(":")[0] > 12) {
-                    console.log("TOO BIG", this.props.time.split(":")[0]);
                     hour = +this.props.time.split(":")[0] - 12;
-                    console.log(hour);
                     minutes = this.props.time.split(":")[1];
                     aOrP = "P.M.";
                 } else {
-                    console.log(":LKAJF");
                     hour = +this.props.time.split(":")[0];
                     minutes = this.props.time.split(":")[1];
                     aOrP = "A.M.";

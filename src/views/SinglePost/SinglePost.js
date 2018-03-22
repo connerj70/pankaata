@@ -24,7 +24,6 @@ class SinglePost extends Component {
 
     componentDidMount() {
         axios.get("/api/post/" + this.props.match.params.id).then(resp => {
-            console.log(resp);
             this.setState({
                 posts: resp.data
             });

@@ -127,7 +127,6 @@ class Navbar extends Component {
                                     status={status}
                                     message={message}
                                     onValidated={formData => {
-                                        console.log("FORM DATA", formData);
                                         subscribe(formData);
                                     }}
                                 />

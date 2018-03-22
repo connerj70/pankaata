@@ -40,8 +40,6 @@ app.post("/api/logout", function(req, res) {
 
 app.post("/api/admin/password", function(req, res) {
     const db = req.app.get("db");
-    console.log(req.session.user.username);
-    console.log(req.body.newPass1);
     db
         .change_password([req.body.newPass1, req.session.user.username])
         .then(resp => {
