@@ -8,8 +8,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 20px;
-    width: 100%;
+    margin: 20px auto;
+    width: 98%;
 }
 
 .new-post-button-container button {
@@ -17,7 +17,7 @@
     background-color: var(--blue);
     color: #fff;
     border: none;
-    padding: 10px 25px;
+    padding: 5px 10px;
     border-radius: 5px;
     margin-left: 10px;
 }
@@ -80,6 +80,10 @@
 }
 
 @media (min-width: 680px) {
+    .new-post-button-container button {
+        padding: 15px 25px;
+        font-size: 12px;
+    }
     .left-post-container {
         /* padding-right: 80px; */
         width: 50%;
