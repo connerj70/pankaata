@@ -67,6 +67,9 @@ class Motivational extends Component {
                         title={value.title}
                         tags={value.tags}
                         postId={value.post_id}
+                        creation_date={value.creation_date}
+                        category={value.category}
+                        time={value.time}
                     >
                         <div className="media-wrapper">
                             {/* <TwitterTweetEmbed tweetId={value.url} /> */}
@@ -82,6 +85,9 @@ class Motivational extends Component {
                         title={value.title}
                         tags={value.tags}
                         postId={value.post_id}
+                        creation_date={value.creation_date}
+                        category={value.category}
+                        time={value.time}
                     >
                         <Link to={value.url}>
                             {" "}
@@ -103,6 +109,9 @@ class Motivational extends Component {
                         title={value.title}
                         tags={value.tags}
                         postId={value.post_id}
+                        creation_date={value.creation_date}
+                        category={value.category}
+                        time={value.time}
                     >
                         <div className="media-wrapper">
                             <YouTube videoId={value.url} />
@@ -118,6 +127,9 @@ class Motivational extends Component {
                         tags={value.tags}
                         postId={value.post_id}
                         creation_date={value.creation_date}
+                        creation_date={value.creation_date}
+                        category={value.category}
+                        time={value.time}
                     >
                         <div className="media-wrapper">
                             <FacebookProvider

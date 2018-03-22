@@ -70,6 +70,7 @@ class PostContainer extends Component {
                         postId={value.post_id}
                         category={value.category}
                         time={value.time}
+                        creation_date={value.creation_date}
                     >
                         <div className="media-wrapper">
                             {/* <TwitterTweetEmbed tweetId={value.url} /> */}
@@ -87,6 +88,7 @@ class PostContainer extends Component {
                         postId={value.post_id}
                         category={value.category}
                         time={value.time}
+                        creation_date={value.creation_date}
                     >
                         <Link to={value.url}>
                             {" "}
@@ -109,8 +111,9 @@ class PostContainer extends Component {
                         tags={value.tags}
                         postId={value.post_id}
                         category={value.category}
-                        time={value.time}
                         youtubeContainer={true}
+                        time={value.time}
+                        creation_date={value.creation_date}
                     >
                         <div className="media-wrapper">
                             <YouTube videoId={value.url} />
@@ -128,6 +131,7 @@ class PostContainer extends Component {
                         creation_date={value.creation_date}
                         category={value.category}
                         time={value.time}
+                        creation_date={value.creation_date}
                     >
                         <div className="media-wrapper">
                             <FacebookProvider
@@ -149,6 +153,7 @@ class PostContainer extends Component {
                         creation_date={value.creation_date}
                         time={value.time}
                         news={true}
+                        creation_date={value.creation_date}
                     >
                         <NewsCard
                             title={value.title}

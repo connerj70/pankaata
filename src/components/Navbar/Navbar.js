@@ -187,19 +187,15 @@ class Navbar extends Component {
                                 </li>
 
                                 <li className="navbar_dropdown">
-                                    {!this.state.hideBtn ? (
-                                        !this.state.popup ? (
-                                            <div
-                                                role="button"
-                                                aria-label="Add Chamukos tequila to cart"
-                                                className="subscribe-update-btn"
-                                                onClick={() =>
-                                                    this.handleClick()
-                                                }
-                                            >
-                                                Subscribe
-                                            </div>
-                                        ) : null
+                                    {!this.state.popup ? (
+                                        <div
+                                            role="button"
+                                            aria-label="Add Chamukos tequila to cart"
+                                            className="subscribe-update-btn"
+                                            onClick={() => this.handleClick()}
+                                        >
+                                            Subscribe
+                                        </div>
                                     ) : null}
                                 </li>
                                 {/* <Link to="/thousandwords">

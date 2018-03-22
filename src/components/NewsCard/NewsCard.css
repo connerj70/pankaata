@@ -43,13 +43,15 @@
 .post-module .thumbnail img {
     display: block;
     width: 100%;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
 }
 .post-module .post-content {
     position: absolute;
     bottom: 0;
     display: block;
     width: 100%;
-    background: #ffffff;
+    background: transparent;
 }
 .post-module .post-content .post-text {
     padding: 30px;
