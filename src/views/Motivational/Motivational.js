@@ -70,6 +70,7 @@ class Motivational extends Component {
                         creation_date={value.creation_date}
                         category={value.category}
                         time={value.time}
+                        moment_date={value.moment_date}
                     >
                         <div className="media-wrapper">
                             {/* <TwitterTweetEmbed tweetId={value.url} /> */}
@@ -88,6 +89,7 @@ class Motivational extends Component {
                         creation_date={value.creation_date}
                         category={value.category}
                         time={value.time}
+                        moment_date={value.moment_date}
                     >
                         <Link to={value.url}>
                             {" "}
@@ -112,6 +114,7 @@ class Motivational extends Component {
                         creation_date={value.creation_date}
                         category={value.category}
                         time={value.time}
+                        moment_date={value.moment_date}
                     >
                         <div className="media-wrapper">
                             <YouTube videoId={value.url} />
@@ -130,6 +133,7 @@ class Motivational extends Component {
                         creation_date={value.creation_date}
                         category={value.category}
                         time={value.time}
+                        moment_date={value.moment_date}
                     >
                         <div className="media-wrapper">
                             <FacebookProvider

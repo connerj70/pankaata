@@ -71,6 +71,7 @@ class PostContainer extends Component {
                         category={value.category}
                         time={value.time}
                         creation_date={value.creation_date}
+                        moment_date={value.moment_date}
                     >
                         <div className="media-wrapper">
                             {/* <TwitterTweetEmbed tweetId={value.url} /> */}
@@ -89,6 +90,7 @@ class PostContainer extends Component {
                         category={value.category}
                         time={value.time}
                         creation_date={value.creation_date}
+                        moment_date={value.moment_date}
                     >
                         <div className="media-wrapper">
                             <InstagramEmbed
@@ -111,6 +113,7 @@ class PostContainer extends Component {
                         youtubeContainer={true}
                         time={value.time}
                         creation_date={value.creation_date}
+                        moment_date={value.moment_date}
                     >
                         <div className="media-wrapper">
                             <YouTube videoId={value.url} />
@@ -129,6 +132,7 @@ class PostContainer extends Component {
                         category={value.category}
                         time={value.time}
                         creation_date={value.creation_date}
+                        moment_date={value.moment_date}
                     >
                         <div className="media-wrapper">
                             <FacebookProvider
@@ -151,6 +155,7 @@ class PostContainer extends Component {
                         time={value.time}
                         news={true}
                         creation_date={value.creation_date}
+                        moment_date={value.moment_date}
                     >
                         <NewsCard
                             title={value.title}
