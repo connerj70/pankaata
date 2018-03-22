@@ -19,6 +19,7 @@
     border: none;
     padding: 10px 25px;
     border-radius: 5px;
+    margin-left: 10px;
 }
 
 .media-wrapper iframe {
@@ -81,7 +82,7 @@
 @media (min-width: 680px) {
     .left-post-container {
         /* padding-right: 80px; */
-        /* width: 70%; */
+        width: 50%;
         flex-grow: 0.5;
         padding-top: 30px;
     }

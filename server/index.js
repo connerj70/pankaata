@@ -32,6 +32,23 @@ app.use(
 app.use((req, res, next) => initialSession(req, res, next));
 
 //ADMIN ENDPOINTS
+
+app.post("/api/logout", function(req, res) {
+    req.session.destroy();
+    res.status(200).send("Log out");
+});
+
+app.post("/api/admin/password", function(req, res) {
+    const db = req.app.get("db");
+    console.log(req.session.user.username);
+    console.log(req.body.newPass1);
+    db
+        .change_password([req.body.newPass1, req.session.user.username])
+        .then(resp => {
+            res.status(200).send(resp);
+        });
+});
+
 app.post("/api/admin", function(req, res) {
     const db = req.app.get("db");
     db
@@ -146,7 +163,7 @@ app.post("/api/posts", function(req, res) {
 
     const db = req.app.get("db");
     db
-        .create_post([title, type, url, category, date, time, description])
+        .create_post([title, type, url, category, date, time, description, x])
         .then(resp => {
             for (let i = 0; i < tags.length; i++) {
                 db.create_tag([tags[i]]).then(resp2 => {

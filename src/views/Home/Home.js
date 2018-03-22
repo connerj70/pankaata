@@ -190,6 +190,10 @@ class Home extends Component {
         );
     }
 
+    handleLogout = () => {
+        axios.post("/api/logout");
+    };
+
     render() {
         var postsToRender = this.state.posts.map((value, i) => {
             if (value.type === "twitter") {
@@ -203,6 +207,7 @@ class Home extends Component {
                         creation_date={value.creation_date}
                         category={value.category}
                         time={value.time}
+                        moment_date={value.moment_date}
                     >
                         <div className="media-wrapper">
                             {/* <TwitterTweetEmbed tweetId={value.url} /> */}
@@ -221,6 +226,7 @@ class Home extends Component {
                         creation_date={value.creation_date}
                         category={value.category}
                         time={value.time}
+                        moment_date={value.moment_date}
                     >
                         <Link to={value.url}>
                             {" "}
@@ -246,6 +252,7 @@ class Home extends Component {
                         category={value.category}
                         time={value.time}
                         youtubeContainer={true}
+                        moment_date={value.moment_date}
                     >
                         <div
                             style={{ maxWidth: "700px" }}
@@ -269,6 +276,7 @@ class Home extends Component {
                         creation_date={value.creation_date}
                         category={value.category}
                         time={value.time}
+                        moment_date={value.moment_date}
                     >
                         <div className="media-wrapper">
                             <FacebookProvider
@@ -309,6 +317,7 @@ class Home extends Component {
                         time={value.time}
                         title={value.title}
                         news={true}
+                        moment_date={value.moment_date}
                     >
                         <NewsCard
                             time={value.time}
@@ -340,8 +349,31 @@ class Home extends Component {
                 >
                     {this.state.loggedIn ? (
                         <div className="new-post-button-container">
+                            <h1
+                                style={{
+                                    fontSize: "25px",
+                                    marginRight: "10px"
+                                }}
+                            >
+                                Admin Controls:
+                            </h1>
                             <Link to="/post">
                                 <button>Create New Post +</button>
+                            </Link>
+                            <Link to="/password">
+                                <button
+                                    style={{ backgroundColor: "var(--yellow)" }}
+                                >
+                                    Change Admin Password
+                                </button>
+                            </Link>
+                            <Link to="/">
+                                <button
+                                    onClick={this.handleLogout}
+                                    style={{ backgroundColor: "var(--red)" }}
+                                >
+                                    Logout
+                                </button>
                             </Link>
                         </div>
                     ) : null}

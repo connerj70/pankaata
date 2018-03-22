@@ -90,16 +90,13 @@ class PostContainer extends Component {
                         time={value.time}
                         creation_date={value.creation_date}
                     >
-                        <Link to={value.url}>
-                            {" "}
-                            <div className="media-wrapper">
-                                <InstagramEmbed
-                                    url={value.url}
-                                    hideCaption={false}
-                                    containerTagName="div"
-                                />
-                            </div>
-                        </Link>
+                        <div className="media-wrapper">
+                            <InstagramEmbed
+                                url={value.url}
+                                hideCaption={false}
+                                containerTagName="div"
+                            />
+                        </div>
                     </Container>
                 );
             } else if (value.type === "youtube") {

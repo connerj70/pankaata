@@ -1,0 +1,1 @@
+update admins set password = $1 where username = $2
